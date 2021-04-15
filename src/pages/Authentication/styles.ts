@@ -61,41 +61,6 @@ export const Form = styled.form`
 		display: flex;
 		flex-direction: column;
 		padding: 1.5rem 1.75rem 0;
-
-		input {
-			height: 3.5rem;
-			font-size: 1rem;
-
-			margin: 0.5rem 0;
-			padding: 0.5rem 1rem;
-
-			color: var(--light-text);
-			background: var(--white);
-
-			border: 0.125rem solid var(--light-border);
-			border-radius: 0.3rem;
-		}
-
-		button {
-			height: 3.5rem;
-			font-size: 1.5rem;
-			font-weight: 600;
-
-			margin: 1rem 0 0;
-			padding: 0.3rem 1rem;
-
-			color: var(--dark-text);
-			background: var(--yellow);
-
-			border: none;
-			border-radius: 0.3rem;
-
-			transition: filter 0.2s;
-
-			&:hover {
-				filter: brightness(0.8);
-			}
-		}
 	}
 
 	footer {
