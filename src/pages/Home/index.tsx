@@ -1,9 +1,12 @@
 import { Container } from './styles';
+import { Header } from '../../components/Header';
+import { Cards } from '../../components/Cards';
 
 export function Home() {
 	return (
 		<Container>
-			<h1>Página Inicial</h1>
+			<Header />
+			<Cards />
 		</Container>
 	);
 }
