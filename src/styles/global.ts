@@ -12,6 +12,8 @@ export const GlobalStyles = createGlobalStyle`
     --dark-text: #000000;
     --light-text: #969CB3;
 
+    --light-border: #e4e4e4;
+
     --background: #F0F2F5;  
     --white: #FFFFFF;
 }
@@ -53,5 +55,13 @@ button {
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+a {
+    transition: color 0.2s;
+    &:hover{
+        color: var(--yellow) !important;
+    }
+}
+
 
 `;
