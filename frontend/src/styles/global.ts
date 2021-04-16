@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
@@ -71,7 +72,7 @@ input {
 	margin: 0.5rem 0;
 	padding: 0.5rem 1rem;
 
-	color: var(--light-text);
+	color: var(--dark-text);
 	background: var(--white);
 
 	border: 0.125rem solid var(--light-border);
