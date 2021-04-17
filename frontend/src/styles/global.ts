@@ -65,8 +65,10 @@ a {
     }
 }
 
-input {
-	height: 3.5rem;
+input, textarea {
+    resize: none;
+
+	min-height: 3.5rem;
 	font-size: 1rem;
 
 	margin: 0.5rem 0;
@@ -106,5 +108,51 @@ button {
 	}
 }
 
+.react-modal-overlay{
+    overflow: auto;
+    background: rgba(0,0,0,0.5);
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.react-modal-content{
+    width: 95%;
+    max-width: 500px;
+
+    background: var(--background);
+
+    position: relative;
+    border-radius: 0.5rem;
+}
+
+.react-modal-close{
+    position: absolute;
+
+    height: 1rem;
+
+    right: 0.5rem;
+    top: 0.5rem;
+
+    border: 0;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+    color: var(--white);
+
+    transition: filter 0.2s;
+
+    &:hover{
+        filter: brightness(0.8)   
+    }
+}
 
 `;

@@ -1,7 +1,9 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import swal from 'sweetalert2';
 import api from '../services/api';
 
-export interface Agenda {
+export interface AgendaData {
 	id: number;
 	title: string;
 	date: string;
@@ -15,15 +17,19 @@ interface Summary {
 	month: number;
 }
 
-type AgendaInput = Omit<Agenda, 'id'>;
+type AgendaInput = Omit<AgendaData, 'id'>;
 
 interface AgendasContextData {
-	agendas: Agenda[];
+	selectedAgenda: AgendaData;
+	agendas: AgendaData[];
 	summary: Summary;
+	isAgendaModalOpen: boolean;
+	handleOpenAgendaModal: (agenda?: AgendaData) => void;
+	handleCloseAgendaModal: () => void;
 	getAgendas: (filters: AgendaFilterParams) => Promise<void>;
 	createAgenda: (agenda: AgendaInput) => Promise<void>;
-	updateAgenda: (agenda: Agenda) => Promise<void>;
-	deleteAgenda: (agenda: Agenda) => Promise<void>;
+	updateAgenda: (agenda: AgendaData) => Promise<void>;
+	deleteAgenda: (agenda: AgendaData) => Promise<void>;
 }
 
 interface AgendaProviderProps {
@@ -39,7 +45,9 @@ interface AgendaFilterParams {
 const AgendaContext = createContext<AgendasContextData>({} as AgendasContextData);
 
 export const AgendaProvider = function ({ children }: AgendaProviderProps) {
-	const [agendas, setAgendas] = useState<Agenda[]>([]);
+	const [isAgendaModalOpen, setIsAgendaModalOpen] = useState(false);
+	const [selectedAgenda, setSelectedAgenda] = useState({} as AgendaData);
+	const [agendas, setAgendas] = useState<AgendaData[]>([]);
 	const [summary, setSummary] = useState<Summary>({ today: 0, month: 0 });
 
 	useEffect(() => {
@@ -47,11 +55,64 @@ export const AgendaProvider = function ({ children }: AgendaProviderProps) {
 		getAgendas({});
 	}, []);
 
-	async function createAgenda(newAgenda: AgendaInput) {}
+	function handleOpenAgendaModal(agenda?: AgendaData) {
+		if (agenda) {
+			setSelectedAgenda(agenda);
+		}
+		setIsAgendaModalOpen(true);
+	}
+	function handleCloseAgendaModal() {
+		setSelectedAgenda({} as AgendaData);
+		setIsAgendaModalOpen(false);
+	}
 
-	async function updateAgenda(agenda: Agenda) {}
+	async function createAgenda(newAgenda: AgendaInput) {
+		try {
+			const response = await api.post('/agenda', newAgenda);
+			console.log(response.data);
+			getAgendas({});
+			swal.fire('Parabéns!', 'Agendamento adicionado com sucesso!', 'success');
+		} catch (error) {
+			if (error.response?.data?.message) {
+				toast.error(error.response.data.message);
+				console.error(error.response.data);
+			} else {
+				toast.error('Erro deconhecido ao realizar agendamento!');
+			}
+		}
+	}
 
-	async function deleteAgenda(agenda: Agenda) {}
+	async function updateAgenda(agenda: AgendaData) {
+		try {
+			const response = await api.put('/agenda', agenda);
+			console.log(response.data);
+			getAgendas({});
+			swal.fire('Parabéns!', 'Agendamento atualizado com sucesso!', 'success');
+		} catch (error) {
+			if (error.response?.data?.message) {
+				toast.error(error.response.data.message);
+				console.error(error.response.data);
+			} else {
+				toast.error('Erro deconhecido ao realizar agendamento!');
+			}
+		}
+	}
+
+	async function deleteAgenda(agenda: AgendaData) {
+		try {
+			const response = await api.delete('/agenda', { params: agenda });
+			console.log(response.data);
+			swal.fire('Parabéns!', 'Agendamento removido com sucesso!', 'success');
+			getAgendas({});
+		} catch (error) {
+			if (error.response?.data?.message) {
+				toast.error(error.response.data.message);
+				console.error(error.response.data);
+			} else {
+				toast.error('Erro deconhecido ao remover agendamento!');
+			}
+		}
+	}
 
 	async function getAgendas(filters: AgendaFilterParams) {
 		if (!filters.initialDate) {
@@ -82,8 +143,12 @@ export const AgendaProvider = function ({ children }: AgendaProviderProps) {
 	return (
 		<AgendaContext.Provider
 			value={{
+				selectedAgenda,
 				agendas,
 				summary,
+				isAgendaModalOpen,
+				handleOpenAgendaModal,
+				handleCloseAgendaModal,
 				getAgendas,
 				createAgenda,
 				updateAgenda,

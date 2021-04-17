@@ -3,13 +3,16 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Routes from './routes';
 import { ToastContainer } from 'react-toastify';
+import { AgendaProvider } from './hooks/useAgenda';
 
 export function App() {
 	return (
 		<BrowserRouter>
-			<GlobalStyles />
-			<Routes />
-			<ToastContainer autoClose={3000} />
+			<AgendaProvider>
+				<GlobalStyles />
+				<Routes />
+				<ToastContainer autoClose={3000} />
+			</AgendaProvider>
 		</BrowserRouter>
 	);
 }

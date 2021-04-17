@@ -3,15 +3,36 @@ import { FaTrash } from 'react-icons/fa';
 import { MdModeEdit } from 'react-icons/md';
 import { useAgenda } from '../../hooks/useAgenda';
 import { ReactNode } from 'react';
+import swal from 'sweetalert2';
 
-import { Agenda } from '../../hooks/useAgenda';
+import { AgendaData } from '../../hooks/useAgenda';
 
 export function AgendaTable() {
-	const { agendas } = useAgenda();
+	const { agendas, handleOpenAgendaModal, deleteAgenda } = useAgenda();
 
-	function handleDeleteAgenda(agenda: Agenda) {}
-	function handleOpenEditAgenda(agenda: Agenda) {}
-	function handleOpenDetailAgenda(agenda: Agenda) {}
+	function handleDeleteAgenda(agenda: AgendaData) {
+		swal.fire({
+			title: 'Atenção!',
+			text:
+				'Você esta prestes a deletar um agendamento, este processo não poderá ser desfeito!',
+			icon: 'warning',
+			showCancelButton: true,
+			cancelButtonColor: 'var(--yellow)',
+			cancelButtonText: 'Cancelar',
+			confirmButtonColor: 'var(--red)',
+			confirmButtonText: 'Deletar!',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				deleteAgenda(agenda);
+			}
+		});
+	}
+
+	function handleOpenEditAgenda(agenda: AgendaData) {
+		handleOpenAgendaModal(agenda);
+	}
+
+	function handleOpenDetailAgenda(agenda: AgendaData) {}
 
 	return (
 		<Container>
@@ -35,7 +56,7 @@ export function AgendaTable() {
 							(array[index - 1] && agenda.date !== array[index - 1].date)
 						) {
 							line = (
-								<tr className='subTitleDay'>
+								<tr className='subTitleDay' key={date.getTime()}>
 									<td colSpan={4}>
 										{today.getTime() === date.getTime()
 											? 'Hoje - '

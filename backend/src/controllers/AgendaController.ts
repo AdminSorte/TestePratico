@@ -73,7 +73,6 @@ export class AgendaController {
 					'description'
 				)
 				.orderBy('date');
-			console.log(agendas);
 
 			return res.json(agendas);
 		} catch (err) {
@@ -161,17 +160,18 @@ export class AgendaController {
 	}
 
 	async destroy(req: Request, res: Response) {
-		const { id } = req.body;
+		const { id } = req.query;
 		const userId = req.cookies.user.id;
+		console.log(req.query);
 
 		const deleted = await connection('agenda').where({ id }).delete();
 
-		if (deleted > 1) {
+		if (deleted >= 1) {
 			return res.json({ deletedId: id });
 		} else {
 			return res.status(404).json({
 				error: 'agenda_not_found',
-				message: 'Não encontramos a agenda!',
+				message: 'Agendamento não encontrado!',
 			});
 		}
 	}
