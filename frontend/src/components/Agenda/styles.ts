@@ -28,7 +28,7 @@ export const FilterContainer = styled.div`
 	height: 100%;
 	max-width: 1120px;
 
-	& > div {
+	& > form {
 		display: flex;
 		align-items: center;
 
@@ -51,7 +51,7 @@ export const InputGroup = styled.div`
 	}
 
 	input {
-		max-width: 300px;
+		width: 300px;
 		height: 3rem;
 	}
 

@@ -6,54 +6,78 @@
 import { Request, Response } from 'express';
 import connection from '../database/connection';
 
+interface AgendaFilterParams {
+	description?: string;
+	initialDate?: number;
+	finalDate?: number;
+}
+
 export class AgendaController {
 	async index(req: Request, res: Response) {
 		try {
 			let whereSql = '';
 			let whereValues = [];
-			if (req.body && req.body.description) {
-				whereSql += ` description like ? `;
-				whereValues.push(`%${req.body.description}%`);
+			const params = req.query as AgendaFilterParams;
+
+			if (params) {
+				if (params.description) {
+					whereSql += ` description like ? `;
+					whereValues.push(`%${req.body.description}%`);
+				}
+
+				if (params.initialDate) {
+					const initial = new Date();
+					initial.setTime(params.initialDate);
+					initial.setDate(initial.getDate() + 1);
+
+					const initialDate = initial
+						.toLocaleDateString('pt-BR')
+						.split('/')
+						.reverse()
+						.join('-');
+					console.log(initial.toLocaleDateString('pt-BR'));
+
+					whereSql += ` ${params.description ? 'AND' : ''} date >= ?`;
+					whereValues.push(initialDate);
+				}
+
+				if (params.finalDate) {
+					const final = new Date();
+					final.setTime(params.finalDate);
+					final.setDate(final.getDate() + 1);
+					const finalDate = final
+						.toLocaleDateString('pt-BR')
+						.split('/')
+						.reverse()
+						.join('-');
+
+					whereSql += ` ${
+						params.description || params.initialDate ? 'AND' : ''
+					} date <= ? `;
+					whereValues.push(finalDate);
+				}
 			}
-
-			if (req.body && req.body.initialDate) {
-				const initial = new Date(req.body.initialDate);
-				const initialDate = initial
-					.toLocaleDateString('pt-BR')
-					.split('/')
-					.reverse()
-					.join('-');
-				const initialTime = initial.toLocaleTimeString('pt-BR');
-
-				whereSql += ` AND date >= ? AND initial_hour >= ?`;
-				whereValues.push(initialDate);
-				whereValues.push(initialTime);
-			}
-
-			if (req.body && req.body.finalDate) {
-				const final = new Date(req.body.finalDate);
-				const finalDate = final
-					.toLocaleDateString('pt-BR')
-					.split('/')
-					.reverse()
-					.join('-');
-				const finalTime = final.toLocaleTimeString('pt-BR');
-
-				whereSql += ` AND date <= ? AND final_hour <= ?`;
-				whereValues.push(finalDate);
-				whereValues.push(finalTime);
-			}
+			console.log(whereValues);
 
 			const userId = req.cookies.user.id;
 
 			const agendas = await connection('agenda')
 				.where('user_id', userId)
 				.andWhereRaw(whereSql, whereValues)
-				.select('*');
+				.select(
+					'id',
+					'title',
+					'date',
+					'initial_hour',
+					'final_hour',
+					'description'
+				);
 			console.log(agendas);
 
 			return res.json(agendas);
-		} catch {
+		} catch (err) {
+			console.error(err);
+
 			return res.status(400).json({
 				error: 'inernal_server_error',
 				message: 'Erro inesperado! Tente novamente mais tarde!',
