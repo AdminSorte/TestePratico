@@ -71,7 +71,8 @@ export class AgendaController {
 					'initial_hour',
 					'final_hour',
 					'description'
-				);
+				)
+				.orderBy('date');
 			console.log(agendas);
 
 			return res.json(agendas);

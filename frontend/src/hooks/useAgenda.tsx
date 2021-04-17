@@ -1,9 +1,9 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import api from '../services/api';
 
-interface Agenda {
+export interface Agenda {
 	id: number;
-	tittle: string;
+	title: string;
 	date: string;
 	initial_hour: string;
 	final_hour: string;
@@ -56,7 +56,7 @@ export const AgendaProvider = function ({ children }: AgendaProviderProps) {
 	async function getAgendas(filters: AgendaFilterParams) {
 		if (!filters.initialDate) {
 			const iniDate = new Date();
-			iniDate.setHours(0, 0, 1, 0);
+			iniDate.setDate(iniDate.getDate() - 1);
 			filters.initialDate = iniDate.getTime();
 		}
 

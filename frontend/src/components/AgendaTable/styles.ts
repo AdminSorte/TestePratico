@@ -10,6 +10,20 @@ export const Container = styled.div`
 				background: none;
 				padding: 0.5rem 1rem;
 				text-align: left !important;
+
+				&:hover {
+					cursor: auto;
+					filter: none;
+				}
+			}
+		}
+
+		.emptyWarning {
+			td {
+				font-size: 1.3rem;
+				background: none;
+				padding: 0.5rem 1rem;
+				text-align: center !important;
 			}
 		}
 
