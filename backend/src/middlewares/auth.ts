@@ -16,7 +16,10 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
 	try {
 		//ts-ignore
-		const decoded = verify(token, process.env.SECRET) as JsonWebToken;
+		const decoded = (await verify(token, process.env.SECRET)) as JsonWebToken;
+		if (!req.cookies) {
+			req.cookies = {};
+		}
 		req.cookies.user = { id: decoded.id };
 
 		return next();
