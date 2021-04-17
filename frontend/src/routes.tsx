@@ -5,17 +5,11 @@ import { Authentication } from './pages/Authentication';
 import { NotFound } from './pages/NotFound';
 
 import { isAuthenticated } from './services/auth';
-import React from 'react';
 
 const Routes = (): JSX.Element => {
 	return (
 		<Switch>
-			<ProtectedRoute
-				path='/'
-				exact
-				component={Home}
-				isAuthenticated={isAuthenticated()}
-			/>
+			<ProtectedRoute path='/' exact component={Home} />
 			<Route path='/entrar' component={Authentication} />
 			<Route path='/cadastro' component={Authentication} />
 			<Route path='/404' component={NotFound} />
@@ -23,12 +17,9 @@ const Routes = (): JSX.Element => {
 		</Switch>
 	);
 };
-export type ProtectedRouteProps = {
-	isAuthenticated: boolean;
-} & RouteProps;
 
-const ProtectedRoute = ({ isAuthenticated, ...routeProps }: ProtectedRouteProps) => {
-	if (isAuthenticated) {
+const ProtectedRoute = (routeProps: RouteProps) => {
+	if (isAuthenticated()) {
 		return <Route {...routeProps} />;
 	} else {
 		return <Redirect to='/entrar' />;

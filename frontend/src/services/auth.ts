@@ -6,7 +6,7 @@ export const getToken = () => {
 		const token = sessionStorage.getItem(TOKEN_KEY) as string;
 		setTimeout(() => {
 			resolve(token);
-		}, 200);
+		}, 500);
 	});
 };
 
@@ -15,7 +15,7 @@ export const setToken = (token: string) => {
 		sessionStorage.setItem(TOKEN_KEY, token);
 		setTimeout(() => {
 			resolve();
-		}, 200);
+		}, 500);
 	});
 };
 export const removeToken = async () => {
@@ -23,6 +23,6 @@ export const removeToken = async () => {
 		sessionStorage.removeItem(TOKEN_KEY);
 		setTimeout(() => {
 			resolve();
-		}, 200);
+		}, 500);
 	});
 };

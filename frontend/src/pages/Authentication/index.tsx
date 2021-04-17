@@ -123,6 +123,7 @@ export function Authentication() {
 							placeholder='Usuário'
 							required
 							spellCheck={false}
+							autoComplete="off"
 							value={username}
 							onChange={(e) => setUsername(e.target.value)}
 						/>
@@ -131,6 +132,7 @@ export function Authentication() {
 							placeholder='Senha'
 							required
 							value={password}
+							autoComplete="off"
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 
@@ -153,6 +155,7 @@ export function Authentication() {
 							placeholder='Usuário'
 							spellCheck={false}
 							value={username}
+							autoComplete="off"
 							onChange={(e) => setUsername(e.target.value)}
 						/>
 						<input
@@ -160,6 +163,7 @@ export function Authentication() {
 							required
 							placeholder='Senha'
 							value={password}
+							autoComplete="off"
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<input
@@ -167,6 +171,7 @@ export function Authentication() {
 							required
 							placeholder='Repita a senha'
 							value={passwordAux}
+							autoComplete="off"
 							onChange={(e) => setPasswordAux(e.target.value)}
 						/>
 
