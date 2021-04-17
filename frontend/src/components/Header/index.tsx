@@ -1,11 +1,13 @@
 import { Container, Content } from './styles';
 import { MdExitToApp } from 'react-icons/md';
 
+import { removeToken } from '../../services/auth';
 import logo from '../../assets/logo.svg';
 
 export function Header() {
-	function handleLogOut() {
-		alert('Logout');
+	async function handleLogOut() {
+		await removeToken();
+		window.location.href = '/';
 	}
 
 	return (
