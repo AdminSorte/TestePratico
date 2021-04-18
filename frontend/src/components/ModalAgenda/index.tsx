@@ -49,26 +49,31 @@ export function ModalAgenda({
 
 		if (!title) {
 			toast.error('Informe um título para o seu agendamento!');
+			setIsLoadingButton(false);
 			return;
 		}
 
 		if (!date) {
 			toast.error('Informe uma data para o seu agendamento!');
+			setIsLoadingButton(false);
 			return;
 		}
 
 		if (!initialHour) {
 			toast.error('Informe um horário inicial para o seu agendamento!');
+			setIsLoadingButton(false);
 			return;
 		}
 
 		if (!finalHour) {
 			toast.error('Informe um horário final para o seu agendamento!');
+			setIsLoadingButton(false);
 			return;
 		}
 
 		if (!description) {
 			toast.error('Informe uma descrição para o seu agendamento!');
+			setIsLoadingButton(false);
 			return;
 		}
 

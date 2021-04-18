@@ -45,9 +45,6 @@ export const FilterContainer = styled.div`
 			margin-left: auto;
 		}
 	}
-	p {
-		text-align: center;
-	}
 	@media (max-width: 800px) {
 		& > form {
 			flex-direction: column;
@@ -57,6 +54,9 @@ export const FilterContainer = styled.div`
 				margin: auto;
 				height: 3.5rem;
 			}
+		}
+		p {
+			text-align: center;
 		}
 	}
 `;

@@ -37,11 +37,13 @@ export function Authentication() {
 
 		if (!data.username) {
 			toast.error('Usuário não informado!');
+			setIsButtonLoading(false);
 			return;
 		}
 
 		if (!data.password) {
 			toast.error('Senha não informada!');
+			setIsButtonLoading(false);
 			return;
 		}
 
@@ -59,6 +61,7 @@ export function Authentication() {
 				});
 			}
 		} catch (error) {
+			setIsButtonLoading(false);
 			if (error.response?.data?.message) {
 				toast.error(error.response.data.message);
 				console.error(error.response.data);

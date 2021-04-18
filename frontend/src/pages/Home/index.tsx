@@ -6,6 +6,7 @@ import { useAgenda } from '../../hooks/useAgenda';
 import { ModalAgenda } from '../../components/ModalAgenda';
 import { FABNewAgenda } from '../../components/FABNewAgenda';
 import { ModalDetailAgenda } from '../../components/ModalDetailAgenda';
+import { useEffect } from 'react';
 
 export function Home() {
 	const {
@@ -16,6 +17,10 @@ export function Home() {
 		isAgendaModalDetailOpen,
 		handleCloseAgendaDetailModal,
 	} = useAgenda();
+
+	useEffect(() => {
+		document.title = `Minha agenda | Inicio`;
+	}, []);
 
 	return (
 		<Container>
