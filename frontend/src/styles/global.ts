@@ -155,4 +155,8 @@ button {
     }
 }
 
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
+
 `;

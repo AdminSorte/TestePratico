@@ -26,6 +26,9 @@ interface AgendasContextData {
 	isAgendaModalOpen: boolean;
 	handleOpenAgendaModal: (agenda?: AgendaData) => void;
 	handleCloseAgendaModal: () => void;
+	isAgendaModalDetailOpen: boolean;
+	handleOpenAgendaDetailModal: (agenda: AgendaData) => void;
+	handleCloseAgendaDetailModal: () => void;
 	getAgendas: (filters: AgendaFilterParams) => Promise<void>;
 	createAgenda: (agenda: AgendaInput) => Promise<void>;
 	updateAgenda: (agenda: AgendaData) => Promise<void>;
@@ -46,6 +49,8 @@ const AgendaContext = createContext<AgendasContextData>({} as AgendasContextData
 
 export const AgendaProvider = function ({ children }: AgendaProviderProps) {
 	const [isAgendaModalOpen, setIsAgendaModalOpen] = useState(false);
+	const [isAgendaModalDetailOpen, setIsAgendaModalDetailOpen] = useState(false);
+
 	const [selectedAgenda, setSelectedAgenda] = useState({} as AgendaData);
 	const [agendas, setAgendas] = useState<AgendaData[]>([]);
 	const [summary, setSummary] = useState<Summary>({ today: 0, month: 0 });
@@ -61,9 +66,20 @@ export const AgendaProvider = function ({ children }: AgendaProviderProps) {
 		}
 		setIsAgendaModalOpen(true);
 	}
+
 	function handleCloseAgendaModal() {
 		setSelectedAgenda({} as AgendaData);
 		setIsAgendaModalOpen(false);
+	}
+
+	function handleOpenAgendaDetailModal(agenda: AgendaData) {
+		setSelectedAgenda(agenda);
+		setIsAgendaModalDetailOpen(true);
+	}
+
+	function handleCloseAgendaDetailModal() {
+		setSelectedAgenda({} as AgendaData);
+		setIsAgendaModalDetailOpen(false);
 	}
 
 	async function createAgenda(newAgenda: AgendaInput) {
@@ -149,6 +165,9 @@ export const AgendaProvider = function ({ children }: AgendaProviderProps) {
 				isAgendaModalOpen,
 				handleOpenAgendaModal,
 				handleCloseAgendaModal,
+				isAgendaModalDetailOpen,
+				handleOpenAgendaDetailModal,
+				handleCloseAgendaDetailModal,
 				getAgendas,
 				createAgenda,
 				updateAgenda,

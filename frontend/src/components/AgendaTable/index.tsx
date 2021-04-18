@@ -8,7 +8,12 @@ import swal from 'sweetalert2';
 import { AgendaData } from '../../hooks/useAgenda';
 
 export function AgendaTable() {
-	const { agendas, handleOpenAgendaModal, deleteAgenda } = useAgenda();
+	const {
+		agendas,
+		handleOpenAgendaModal,
+		handleOpenAgendaDetailModal,
+		deleteAgenda,
+	} = useAgenda();
 
 	function handleDeleteAgenda(agenda: AgendaData) {
 		swal.fire({
@@ -32,7 +37,9 @@ export function AgendaTable() {
 		handleOpenAgendaModal(agenda);
 	}
 
-	function handleOpenDetailAgenda(agenda: AgendaData) {}
+	function handleOpenDetailAgenda(agenda: AgendaData) {
+		handleOpenAgendaDetailModal(agenda);
+	}
 
 	return (
 		<Container>
@@ -91,7 +98,8 @@ export function AgendaTable() {
 									</td>
 									<td>
 										<button
-											onClick={() => {
+											onClick={(e) => {
+												e.stopPropagation();
 												handleOpenEditAgenda(agenda);
 											}}
 										>
@@ -102,7 +110,8 @@ export function AgendaTable() {
 												color: 'var(--white)',
 												background: 'var(--red)',
 											}}
-											onClick={() => {
+											onClick={(e) => {
+												e.stopPropagation();
 												handleDeleteAgenda(agenda);
 											}}
 										>

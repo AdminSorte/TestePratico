@@ -2,10 +2,10 @@ import { Container } from './styles';
 import { Header } from '../../components/Header';
 import { Cards } from '../../components/Cards';
 import { Agenda } from '../../components/Agenda';
-import { AgendaProvider, useAgenda } from '../../hooks/useAgenda';
+import { useAgenda } from '../../hooks/useAgenda';
 import { ModalAgenda } from '../../components/ModalAgenda';
 import { FABNewAgenda } from '../../components/FABNewAgenda';
-import { useState } from 'react';
+import { ModalDetailAgenda } from '../../components/ModalDetailAgenda';
 
 export function Home() {
 	const {
@@ -13,6 +13,8 @@ export function Home() {
 		isAgendaModalOpen,
 		handleOpenAgendaModal,
 		handleCloseAgendaModal,
+		isAgendaModalDetailOpen,
+		handleCloseAgendaDetailModal,
 	} = useAgenda();
 
 	return (
@@ -24,6 +26,11 @@ export function Home() {
 			<ModalAgenda
 				isOpen={isAgendaModalOpen}
 				onRequestClose={handleCloseAgendaModal}
+				selectedAgenda={selectedAgenda}
+			/>
+			<ModalDetailAgenda
+				isOpen={isAgendaModalDetailOpen}
+				onRequestClose={handleCloseAgendaDetailModal}
 				selectedAgenda={selectedAgenda}
 			/>
 		</Container>

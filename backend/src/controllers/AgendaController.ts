@@ -22,7 +22,7 @@ export class AgendaController {
 			if (params) {
 				if (params.description) {
 					whereSql += ` description like ? `;
-					whereValues.push(`%${req.body.description}%`);
+					whereValues.push(`%${params.description}%`);
 				}
 
 				if (params.initialDate) {
