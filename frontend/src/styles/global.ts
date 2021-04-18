@@ -159,4 +159,16 @@ button {
   overflow-y: hidden;
 }
 
+*::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+    background-color: #F5F5F5;
+}
+
 `;

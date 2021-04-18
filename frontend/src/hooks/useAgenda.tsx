@@ -30,6 +30,7 @@ interface AgendasContextData {
 	handleOpenAgendaDetailModal: (agenda: AgendaData) => void;
 	handleCloseAgendaDetailModal: () => void;
 	getAgendas: (filters: AgendaFilterParams) => Promise<void>;
+	getSummary: () => Promise<void>;
 	createAgenda: (agenda: AgendaInput) => Promise<void>;
 	updateAgenda: (agenda: AgendaData) => Promise<void>;
 	deleteAgenda: (agenda: AgendaData) => Promise<void>;
@@ -54,11 +55,6 @@ export const AgendaProvider = function ({ children }: AgendaProviderProps) {
 	const [selectedAgenda, setSelectedAgenda] = useState({} as AgendaData);
 	const [agendas, setAgendas] = useState<AgendaData[]>([]);
 	const [summary, setSummary] = useState<Summary>({ today: 0, month: 0 });
-
-	useEffect(() => {
-		getSummary();
-		getAgendas({});
-	}, []);
 
 	function handleOpenAgendaModal(agenda?: AgendaData) {
 		if (agenda) {
@@ -169,6 +165,7 @@ export const AgendaProvider = function ({ children }: AgendaProviderProps) {
 				handleOpenAgendaDetailModal,
 				handleCloseAgendaDetailModal,
 				getAgendas,
+				getSummary,
 				createAgenda,
 				updateAgenda,
 				deleteAgenda,

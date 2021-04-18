@@ -21,7 +21,8 @@ export class AgendaController {
 
 			if (params) {
 				if (params.description) {
-					whereSql += ` description like ? `;
+					whereSql += ` (description like ? OR title like ?) `;
+					whereValues.push(`%${params.description}%`);
 					whereValues.push(`%${params.description}%`);
 				}
 
@@ -35,7 +36,6 @@ export class AgendaController {
 						.split('/')
 						.reverse()
 						.join('-');
-					console.log(initial.toLocaleDateString('pt-BR'));
 
 					whereSql += ` ${params.description ? 'AND' : ''} date >= ?`;
 					whereValues.push(initialDate);

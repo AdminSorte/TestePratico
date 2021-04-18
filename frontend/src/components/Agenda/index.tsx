@@ -1,6 +1,6 @@
 import { Container, Content, FilterContainer, InputGroup } from './styles';
 import { AgendaTable } from '../AgendaTable';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { useAgenda } from '../../hooks/useAgenda';
 import { LoadingButton } from '../LoadingButton';
 
@@ -11,13 +11,18 @@ interface AgendaFilterParams {
 }
 
 export function Agenda() {
-	const { getAgendas } = useAgenda();
+	const { getAgendas, getSummary } = useAgenda();
 
 	const [isLoadingFilter, setIsLoadingFilter] = useState(false);
 
 	const [descriptionFilter, setDescriptionFilter] = useState('');
 	const [initialDateFilter, setInitialDateFilter] = useState('');
 	const [finalDateFilter, setFinalDateFilter] = useState('');
+
+	useEffect(() => {
+		getSummary();
+		getAgendas({});
+	}, []);
 
 	async function handleFilterList(event: FormEvent) {
 		setIsLoadingFilter(true);
@@ -50,7 +55,7 @@ export function Agenda() {
 						<InputGroup>
 							<input
 								type='text'
-								placeholder='Descrição'
+								placeholder='Descrição/Título'
 								value={descriptionFilter}
 								onChange={(e) => setDescriptionFilter(e.target.value)}
 							/>

@@ -4,6 +4,8 @@ export const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	min-width: 95%;
 `;
 
 export const Content = styled.div`
@@ -43,6 +45,20 @@ export const FilterContainer = styled.div`
 			margin-left: auto;
 		}
 	}
+	p {
+		text-align: center;
+	}
+	@media (max-width: 800px) {
+		& > form {
+			flex-direction: column;
+
+			button {
+				width: 90%;
+				margin: auto;
+				height: 3.5rem;
+			}
+		}
+	}
 `;
 
 export const InputGroup = styled.div`
@@ -61,5 +77,17 @@ export const InputGroup = styled.div`
 
 	&:not(:first-child) {
 		margin-left: auto;
+	}
+
+	@media (max-width: 800px) {
+		flex-direction: column;
+		width: 100%;
+
+		&:not(:first-child) {
+			margin-left: unset;
+		}
+		input {
+			width: 90%;
+		}
 	}
 `;

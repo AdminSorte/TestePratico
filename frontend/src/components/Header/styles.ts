@@ -14,7 +14,7 @@ export const Content = styled.div`
 	display: flex;
 	justify-content: space-between;
 
-	width: 100%;
+	width: 95%;
 	height: 100%;
 	max-width: 1120px;
 
@@ -45,6 +45,13 @@ export const Content = styled.div`
 		transition: color 0.2s;
 		&:hover {
 			color: var(--white);
+		}
+	}
+
+	@media (max-width: 800px) {
+		img {
+			height: 3rem;
+			margin-top: 0.5rem;
 		}
 	}
 `;

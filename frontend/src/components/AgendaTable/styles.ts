@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	margin-bottom: 4rem;
-	
+
 	table {
 		width: 100%;
 		border-spacing: 0 0.5rem;
@@ -74,6 +74,28 @@ export const Container = styled.div`
 			&:hover {
 				cursor: pointer;
 				filter: brightness(0.9);
+			}
+		}
+	}
+	@media (max-width: 800px) {
+		tr {
+			display: grid;
+			margin-bottom: 1rem;
+		}
+		td {
+			padding: 0.2rem 1rem !important;
+			width: 95vw;
+			margin: auto;
+			button {
+				height: 2.5rem !important;
+				width: 2.5rem;
+
+				font-size: 1.2rem !important;
+				line-height: 1rem;
+			}
+
+			&:first-of-type {
+				padding-top: 1rem !important;
 			}
 		}
 	}
