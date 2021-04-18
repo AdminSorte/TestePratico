@@ -13,7 +13,7 @@ export class SummaryController {
 
 			const agendas = await connection('agenda')
 				.where('user_id', userId)
-				.andWhereRaw('MONTH(initial_hour) = MONTH(NOW())')
+				.andWhereRaw('MONTH(date) = MONTH(NOW())')
 				.select(
 					'id',
 					'title',
@@ -27,9 +27,11 @@ export class SummaryController {
 				(counter, agenda) => {
 					const date = new Date(agenda.date);
 					const today = new Date();
+					today.setHours(0, 0, 0, 0);
 					if (
-						date.toLocaleDateString('pt-BR') ===
-						today.toLocaleDateString('pt-BR')
+						date.getDay() === today.getDay() &&
+						date.getFullYear() === today.getFullYear() &&
+						date.getMonth() === today.getMonth()
 					) {
 						counter.today += 1;
 					}
@@ -59,3 +61,7 @@ export class SummaryController {
 		}
 	}
 }
+
+Date.prototype.toLocaleDateString = function () {
+	return `${this.getDate()}/${this.getMonth() + 1}/${this.getFullYear()}`;
+};
