@@ -4,7 +4,7 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"dev": "ts-node-dev --transpile-only --ignore-watch /node_modules src/server.ts"
+		"dev": "ts-node-dev --transpile-only --ignore-watch /node_modules src/server.ts --with-intl=full-icu"
 	},
 	"dependencies": {
 		"@types/knex": "^0.16.1",
@@ -13,6 +13,7 @@
 		"cors": "^2.8.5",
 		"dotenv-safe": "^8.2.0",
 		"express": "^4.17.1",
+		"https": "^1.0.0",
 		"jsonwebtoken": "^8.5.1",
 		"knex": "^0.21.1",
 		"mysql": "^2.18.1"

@@ -32,7 +32,7 @@ export class AgendaController {
 					initial.setDate(initial.getDate() + 1);
 
 					const initialDate = initial
-						.toLocaleDateString('pt-BR')
+						.toLocaleDateString()
 						.split('/')
 						.reverse()
 						.join('-');
@@ -46,7 +46,7 @@ export class AgendaController {
 					final.setTime(params.finalDate);
 					final.setDate(final.getDate() + 1);
 					const finalDate = final
-						.toLocaleDateString('pt-BR')
+						.toLocaleDateString()
 						.split('/')
 						.reverse()
 						.join('-');
@@ -213,3 +213,7 @@ async function checkIfIsScheduled({
 		.select('*')
 		.first();
 }
+
+Date.prototype.toLocaleDateString = function () {
+	return `${this.getDate()}/${this.getMonth() + 1}/${this.getFullYear()}`;
+};
