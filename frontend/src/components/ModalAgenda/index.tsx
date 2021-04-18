@@ -6,6 +6,7 @@ import { MdClose } from 'react-icons/md';
 
 import { Container, InputGroup, InputLine } from './styles';
 import { toast } from 'react-toastify';
+import { LoadingButton } from '../LoadingButton';
 
 interface AgendaModalProps {
 	isOpen: boolean;
@@ -21,6 +22,8 @@ export function ModalAgenda({
 	selectedAgenda,
 }: AgendaModalProps) {
 	const { createAgenda, updateAgenda } = useAgenda();
+
+	const [isLoadingButton, setIsLoadingButton] = useState(false);
 
 	const [title, setTitle] = useState('');
 	const [date, setDate] = useState('');
@@ -42,6 +45,7 @@ export function ModalAgenda({
 
 	async function handleSubmitAgenda(event: FormEvent) {
 		event.preventDefault();
+		setIsLoadingButton(true);
 
 		if (!title) {
 			toast.error('Informe um título para o seu agendamento!');
@@ -82,6 +86,7 @@ export function ModalAgenda({
 			await createAgenda(data);
 		}
 
+		setIsLoadingButton(false);
 		onRequestClose();
 		resetFormAgenda();
 	}
@@ -164,9 +169,9 @@ export function ModalAgenda({
 				</main>
 
 				<footer>
-					<button type='submit'>
+					<LoadingButton type='submit' isLoading={isLoadingButton}>
 						{selectedAgenda.id ? 'Salvar' : 'Agendar'}
-					</button>
+					</LoadingButton>
 				</footer>
 			</Container>
 		</Modal>

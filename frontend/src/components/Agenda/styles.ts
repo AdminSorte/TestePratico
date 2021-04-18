@@ -33,6 +33,10 @@ export const FilterContainer = styled.div`
 		align-items: center;
 
 		button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
 			font-size: 1rem;
 			height: 2.5rem;
 			margin: 0 0.5rem;

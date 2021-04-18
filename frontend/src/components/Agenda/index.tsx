@@ -2,6 +2,7 @@ import { Container, Content, FilterContainer, InputGroup } from './styles';
 import { AgendaTable } from '../AgendaTable';
 import { FormEvent, useState } from 'react';
 import { useAgenda } from '../../hooks/useAgenda';
+import { LoadingButton } from '../LoadingButton';
 
 interface AgendaFilterParams {
 	description?: string;
@@ -12,11 +13,14 @@ interface AgendaFilterParams {
 export function Agenda() {
 	const { getAgendas } = useAgenda();
 
+	const [isLoadingFilter, setIsLoadingFilter] = useState(false);
+
 	const [descriptionFilter, setDescriptionFilter] = useState('');
 	const [initialDateFilter, setInitialDateFilter] = useState('');
 	const [finalDateFilter, setFinalDateFilter] = useState('');
 
-	function handleFilterList(event: FormEvent) {
+	async function handleFilterList(event: FormEvent) {
+		setIsLoadingFilter(true);
 		event.preventDefault();
 
 		const filterParams = {} as AgendaFilterParams;
@@ -33,7 +37,8 @@ export function Agenda() {
 			filterParams.finalDate = new Date(finalDateFilter).getTime();
 		}
 
-		getAgendas(filterParams);
+		await getAgendas(filterParams);
+		setIsLoadingFilter(false);
 	}
 
 	return (
@@ -63,7 +68,7 @@ export function Agenda() {
 								onChange={(e) => setFinalDateFilter(e.target.value)}
 							/>
 						</InputGroup>
-						<button>Filtrar</button>
+						<LoadingButton isLoading={isLoadingFilter}>Filtrar</LoadingButton>
 					</form>
 				</FilterContainer>
 				<AgendaTable />

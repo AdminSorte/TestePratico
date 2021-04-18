@@ -6,9 +6,11 @@ import logo from '../../assets/logo.svg';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
 import { setToken } from '../../services/auth';
+import { LoadingButton } from '../../components/LoadingButton';
 
 export function Authentication() {
 	const history = useHistory();
+	const [isButtonLoading, setIsButtonLoading] = useState(false);
 	const [currentPath, setCurrentPath] = useState('');
 
 	const [username, setUsername] = useState('');
@@ -26,6 +28,7 @@ export function Authentication() {
 
 	async function handleLogin(event: FormEvent) {
 		event.preventDefault();
+		setIsButtonLoading(true);
 		const data = {
 			username,
 			password,
@@ -51,6 +54,7 @@ export function Authentication() {
 
 			if (response.data.authenticated) {
 				setToken(response.data.token).then(() => {
+					setIsButtonLoading(false);
 					history.push('/');
 				});
 			}
@@ -66,6 +70,7 @@ export function Authentication() {
 
 	async function handleSingUp(event: FormEvent) {
 		event.preventDefault();
+		setIsButtonLoading(true);
 		const data = {
 			username,
 			password,
@@ -96,6 +101,7 @@ export function Authentication() {
 
 			if (response.data.authenticated) {
 				setToken(response.data.token).then(() => {
+					setIsButtonLoading(false);
 					history.push('/');
 				});
 			}
@@ -123,7 +129,7 @@ export function Authentication() {
 							placeholder='Usuário'
 							required
 							spellCheck={false}
-							autoComplete="off"
+							autoComplete='off'
 							value={username}
 							onChange={(e) => setUsername(e.target.value)}
 						/>
@@ -132,11 +138,13 @@ export function Authentication() {
 							placeholder='Senha'
 							required
 							value={password}
-							autoComplete="off"
+							autoComplete='off'
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 
-						<button type='submit'>Entrar</button>
+						<LoadingButton type='submit' isLoading={isButtonLoading}>
+							Entrar
+						</LoadingButton>
 					</main>
 					<footer>
 						<p>Não tem conta?</p>
@@ -155,7 +163,7 @@ export function Authentication() {
 							placeholder='Usuário'
 							spellCheck={false}
 							value={username}
-							autoComplete="off"
+							autoComplete='off'
 							onChange={(e) => setUsername(e.target.value)}
 						/>
 						<input
@@ -163,7 +171,7 @@ export function Authentication() {
 							required
 							placeholder='Senha'
 							value={password}
-							autoComplete="off"
+							autoComplete='off'
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<input
@@ -171,11 +179,13 @@ export function Authentication() {
 							required
 							placeholder='Repita a senha'
 							value={passwordAux}
-							autoComplete="off"
+							autoComplete='off'
 							onChange={(e) => setPasswordAux(e.target.value)}
 						/>
 
-						<button type='submit'>Cadastrar-se</button>
+						<LoadingButton type='submit' isLoading={isButtonLoading}>
+							Cadastrar-se
+						</LoadingButton>
 					</main>
 					<footer>
 						<p>Já tem conta?</p>
