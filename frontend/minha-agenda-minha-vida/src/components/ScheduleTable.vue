@@ -115,6 +115,9 @@
         </v-toolbar>
 
       </template>
+      <div>
+        "tent"
+      </div>
 
       <!-- Ações  -->
       <template v-slot:item.actions="{ item }">
@@ -138,10 +141,11 @@ export default {
     readonly: false,
     headers: [
       { text: "Id", sortable: true, value: "id" },
-      { text: "Titulo", value: "title" },
+      { text: "Titulo", value: "titulo" },
       { text: "Ações", value: "actions" },
     ],
     desserts: [],
+    teste: "",
     editedIndex: -1,
     editedItem: {
       name: "",
@@ -179,24 +183,28 @@ export default {
   },
 
   methods: {
-    initialize() {
-
+    async initialize() {
       // CHAMADA NA API E RECEBE OS ITEMS
       // const resp = await APi.getAgendas();
       // this.desserts = resp.data;
-
-      this.desserts = [
-        {
-          id: "1",
-          title: "titulooo 1",
-          description: "Agendaaaa 1",
-        },
-        {
-          id: "2",
-          title: "titulooo 2",
-          description: "Agendaaaa 2",
-        },
-      ];
+      
+      // const url = "https://localhost:5001/agenda";
+       fetch("https://localhost:5001/agenda", {method: 'GET', mode: 'cors'})
+        .then(response => response.json())
+        .then(json => this.desserts = json)
+      
+      // this.desserts = [
+      //   {
+      //     id: "1",
+      //     title: "titulooo 1",
+      //     description: "Agendaaaa 1",
+      //   },
+      //   {
+      //     id: "2",
+      //     title: "titulooo 2",
+      //     description: "Agendaaaa 2",
+      //   },
+      // ];
     },
 
     editItem(item, readonly) {

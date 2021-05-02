@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Codigos\\C#\\Minha Agenda Minha Vida\\TestePratico\\backend\\minha-agenda-minha-vida\\minha-agenda-minha-vida.csproj": {}
+    "c:\\Codigos\\C#\\Minha Agenda Minha Vida\\TestePratico\\backend\\minha-agenda-minha-vida\\minha-agenda-minha-vida.csproj": {}
   },
   "projects": {
-    "C:\\Codigos\\C#\\Minha Agenda Minha Vida\\TestePratico\\backend\\minha-agenda-minha-vida\\minha-agenda-minha-vida.csproj": {
+    "c:\\Codigos\\C#\\Minha Agenda Minha Vida\\TestePratico\\backend\\minha-agenda-minha-vida\\minha-agenda-minha-vida.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Codigos\\C#\\Minha Agenda Minha Vida\\TestePratico\\backend\\minha-agenda-minha-vida\\minha-agenda-minha-vida.csproj",
+        "projectUniqueName": "c:\\Codigos\\C#\\Minha Agenda Minha Vida\\TestePratico\\backend\\minha-agenda-minha-vida\\minha-agenda-minha-vida.csproj",
         "projectName": "minha-agenda-minha-vida",
-        "projectPath": "C:\\Codigos\\C#\\Minha Agenda Minha Vida\\TestePratico\\backend\\minha-agenda-minha-vida\\minha-agenda-minha-vida.csproj",
+        "projectPath": "c:\\Codigos\\C#\\Minha Agenda Minha Vida\\TestePratico\\backend\\minha-agenda-minha-vida\\minha-agenda-minha-vida.csproj",
         "packagesPath": "C:\\Users\\lipeo\\.nuget\\packages\\",
-        "outputPath": "C:\\Codigos\\C#\\Minha Agenda Minha Vida\\TestePratico\\backend\\minha-agenda-minha-vida\\obj\\",
+        "outputPath": "c:\\Codigos\\C#\\Minha Agenda Minha Vida\\TestePratico\\backend\\minha-agenda-minha-vida\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lipeo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.5, )"

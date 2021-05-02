@@ -29,6 +29,7 @@ namespace minha_agenda_minha_vida
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "minha_agenda_minha_vida", Version = "v1" });
             });
+            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -43,7 +44,7 @@ namespace minha_agenda_minha_vida
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
