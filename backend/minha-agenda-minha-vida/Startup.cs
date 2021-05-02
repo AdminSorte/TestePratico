@@ -24,6 +24,7 @@ namespace minha_agenda_minha_vida
                 context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
             services.AddScoped<IRepository, Repository>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -9,7 +9,7 @@ using minha_agenda_minha_vida.Data;
 namespace minha_agenda_minha_vida.Migrations
 {
     [DbContext(typeof(AgendaDbContext))]
-    [Migration("20210501180807_InitialMigrations")]
+    [Migration("20210502180757_InitialMigrations")]
     partial class InitialMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,35 @@ namespace minha_agenda_minha_vida.Migrations
                             Data = new DateTime(2020, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Descricao = "Reuniao com a Thais",
                             Titulo = "Reunião"
+                        });
+                });
+
+            modelBuilder.Entity("minha_agenda_minha_vida.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Token")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "admin",
+                            Password = "admin",
+                            Token = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
                         });
                 });
 #pragma warning restore 612, 618

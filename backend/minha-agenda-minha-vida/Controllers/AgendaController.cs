@@ -33,6 +33,10 @@ namespace minha_agenda_minha_vida.Controllers
 
         [HttpPost]
         public IActionResult Post(Agenda agenda){
+            var ag = _repository.GetAgendaById(agenda.Id);
+            if(ag != null) 
+                return BadRequest("Já existe uma agenda com esse Id");
+                
             _repository.Add<Agenda>(agenda);
             if(_repository.SaveChanges())
                 return Created($"api/agenda/{agenda.Id}", agenda);
@@ -41,14 +45,14 @@ namespace minha_agenda_minha_vida.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update(Agenda ag){
-            var agenda = _repository.GetAgendaById(ag.Id);
-            if(agenda == null) 
+        public IActionResult Update(Agenda agenda){
+            var ag = _repository.GetAgendaById(agenda.Id);
+            if(ag == null) 
                 return BadRequest("Agenda não encontrada");
 
-            _repository.Update<Agenda>(agenda);
+            _repository.Update(agenda);
             if(_repository.SaveChanges())
-                return Ok(ag);
+                return Ok(agenda);
 
             return BadRequest("Informações não atualizadas");
         }

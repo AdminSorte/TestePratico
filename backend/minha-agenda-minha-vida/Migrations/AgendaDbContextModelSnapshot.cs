@@ -58,6 +58,35 @@ namespace minha_agenda_minha_vida.Migrations
                             Titulo = "Reunião"
                         });
                 });
+
+            modelBuilder.Entity("minha_agenda_minha_vida.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Token")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "admin",
+                            Password = "admin",
+                            Token = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+                        });
+                });
 #pragma warning restore 612, 618
         }
     }
