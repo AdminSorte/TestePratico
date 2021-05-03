@@ -13,7 +13,15 @@ export default {
   components: {
     ScheduleTable,
   },
+
+  created() {
+    if(!localStorage.accessToken){
+      this.$router.push({ name: "Login" });
+    }
+    return;
+  }
 };
+
 </script>
 
 

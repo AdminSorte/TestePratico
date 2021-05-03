@@ -15,5 +15,5 @@
 
 
 ## Prints
-![login]()
-![home]()
+![login](https://github.com/PhelippeA/TestePratico/blob/phelippe_teste/prints/login.png)
+![home](https://github.com/PhelippeA/TestePratico/blob/phelippe_teste/prints/home.png)
