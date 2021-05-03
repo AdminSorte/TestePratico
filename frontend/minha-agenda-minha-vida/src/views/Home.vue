@@ -1,23 +1,21 @@
 <template>
   <div class="home">
-
-    <ScheduleTable/>
-
+    <v-spacer height="100px"></v-spacer>
+    <ScheduleTable />
   </div>
 </template>
 
 <script>
-import ScheduleTable from '../components/ScheduleTable.vue'
+import ScheduleTable from "../components/ScheduleTable.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    ScheduleTable
-  }
-}
+    ScheduleTable,
+  },
+};
 </script>
 
 
 <style lang="scss" scoped>
-
 </style>

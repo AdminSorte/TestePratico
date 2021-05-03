@@ -1,264 +1,161 @@
-<template>
+<template> 
   <v-card>
+    <div class="top-table">
+      <!-- Barra de pesquisa -->
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+      <!-- / Barra de pesquisa -->
+
+      <!-- Nova agenda -->
+      <Modal width="750" isIconCloseContent :closeModal="closeModal">
+        <v-btn class="mx-2" fab slot="clickable" color="primary">
+          <v-icon dark> mdi-plus </v-icon>
+        </v-btn>
+        <FormSchedule slot="content" :reloadSchedules="reloadSchedules" />
+      </Modal>
+      <!-- /Nova agenda -->
+    </div>
 
     <v-data-table
       :headers="headers"
-      :items="desserts"
+      :items="schedules"
       :search="search"
-      sort-by="calories"
+      sort-by="id"
       class="elevation-1"
+      
     >
-
       <template v-slot:top>
-
-        <v-toolbar flat>
-
-          <!-- Barra depesquisa -->
-          <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Search"
-            single-line
-            hide-details
-          ></v-text-field>
-          <!-- / Barra depesquisa -->
-
-          <v-divider class="mx-4" inset vertical></v-divider>
-
-          <v-spacer></v-spacer>
-
-          <!-- Modal novo item -->
-          <v-dialog v-model="dialog" max-width="500px">
-
-            <!-- Botão novo item -->
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-                New Item
-              </v-btn>
-            </template>
-            <!-- / Botão novo item -->
-
-            <!-- Conteudo do modal novo item -->
-            <v-card>
-              <v-card-title>
-                <span class="headline">{{ formTitle }}</span>
-              </v-card-title>
-
-              <!-- Formulário de edição / criação da agenda -->
-              <v-card-text>
-                <v-container>
-                  <v-row>
-                    <v-col cols="12">
-                      <v-text-field
-                        v-model="editedItem.title"
-                        label="Título"
-                        :readonly="readonly"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12">
-                      <v-text-field
-                        v-model="editedItem.description"
-                        label="Descrição"
-                        :readonly="readonly"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12">
-                      <v-text-field
-                        v-model="editedItem.date"
-                        label="Data da agenda"
-                        type="date"
-                        :readonly="readonly"
-                      ></v-text-field>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-card-text>
-
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="close">
-                  Cancel
-                </v-btn>
-                <v-btn color="blue darken-1" text @click="save"> 
-                  Save 
-                </v-btn>
-              </v-card-actions>
-              <!-- / Formulário de edição / criação da agenda -->
-
-            </v-card>
-            <!-- / Conteudo do modal novo item -->
-
-
-          </v-dialog>
-          <!-- / Modal novo item -->
-
-          <!-- Modal deletar -->
-          <v-dialog v-model="dialogDelete" max-width="500px">
-            <v-card>
-              <v-card-title class="headline">
-                Are you sure you want to delete this item?
-              </v-card-title>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="closeDelete">
-                  Cancel
-                </v-btn>
-                <v-btn color="blue darken-1" text @click="deleteItemConfirm">
-                  OK
-                </v-btn>
-                <v-spacer></v-spacer>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
-          <!-- / Modal deletar -->
-
-        </v-toolbar>
-
+        <v-progress-linear
+          v-if="loading"
+          indeterminate
+          color="cyan"
+        ></v-progress-linear>
       </template>
-      <div>
-        "tent"
-      </div>
 
       <!-- Ações  -->
-      <template v-slot:item.actions="{ item }">
-        <v-icon small class="mr-2" @click="editItem(item, true)"> mdi-eye-outline </v-icon>
-        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-        <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+      <template v-slot:item.actions="{item}">
+        <div class="d-flex">
+          <!-- Visualizar -->
+          <Modal width="750" isIconCloseContent>
+            <v-icon color="success" slot="clickable"> mdi-eye-outline </v-icon>
+            <FormSchedule
+              slot="content"
+              :scheduleReceived="item"
+              :isReadonly="true"
+            />
+          </Modal>
+          <!-- Visualizar -->
+
+          <!-- Editar -->
+          <Modal width="750" isIconCloseContent :closeModal="closeModal">
+            <v-icon color="primary" slot="clickable"> mdi-pencil </v-icon>
+            <FormSchedule
+              slot="content"
+              :reloadSchedules="reloadSchedules"
+              :scheduleReceived="item"
+            />
+          </Modal>
+          <!-- / Editar -->
+
+          <v-icon color="error" @click="deleteItem(item.id)">
+            mdi-delete
+          </v-icon>
+        </div>
       </template>
       <!-- / Ações  -->
-
     </v-data-table>
   </v-card>
 </template>
 
 <script>
+import { AgendaApi } from "../api/AgendaApi.js";
+import Modal from "./_generics/Modal";
+import FormSchedule from "./FormSchedule";
+
 export default {
-  
+  components: { Modal, FormSchedule },
   data: () => ({
-    dialog: false,
-    dialogDelete: false,
     search: "",
-    readonly: false,
     headers: [
       { text: "Id", sortable: true, value: "id" },
       { text: "Titulo", value: "titulo" },
       { text: "Ações", value: "actions" },
     ],
-    desserts: [],
-    teste: "",
-    editedIndex: -1,
-    editedItem: {
-      name: "",
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
-    },
-    defaultItem: {
-      name: "",
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
-    },
+    schedules: [],
+    loading: 0,
+    reloadSchedules: Function,
+    closeModal: false,
   }),
 
-  computed: {
-    formTitle() {
-      return this.editedIndex === -1 ? "Novo item" : "Editar item";
-    },
-  },
-
-  watch: {
-    dialog(val) {
-      val || this.close();
-    },
-    dialogDelete(val) {
-      val || this.closeDelete();
-    },
-  },
-
   created() {
-    this.initialize();
+    this.reloadSchedules = this.loadSchedules;
+    this.loadSchedules();
   },
 
   methods: {
-    async initialize() {
-      // CHAMADA NA API E RECEBE OS ITEMS
-      // const resp = await APi.getAgendas();
-      // this.desserts = resp.data;
-      
-      // const url = "https://localhost:5001/agenda";
-       fetch("https://localhost:5001/agenda", {method: 'GET', mode: 'cors'})
-        .then(response => response.json())
-        .then(json => this.desserts = json)
-      
-      // this.desserts = [
-      //   {
-      //     id: "1",
-      //     title: "titulooo 1",
-      //     description: "Agendaaaa 1",
-      //   },
-      //   {
-      //     id: "2",
-      //     title: "titulooo 2",
-      //     description: "Agendaaaa 2",
-      //   },
-      // ];
-    },
+    async loadSchedules() {
+      this.loading++;
 
-    editItem(item, readonly) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      // CHAMADA NA API para alterar os itens
-      // const resp = await APi.deleteAgenda();
-      // recarrega os itens e exibe um pupup
+      const resp = await AgendaApi.Agenda.getAll();
 
-      this.readonly = readonly;
-      this.dialog = true;
-    },
-
-    deleteItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      this.dialogDelete = true;
-    },
-
-    deleteItemConfirm() {
-      // CHAMADA NA API para deletar o item
-      // const resp = await APi.deleteAgenda();
-      // recarrega os itens e exibe um pupup
-      this.desserts.splice(this.editedIndex, 1);
-      this.closeDelete();
-    },
-
-    close() {
-      this.dialog = false;
-      this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
-        this.editedIndex = -1;
-      });
-    },
-
-    closeDelete() {
-      this.dialogDelete = false;
-      this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
-        this.editedIndex = -1;
-      });
-    },
-
-    save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem);
-      } else {
-        this.desserts.push(this.editedItem);
+      if (resp.status == 400) {
+        this.$toasted?.global.error({
+          mensagem: "Erro ao buscar as agendas",
+        });
+        this.loading--;
+        return;
       }
-      this.close();
+
+      this.normalizeData(resp);
+
+      this.schedules = resp;
+
+      this.closeModal = !this.closeModal;
+
+      this.loading--;
+    },
+
+    async deleteItem(scheduleId) {
+      this.loading++;
+
+      const resp = await AgendaApi.Agenda.delete(scheduleId);
+
+      if (!resp) {
+        this.$toasted?.global.error({ mensagem: "Erro ao deletar o item" });
+        return;
+      }
+
+      this.loadSchedules();
+
+      this.$toasted?.global.success({ mensagem: "Item deletado com sucesso" });
+
+      this.loading--;
+    },
+
+    normalizeData(schedulles) {
+      schedulles.forEach((e) => (e.data = e.data.split("T")[0]));
     },
   },
 };
 </script>
 
 <style>
+.top-table {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.top-table .v-input {
+  max-width: 500px;
+}
+
+.v-icon {
+  margin: 0 10px;
+}
 </style>

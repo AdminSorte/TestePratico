@@ -17,18 +17,18 @@
             <v-text-field
               v-model="password"
               :rules="passwordRules"
-              :counter="5"
               label="Senha"
               required
             ></v-text-field>
           </v-col>
           <v-col cols="12" md="7">
-            <v-btn  text @click="submitLogin"> 
-                Entrar 
-            </v-btn>
-            <v-spacer></v-spacer>
-            <v-btn  text @click="submitSignup"> 
-                Cadastrar 
+            <v-btn text @click="submitLogin">
+              Entrar
+              <v-progress-circular
+                v-if="loading"
+                indeterminate
+                color="primary"
+              ></v-progress-circular>
             </v-btn>
           </v-col>
         </v-col>
@@ -38,31 +38,45 @@
 </template>
 
 <script>
+import { AgendaApi } from "../api/AgendaApi.js";
+
 export default {
   data: () => ({
     valid: false,
+    validForm: false,
     user: "",
-    userRules: [
-      (v) => !!v || "Informe o usuário",
-    ],
+    userRules: [(v) => !!v || "Informe o usuário"],
     password: "",
-    passwordRules: [
-        (v) => !!v || "Senha é necessária",
-        (v) => v.length <= 5 || "Senha deve ter ao menos 5 caracteres",
-    ],
+    passwordRules: [(v) => !!v || "Senha é necessária"],
+    loading: false,
   }),
 
   methods: {
-    submitLogin() {
-        if(this.valid){
-            localStorage.setItem('user', this.user);
-            localStorage.setItem('password', this.password);
-        }
-        console.log(this.user);
-    },
+    async submitLogin() {
+      this.loading = true;
 
-    submitSignup() {
-        console.log(this.password)
+      const resp = await AgendaApi.User.singIn({
+        name: this.user.trim(),
+        password: this.password.trim(),
+      });
+
+      if (resp.status == 400) {
+        this.$toasted?.global.error({
+          mensagem: "Usuário ou senha incorretos",
+        });
+        this.loading = false;
+        return;
+      }
+
+      this.setTokenLocalStorage(resp.accessToken);
+      this.$toasted?.global.success({ mensagem: "Login efetuado com sucesso" });
+
+      this.loading = false;
+
+      this.$router.push({ name: "Home" });
+    },
+    setTokenLocalStorage(token) {
+      localStorage.setItem("accessToken", token);
     },
   },
 };
