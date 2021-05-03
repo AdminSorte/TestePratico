@@ -50,7 +50,6 @@ export default {
   },
   watch: {
     closeModal() {
-        console.log("fFecharrrrrrrrr");
       this.dialog = false;
     },
   },
