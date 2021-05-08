@@ -13,9 +13,9 @@ namespace MinhaAgenda.Data.Repository
     public class AgendaRepository : Repository<Agenda>, IAgendaRepository
     {
         public AgendaRepository(MinhaAgendaContext agendaContext) : base(agendaContext){ }
-        public Task<List<Agenda>> ObterPorDescricaoTodos(string Titulo)
+        public async  Task<List<Agenda>> ObterPorTituloTodos(string Titulo)
         {
-            return Db.Agendas.AsNoTrackingWithIdentityResolution().Where(p => p.Titulo.Contains(Titulo)).ToListAsync();
+            return await Db.Agendas.AsNoTrackingWithIdentityResolution().Where(p => p.Titulo.Contains(Titulo)).ToListAsync();
         }
 
 

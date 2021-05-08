@@ -19,6 +19,13 @@ namespace MinhaAgenda.API.Controllers
             _AgendaRepository = agendaRepository;
         }
 
+        [HttpGet("{Titulo}")]
+        public async Task<ActionResult<List<Agenda>>> ObterPorTitulo(string Titulo)
+        {
+            return Ok(await _AgendaRepository.ObterPorTituloTodos(Titulo));
+        }
+
+
         [HttpGet]
         public async Task<ActionResult<List<Agenda>>> Index()
         {

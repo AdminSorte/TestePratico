@@ -10,7 +10,7 @@ namespace MinhaAgenda.Domain.Interfaces
     public interface IAgendaRepository : IRepository<Agenda>
     {
 
-        Task<List<Agenda>> ObterPorDescricaoTodos(string Titulo);
+        Task<List<Agenda>> ObterPorTituloTodos(string Titulo);
 
     }
 }

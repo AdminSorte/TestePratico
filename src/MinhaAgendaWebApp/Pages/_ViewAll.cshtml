@@ -1,0 +1,45 @@
+﻿@using ViewModels
+
+@model IEnumerable<ViewModels.ViewModelAgenda>
+@{
+}
+<table class="table table-bordered" id="customerTable">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Titutlo
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() != 0)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.Titulo
+                    </td>
+                  
+                    <td text-right">
+                        <a onclick="jQueryModalGet('?handler=CreateOrEdit&id=@item.Id','Edit Customer')" class="btn btn-info text-white"> Edit</a>
+                        <form method="post" asp-page="Index" asp-route-id="@item.Id" asp-page-handler="Delete" onsubmit="return jQueryModalDelete(this)" class="d-inline">
+                            <button type="submit" class="btn btn-danger text-white"> Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $("#customerTable").DataTable();
+    });
+</script>
