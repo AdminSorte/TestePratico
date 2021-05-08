@@ -23,19 +23,30 @@ namespace MinhaAgenda.Data.Repository
             DbSet = db.Set<TEntity>();
         }
 
-        public async Task Adicionar(TEntity entity)
+        public async Task<int> Adicionar(TEntity entity)
         {
             DbSet.Add(entity);
             await SaveChanges();
+            return entity.Id;
         }
 
-        public async  Task Atualizar(TEntity entity)
+        public virtual async Task Atualizar(TEntity entity)
         {
             DbSet.Update(entity);
             await SaveChanges();
         }
 
-        public async Task<TEntity> ObterPorId(int id)
+        public async Task<bool> Existe(int id)
+        {
+            if (await Db.Agendas.AsNoTrackingWithIdentityResolution().CountAsync(p => p.Id == id) > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public virtual async Task<TEntity> ObterPorId(int id)
         {
             return await DbSet.FindAsync(id);
         }

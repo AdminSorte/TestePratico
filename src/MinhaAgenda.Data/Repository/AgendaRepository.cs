@@ -25,5 +25,7 @@ namespace MinhaAgenda.Data.Repository
             Id = p.Id,
             }).ToListAsync();
         }
+
+      
     }
 }
