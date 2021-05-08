@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MinhaAgenda.API.ViewModel;
 using MinhaAgenda.Domain.Interfaces;
 using MinhaAgenda.Domain.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MinhaAgenda.API.Controllers
@@ -40,7 +39,7 @@ namespace MinhaAgenda.API.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Adicionar(ViewModelAgenda viewModelAgenda)
+        public async Task<IActionResult> Adicionar(AgendaViewModel viewModelAgenda)
         {
 
             var agenda = new Agenda(viewModelAgenda.Descricao, viewModelAgenda.Descricao, viewModelAgenda.DataAgedamento);
@@ -51,7 +50,7 @@ namespace MinhaAgenda.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Atualizar(ViewModelAgenda viewModelAgenda, int id)
+        public async Task<IActionResult> Atualizar(AgendaViewModel viewModelAgenda, int id)
         {
             if (id != viewModelAgenda.Id)
             {

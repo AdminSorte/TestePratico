@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MinhaAgenda.API.ViewModel
 {
-    public class ViewModelAgenda
+    public class AgendaViewModel
     {
         public int Id { get; set; }
         public string Titulo { get;  set; }

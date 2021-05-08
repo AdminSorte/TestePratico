@@ -2,4 +2,33 @@
 @model MinhaAgendaWebApp.Pages.Login.IndexModel
 @{
 }
-<h5>sdaasds</h5>
+<form id="account" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="input-group-prepend">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input asp-for="@Model.login.Email" class="form-control" placeholder="Usuario" required="">
+    </div>
+    <span asp-validation-for="@Model.login.Email" class="text-danger"></span>
+    <br />
+    <div class="input-group-prepend">
+        <span class="input-group-addon "><i class="fa fa-lock"></i></span>
+        <input asp-for="@Model.login.Senha" class="form-control" placeholder="Senha" required="">
+    </div>
+    <span asp-validation-for="@Model.login.Senha" class="text-danger"></span>
+    <br />
+    @*<div class="form-group">
+            <div class="checkbox">
+                <label asp-for="Input.RememberMe">
+                    <input asp-for="Input.RememberMe" />
+                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                </label>
+            </div>
+        </div>*@
+    <button type="submit" class="btn btn-campelo block full-width m-b">Acessar</button>
+
+    <a id="forgot-password" asp-page="./ForgotPassword"><small>Recuperar Senha</small></a>
+    <br />
+    @*<p class="text-muted text-center"><small>Clique no botao Criar Conta para criar uma nova conta</small></p>
+        <a class="btn btn-sm btn-white btn-block" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Criar Conta</a>*@
+</form>

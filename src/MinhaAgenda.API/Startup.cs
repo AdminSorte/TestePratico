@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MinhaAgenda.API.Extensions;
 using MinhaAgenda.Data.Data;
 using MinhaAgenda.Data.Repository;
 using MinhaAgenda.Domain.Interfaces;
@@ -15,6 +16,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
+using FluentValidation.AspNetCore;
+using MinhaAgenda.API.Validators;
+using MinhaAgenda.API.Configuration;
 
 namespace MinhaAgenda.API
 {
@@ -40,7 +45,11 @@ namespace MinhaAgenda.API
             services.AddScoped<IAgendaRepository, AgendaRepository>();
 
 
-            services.AddControllers();
+            services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AgendaValidator>());
+
+            services.AddIdentityConfig(Configuration);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MinhaAgenda.API", Version = "v1" });

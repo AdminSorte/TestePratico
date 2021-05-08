@@ -20,7 +20,6 @@ C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Mi
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -65,3 +64,16 @@ C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Hu
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Dapper.dll
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Dapper.Contrib.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\MinhaAgenda.API.StaticWebAssets.xml
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll

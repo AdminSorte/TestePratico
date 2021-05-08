@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace MinhaAgendaWebApp.Pages
 {
+   
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
@@ -30,9 +31,6 @@ namespace MinhaAgendaWebApp.Pages
         {
 
         }
-  
-
-
         public async Task<PartialViewResult> OnGetViewAllPartial()
         {
             agendas = await _agendaClient.ObterTodos();
@@ -45,7 +43,6 @@ namespace MinhaAgendaWebApp.Pages
 
         public async Task<JsonResult> OnGetDetalhe(int id)
         {
-
             var Agenda = await _agendaClient.ObterPorId(id);
             return new JsonResult(new { isValid = true, html = await _renderService.ToStringAsync("_Detalhe", Agenda) });
         }
