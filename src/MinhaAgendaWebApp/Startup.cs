@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,15 @@ namespace MinhaAgendaWebApp
             services.AddHttpContextAccessor();
             services.AddTransient<IActionContextAccessor, ActionContextAccessor>();
             services.AddScoped<IRazorRenderService, RazorRenderService>();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(
+                options =>
+                {
+                    options.LoginPath = "/login";
+                    options.AccessDeniedPath = "/acesso-negado";
+                });
+
             services.AddRazorPages();
         }
 
@@ -44,6 +54,7 @@ namespace MinhaAgendaWebApp
 
             if (env.IsDevelopment())
             {
+             
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -57,7 +68,7 @@ namespace MinhaAgendaWebApp
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

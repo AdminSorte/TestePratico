@@ -10,18 +10,18 @@ namespace MinhaAgendaWebApp.Interfaces
    public interface IAgendaClient
     {
         [Get("/api/Agendas")]
-        Task<List<ViewModelAgenda>> ObterTodos();
+        Task<List<AgendaViewModel>> ObterTodos();
 
         [Get("/api/Agendas/{Titulo}")]
-        Task<List<ViewModelAgenda>> ObterPorTitulo(string Titulo);
+        Task<List<AgendaViewModel>> ObterPorTitulo(string Titulo);
 
         [Get("/api/Agendas/{Id}")]
-        Task<ViewModelAgenda> ObterPorId(int Id);
+        Task<AgendaViewModel> ObterPorId(int Id);
 
         [Post("/api/Agendas")]
-        Task<ViewModelAgenda> Adicionar(ViewModelAgenda agenda);
+        Task<AgendaViewModel> Adicionar(AgendaViewModel agenda);
 
         [Put("/api/Agendas")]
-        Task Atualizar(ViewModelAgenda agenda,int id);
+        Task Atualizar(AgendaViewModel agenda,int id);
     }
 }

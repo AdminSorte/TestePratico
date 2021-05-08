@@ -27,13 +27,13 @@ namespace MinhaAgenda.API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<List<Agenda>>> Index()
+        public async Task<ActionResult<List<Agenda>>> ObterTodos()
         {
             return Ok(await _AgendaRepository.ObterTodos());
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<List<Agenda>>> ObterPorId(int id)
+        public async Task<ActionResult<Agenda>> ObterPorId(int id)
         {
             return Ok(await _AgendaRepository.ObterPorId(id));
         }

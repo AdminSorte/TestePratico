@@ -21,12 +21,26 @@ namespace MinhaAgenda.Data.Migrations
                 {
                     table.PrimaryKey("PK_Agendas", x => x.Id);
                 });
+
+
+            migrationBuilder.Sql(@"CREATE  PROCEDURE AtualizarAgenda
+                @Id int,@Titulo Varchar(100),@Descricao varchar(500),@DataAgedamento Datetime2
+                AS
+                BEGIN
+                    UPDATE Agendas
+					set Titulo = @Titulo ,Descricao = @Descricao , DataAgedamento =@DataAgedamento
+					Where id = @ID
+                END");
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Agendas");
+
+            migrationBuilder.Sql(@"DROP PROCEDURE AtualizarAgenda");
+
         }
     }
 }

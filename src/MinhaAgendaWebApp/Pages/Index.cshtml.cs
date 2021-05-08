@@ -25,11 +25,13 @@ namespace MinhaAgendaWebApp.Pages
             _renderService = razorRenderService;
         }
 
-        public IEnumerable<ViewModelAgenda> agendas { get; set; }
-        public void OnGet()
+        public IEnumerable<AgendaViewModel> agendas { get; set; }
+        public  void OnGet()
         {
 
         }
+  
+
 
         public async Task<PartialViewResult> OnGetViewAllPartial()
         {
@@ -37,7 +39,7 @@ namespace MinhaAgendaWebApp.Pages
             return new PartialViewResult
             {
                 ViewName = "_ViewAll",
-                ViewData = new ViewDataDictionary<IEnumerable<ViewModelAgenda>>(ViewData, agendas)
+                ViewData = new ViewDataDictionary<IEnumerable<AgendaViewModel>>(ViewData, agendas)
             };
         }
 
@@ -51,7 +53,7 @@ namespace MinhaAgendaWebApp.Pages
         public async Task<JsonResult> OnGetCreateOrEditAsync(int id = 0)
         {
             if (id == 0)
-                return new JsonResult(new { isValid = true, html = await _renderService.ToStringAsync("_CreateOrEdit", new ViewModelAgenda()) });
+                return new JsonResult(new { isValid = true, html = await _renderService.ToStringAsync("_CreateOrEdit", new AgendaViewModel()) });
             else
             {
                 var Agenda = await _agendaClient.ObterPorId(id);
@@ -59,7 +61,7 @@ namespace MinhaAgendaWebApp.Pages
             }
         }
 
-        public async Task<JsonResult> OnPostCreateOrEditAsync(int id, ViewModelAgenda agenda)
+        public async Task<JsonResult> OnPostCreateOrEditAsync(int id, AgendaViewModel agenda)
         {
             if (ModelState.IsValid)
             {

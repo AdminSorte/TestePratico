@@ -63,3 +63,5 @@ C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\obj\Debug\net5.0\Mi
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\obj\Debug\net5.0\MinhaAgenda.API.genruntimeconfig.cache
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Dapper.dll
+C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.API\bin\Debug\net5.0\Dapper.Contrib.dll

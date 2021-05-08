@@ -1,4 +1,4 @@
-﻿@model ViewModels.ViewModelAgenda
+﻿@model ViewModels.AgendaViewModel
 
 <form id="create-form" method="post" asp-page="Index" asp-route-id="@Model.Id" asp-page-handler="CreateOrEdit" onsubmit="return jQueryModalPost(this);">
 
@@ -13,7 +13,7 @@
     <div class="form-group row">
         <label class="col-md-2 col-form-label">Descrição</label>
         <div class="col-md-9">
-            <textarea class="form-control"  rows="3" input type="text"  asp-for="Descricao" name="Descricao" class="form-control"  name="Descricao" placeholder="Fazer teste prático para vaga de desenvolvedor"></textarea>
+            <textarea class="form-control"  rows="3" input type="text"  asp-for="Descricao" name="Descricao" placeholder="Fazer teste prático para vaga de desenvolvedor"></textarea>
             <span asp-validation-for="Descricao" class="text-danger"></span>
         </div>
     </div>
