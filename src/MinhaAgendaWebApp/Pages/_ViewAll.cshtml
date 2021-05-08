@@ -12,6 +12,9 @@
             <th>
                 Titutlo
             </th>
+            <th>
+               
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -28,9 +31,11 @@
                     </td>
                   
                     <td text-right">
-                        <a onclick="jQueryModalGet('?handler=CreateOrEdit&id=@item.Id','Edit Customer')" class="btn btn-info text-white"> Edit</a>
+                        <a onclick="jQueryModalGet('?handler=Detalhe&id=@item.Id','Agenda')" class="btn btn-info text-white"> <spam class="fa fa-search"></spam> </a>
+                        <a onclick="jQueryModalGet('?handler=CreateOrEdit&id=@item.Id','Editar Agenda')" class="btn btn-warning text-white"> <spam class="fa fa-pencil-alt"></spam> </a>
+
                         <form method="post" asp-page="Index" asp-route-id="@item.Id" asp-page-handler="Delete" onsubmit="return jQueryModalDelete(this)" class="d-inline">
-                            <button type="submit" class="btn btn-danger text-white"> Delete</button>
+                            <button type="submit" class="btn btn-danger text-white">  <span class="fa fa-trash"></span>  </button>
                         </form>
                     </td>
                 </tr>

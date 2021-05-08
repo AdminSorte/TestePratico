@@ -62,7 +62,7 @@ namespace MinhaAgenda.API.Controllers
             if (!await _AgendaRepository.Existe(id)) return NotFound();
 
             var agenda = new Agenda(viewModelAgenda.Descricao, viewModelAgenda.Descricao, viewModelAgenda.DataAgedamento);
-
+            agenda.Id = viewModelAgenda.Id;
             await _AgendaRepository.Atualizar(agenda);
 
             return NoContent();

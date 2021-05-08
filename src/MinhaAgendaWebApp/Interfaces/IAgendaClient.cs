@@ -22,6 +22,6 @@ namespace MinhaAgendaWebApp.Interfaces
         Task<ViewModelAgenda> Adicionar(ViewModelAgenda agenda);
 
         [Put("/api/Agendas")]
-        Task<ViewModelAgenda> Atualizar(ViewModelAgenda agenda);
+        Task Atualizar(ViewModelAgenda agenda,int id);
     }
 }

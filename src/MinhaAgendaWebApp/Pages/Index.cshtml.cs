@@ -18,7 +18,7 @@ namespace MinhaAgendaWebApp.Pages
         private readonly ILogger<IndexModel> _logger;
         private readonly IAgendaClient _agendaClient;
         private readonly IRazorRenderService _renderService;
-        public IndexModel(ILogger<IndexModel> logger,IAgendaClient agendaClient, IRazorRenderService razorRenderService)
+        public IndexModel(ILogger<IndexModel> logger, IAgendaClient agendaClient, IRazorRenderService razorRenderService)
         {
             _logger = logger;
             _agendaClient = agendaClient;
@@ -41,6 +41,13 @@ namespace MinhaAgendaWebApp.Pages
             };
         }
 
+        public async Task<JsonResult> OnGetDetalhe(int id)
+        {
+
+            var Agenda = await _agendaClient.ObterPorId(id);
+            return new JsonResult(new { isValid = true, html = await _renderService.ToStringAsync("_Detalhe", Agenda) });
+        }
+
         public async Task<JsonResult> OnGetCreateOrEditAsync(int id = 0)
         {
             if (id == 0)
@@ -52,20 +59,19 @@ namespace MinhaAgendaWebApp.Pages
             }
         }
 
-        public async Task<JsonResult> OnPostCreateOrEditAsync(int id, ViewModelAgenda customer)
+        public async Task<JsonResult> OnPostCreateOrEditAsync(int id, ViewModelAgenda agenda)
         {
             if (ModelState.IsValid)
             {
                 if (id == 0)
                 {
-                 
-                        var reponse = await _agendaClient.Adicionar(customer);
-               
+                
+                        await _agendaClient.Adicionar(agenda);
                 }
                 else
                 {
-                    await _agendaClient.Adicionar(customer);
-                
+                     await _agendaClient.Atualizar(agenda, agenda.Id);
+
                 }
                 agendas = await _agendaClient.ObterTodos();
                 var html = await _renderService.ToStringAsync("_ViewAll", agendas);
@@ -73,7 +79,7 @@ namespace MinhaAgendaWebApp.Pages
             }
             else
             {
-                var html = await _renderService.ToStringAsync("_CreateOrEdit", customer);
+                var html = await _renderService.ToStringAsync("_CreateOrEdit", agenda);
                 return new JsonResult(new { isValid = false, html = html });
             }
         }

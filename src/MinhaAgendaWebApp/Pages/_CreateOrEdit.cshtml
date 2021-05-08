@@ -1,18 +1,28 @@
 ﻿@model ViewModels.ViewModelAgenda
 
 <form id="create-form" method="post" asp-page="Index" asp-route-id="@Model.Id" asp-page-handler="CreateOrEdit" onsubmit="return jQueryModalPost(this);">
+
+
     <div class="form-group row">
-        <label class="col-md-3 col-form-label">Titulo</label>
+        <label class="col-md-2 col-form-label">Titulo</label>
         <div class="col-md-9">
-            <input type="text" autocomplete="off" asp-for="Titulo" name="Titulo" class="form-control">
+            <input type="text" autocomplete="off" asp-for="Titulo" name="Titulo" class="form-control" placeholder="Sorte Online - Vaga">
             <span asp-validation-for="Titulo" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group row">
-        <label class="col-md-3 col-form-label">Descrição</label>
+        <label class="col-md-2 col-form-label">Descrição</label>
         <div class="col-md-9">
-            <input type="text" autocomplete="off" asp-for="Descricao" name="Descricao" class="form-control">
+            <textarea class="form-control"  rows="3" input type="text"  asp-for="Descricao" name="Descricao" class="form-control"  name="Descricao" placeholder="Fazer teste prático para vaga de desenvolvedor"></textarea>
             <span asp-validation-for="Descricao" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-2 col-form-label">Data</label>
+        <div class="col-md-9">
+            <input type="datetime-local" value="@DateTime.Now.ToString("s")" asp-for="DataAgedamento" name="DataAgedamento" class="form-control" placeholder="Data do Compromisso">
+            <span asp-validation-for="DataAgedamento" class="text-danger"> </span>
         </div>
     </div>
     <div class="form-group row">

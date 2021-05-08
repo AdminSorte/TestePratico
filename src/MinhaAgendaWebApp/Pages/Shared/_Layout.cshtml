@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -56,6 +58,11 @@
             &copy; 2021 - MinhaAgendaWebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
+    <div class="fab">
+        <button class="main" onclick="jQueryModalGet('?handler=CreateOrEdit','Adicionar Agenda')">
+            <span class="fa fa-plus"></span>
+        </button>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinhaAgenda.Data", "src\Min
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinhaAgenda.Domain", "src\MinhaAgenda.Domain\MinhaAgenda.Domain.csproj", "{FAFC936B-4DE7-40BE-AD7A-53247A3A6841}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhaAgendaWebApp", "src\MinhaAgendaWebApp\MinhaAgendaWebApp.csproj", "{6E6A2D7F-80A4-4AFA-A550-D206C24704DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinhaAgendaWebApp", "src\MinhaAgendaWebApp\MinhaAgendaWebApp.csproj", "{6E6A2D7F-80A4-4AFA-A550-D206C24704DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
