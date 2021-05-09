@@ -25,8 +25,13 @@ namespace MinhaAgendaWebApp.Interfaces
         Task<AgendaViewModel> Adicionar(AgendaViewModel agenda,
              [Header("Authorization")] string token);
 
-        [Put("/api/Agendas")]
+        [Put("/api/Agendas/{id}")]
         Task Atualizar(AgendaViewModel agenda,int id,
              [Header("Authorization")] string token);
+
+
+        [Delete("/api/Agendas/{id}")]
+        Task Remover( int id,
+           [Header("Authorization")] string token);
     }
 }

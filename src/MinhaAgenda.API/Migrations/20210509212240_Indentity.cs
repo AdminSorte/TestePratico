@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MinhaAgenda.API.Migrations
 {
-    public partial class IdentityInicial : Migration
+    public partial class Indentity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -151,6 +151,11 @@ namespace MinhaAgenda.API.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "496ea12b-af65-45c3-9cf8-e0c33a52c386", 0, "a417e6a6-d70b-4210-b7e1-c5aa59824140", "SorteOnline@gmail.com", true, false, null, "SORTEONLINE@GMAIL.COM", "SORTEONLINE@GMAIL.COM", "AQAAAAEAACcQAAAAEMkr1mx4WPI/7C94L3DOi37raH76wf86tWQENIkW+izP9Zb6ndKZz2Th5uYKz0Mn5w==", "+111111111111", true, "5a81cfec-db95-4700-9c9b-6a86e0bd1df5", false, "SorteOnline@gmail.com" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

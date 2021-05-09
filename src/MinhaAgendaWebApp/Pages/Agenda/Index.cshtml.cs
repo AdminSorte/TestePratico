@@ -77,18 +77,13 @@ namespace MinhaAgendaWebApp.Pages.Agenda
             {
                 if (id == 0)
                 {
-                
                         await _agendaClient.Adicionar(agenda, Token);
-
-                    TempData["Sucesso"] = "Adicionador Com Sucesso";
-
 
                 }
                 else
                 {
                      await _agendaClient.Atualizar(agenda, agenda.Id, Token);
 
-                    TempData["Sucesso"] = "Atualizador Com Sucesso";
                 }
                 agendas = await _agendaClient.ObterTodos(Token);
 
@@ -102,6 +97,15 @@ namespace MinhaAgendaWebApp.Pages.Agenda
                 var html = await _renderService.ToStringAsync("_CreateOrEdit", agenda);
                 return new JsonResult(new { isValid = false, html = html });
             }
+        }
+
+        public async Task<JsonResult> OnPostDeleteAsync(int id)
+        {
+            await _agendaClient.Remover(id,Token);
+
+            agendas = await _agendaClient.ObterTodos(Token);
+            var html = await _renderService.ToStringAsync("_ViewAll", agendas);
+            return new JsonResult(new { isValid = true, html = html });
         }
     }
 }

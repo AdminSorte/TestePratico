@@ -7,11 +7,18 @@
         <li class="nav-item">
             <a id="manage" class="nav-link text-dark" title="Manage">Olá   @Context.User.Claims.Where(p => p.Type == "email").Select(p => p.Value).FirstOrDefault()</a>
         </li>
+        <li class="nav navbar-top-links navbar-right">
+            <form id="logoutForm" class="form-inline" asp-area="" asp-page="/Account/Logout">
+                <a></a>
+                <button class="btn btn-success"  type="submit" >Logout</button>
+
+            </form>
+        </li>
     }
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" id="register" asp-area=""  asp-page="/Account/Registre">Register</a>
+            <a class="nav-link text-dark" id="register" asp-area="" asp-page="/Account/Registre">Register</a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-page="/login/Index">Login</a>

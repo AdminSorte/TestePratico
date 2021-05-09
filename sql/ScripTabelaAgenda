@@ -1,0 +1,39 @@
+﻿IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+CREATE TABLE [Agendas] (
+    [Id] int NOT NULL IDENTITY,
+    [Titulo] varchar(100) NOT NULL,
+    [Descricao] varchar(500) NOT NULL,
+    [DataAgedamento] datetime2 NOT NULL,
+    CONSTRAINT [PK_Agendas] PRIMARY KEY ([Id])
+);
+GO
+
+CREATE  PROCEDURE AtualizarAgenda
+                @Id int,@Titulo Varchar(100),@Descricao varchar(500),@DataAgedamento Datetime2
+                AS
+                BEGIN
+                    UPDATE Agendas
+					set Titulo = @Titulo ,Descricao = @Descricao , DataAgedamento =@DataAgedamento
+					Where id = @ID
+                END
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210507043337_Inicial', N'5.0.5');
+GO
+
+COMMIT;
+GO
+

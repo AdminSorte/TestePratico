@@ -40,6 +40,36 @@ namespace MinhaAgenda.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Agendas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DataAgedamento = new DateTime(2021, 5, 9, 18, 22, 53, 336, DateTimeKind.Local).AddTicks(3170),
+                            Descricao = "So deus Saber...",
+                            Titulo = "Sera que vou Passar?"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DataAgedamento = new DateTime(2021, 5, 9, 18, 22, 53, 337, DateTimeKind.Local).AddTicks(1021),
+                            Descricao = "hummmm",
+                            Titulo = "Sorte Online"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DataAgedamento = new DateTime(2021, 5, 9, 18, 22, 53, 337, DateTimeKind.Local).AddTicks(1033),
+                            Descricao = "hummmm",
+                            Titulo = "Sei não viu..."
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DataAgedamento = new DateTime(2021, 5, 9, 18, 22, 53, 337, DateTimeKind.Local).AddTicks(1035),
+                            Descricao = "Vou Joga na mega Sena qualquer coisa...",
+                            Titulo = "Então Beleza,Boa Segunda-Feira"
+                        });
                 });
 #pragma warning restore 612, 618
         }

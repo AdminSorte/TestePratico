@@ -50,7 +50,7 @@ namespace MinhaAgenda.API.Controllers
             return CreatedAtAction(nameof(ObterPorId), new { id = id }, viewModelAgenda);
         }
 
-        [HttpPut]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> Atualizar(AgendaViewModel viewModelAgenda, int id)
         {
             if (id != viewModelAgenda.Id)
@@ -69,7 +69,7 @@ namespace MinhaAgenda.API.Controllers
         }
 
 
-        [HttpDelete]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> Remover(int id)
         {
 

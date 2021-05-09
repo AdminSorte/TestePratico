@@ -10,8 +10,8 @@ using MinhaAgenda.API.Data;
 namespace MinhaAgenda.API.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20210508210052_IdentityInicial")]
-    partial class IdentityInicial
+    [Migration("20210509212240_Indentity")]
+    partial class Indentity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -135,6 +135,25 @@ namespace MinhaAgenda.API.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "496ea12b-af65-45c3-9cf8-e0c33a52c386",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a417e6a6-d70b-4210-b7e1-c5aa59824140",
+                            Email = "SorteOnline@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SORTEONLINE@GMAIL.COM",
+                            NormalizedUserName = "SORTEONLINE@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMkr1mx4WPI/7C94L3DOi37raH76wf86tWQENIkW+izP9Zb6ndKZz2Th5uYKz0Mn5w==",
+                            PhoneNumber = "+111111111111",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "5a81cfec-db95-4700-9c9b-6a86e0bd1df5",
+                            TwoFactorEnabled = false,
+                            UserName = "SorteOnline@gmail.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
