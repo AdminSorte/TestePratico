@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Agenda Minha Vida</title>
+    <link rel="stylesheet" href="css/agenda.css" />
+</head>
+<body>
+    <table border="0" align='center' id="tabelaprincipal">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div align='center'>
+                    <h1 align='center'>Minha Agenda Minha Vida</h1>
+                    <div id="addForm" align='center'>
+                        <h3>Adicionar</h3>
+                        <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+                            <input type="text" id="add-name" placeholder="Nome">
+                            <input type="text" id="add-description" placeholder="Descrição">
+                            <input type="submit" value="Adicionar">
+                        </form>
+                    </div>
+
+                    <div id="searchForm" align='center'>
+                        <h3>Pesquisar</h3>
+                        <form action="javascript:void(0);" method="GET" onsubmit="searchItems()">
+                            <input type="text" id="search-Item" placeholder="Insira o nome da agenda">
+                            <input type="submit" value="Pesquisar">
+                            <button onclick="getItems()">Limpar</button>
+                        </form>
+                    </div>
+
+                    <div id="editForm" align='center'>
+                        <h3>Editar agenda</h3>
+                        <form action="javascript:void(0);" onsubmit="updateItem()">
+                            <input type="hidden" id="edit-id">
+                            <input type="checkbox" id="edit-isComplete">
+                            <input type="text" id="edit-name">
+                            <input type="text" id="edit-description">
+                            <input type="submit" value="Save">
+                            <a onclick="displayDivForm('editForm')" aria-label="Close">&#10006;</a>
+                        </form>
+                    </div>
+
+                    <div align='center'>
+                        <h3 id="counter"></h3>
+                        <table align='center' style="border: 0px;" id="teste">
+                            <tbody id="agendas"></tbody>
+                        </table>
+                    </div>
+
+                    <button onclick="displayDivForm('addForm')">Adicionar</button>
+                    <button onclick="displayDivForm('searchForm')">Pesquisar</button>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script src="js/agenda.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getItems();
+        displayDivForm('searchForm');
+        displayDivForm('addForm');
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaApi", "AgendaApi\AgendaApi.csproj", "{A828B336-9492-4FDB-B037-231779D0CCDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minha Agenda Minha Vida", "Minha Agenda Minha Vida\Minha Agenda Minha Vida.csproj", "{B2EE6C26-6740-4961-A153-A7ACB1A8EFB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A828B336-9492-4FDB-B037-231779D0CCDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A828B336-9492-4FDB-B037-231779D0CCDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A828B336-9492-4FDB-B037-231779D0CCDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A828B336-9492-4FDB-B037-231779D0CCDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2EE6C26-6740-4961-A153-A7ACB1A8EFB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2EE6C26-6740-4961-A153-A7ACB1A8EFB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2EE6C26-6740-4961-A153-A7ACB1A8EFB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2EE6C26-6740-4961-A153-A7ACB1A8EFB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {491B1A2E-B4DF-4732-9870-FD216851173C}
+	EndGlobalSection
+EndGlobal

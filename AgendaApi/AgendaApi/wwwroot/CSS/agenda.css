@@ -1,0 +1,75 @@
+﻿input[type='submit'], button, [aria-label] {
+    cursor: pointer;
+}
+
+html, body {
+    height: 100%;
+}
+
+#editForm {
+    display: none;
+}
+
+#searchForm {
+    display: none;
+}
+
+#tabelaprincipal {
+    min-height: 100%;
+    position: relative;
+    width: 700px;
+    border: 0px;
+}
+
+#addForm {
+    display: none;
+}
+
+input.visible {
+    visibility: visible !important;
+}
+
+table {
+    font-family: Arial, sans-serif;
+    border: 1px solid;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th {
+    background-color: #f8f8f8;
+    padding: 5px;
+    border: 0px;
+    min-height: 100%;
+}
+
+td {
+    border: 0px solid;
+    padding: 5px;
+    animation-name: example;
+    animation-duration: 2s;
+    min-height: 100%;
+}
+
+#teste {
+    min-width: 100%;
+}
+
+@keyframes example {
+    from {
+        background-color: white;
+    }
+
+    to {
+        background-color: grey;
+    }
+
+    from {
+        background-color: grey;
+    }
+
+    to {
+        background-color: white;
+    }
+}
+
