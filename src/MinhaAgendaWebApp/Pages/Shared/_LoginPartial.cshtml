@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+
+<ul class="navbar-nav">
+    @if (Context.User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" title="Manage">Olá   @Context.User.Claims.Where(p => p.Type == "email").Select(p => p.Value).FirstOrDefault()</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="register" asp-area=""  asp-page="/Account/Registre">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-page="/login/Index">Login</a>
+        </li>
+    }
+</ul>

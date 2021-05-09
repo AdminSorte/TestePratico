@@ -71,10 +71,12 @@ namespace MinhaAgendaWebApp.Services
                     new ViewDataDictionary<T>(new EmptyModelMetadataProvider(), new ModelStateDictionary())
                     {
                         Model = model
+                      
                     },
                     new TempDataDictionary(
                         _httpContext.HttpContext,
                         _tempDataProvider
+                        
                     ),
                     sw,
                     new HtmlHelperOptions()

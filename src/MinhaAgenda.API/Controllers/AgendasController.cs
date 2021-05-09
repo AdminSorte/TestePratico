@@ -10,6 +10,7 @@ namespace MinhaAgenda.API.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
+    [Authorize]
     public class AgendasController : ControllerBase
     {
         private readonly IAgendaRepository _AgendaRepository;

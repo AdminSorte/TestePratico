@@ -9,4 +9,3 @@ C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.Domain\obj\Debug\net5.0
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.Domain\obj\Debug\net5.0\MinhaAgenda.Domain.dll
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.Domain\obj\Debug\net5.0\ref\MinhaAgenda.Domain.dll
 C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.Domain\obj\Debug\net5.0\MinhaAgenda.Domain.pdb
-C:\Users\Lucas\source\repos\TestePratico\src\MinhaAgenda.Domain\obj\Debug\net5.0\MinhaAgenda.Domain.csprojAssemblyReference.cache

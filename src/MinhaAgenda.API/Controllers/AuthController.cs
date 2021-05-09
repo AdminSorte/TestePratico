@@ -32,7 +32,7 @@ namespace MinhaAgenda.API.Controllers
             _appSettings = appSettings.Value;
         }
 
-        [HttpPost("nova-conta")]
+        [HttpPost("Registre")]
         public async Task<ActionResult> Registrar(RegisterUserViewModel registerUser)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -50,8 +50,14 @@ namespace MinhaAgenda.API.Controllers
                 await _signInManager.SignInAsync(user, false);
                 return Ok(await GerarJwt(user.Email));
             }
+            List<string> Messagem = new List<string>();
+            foreach (var error in result.Errors)
+            {
+                Messagem.Add(error.Description);
 
-            return BadRequest(registerUser);
+            }
+
+            return BadRequest(Messagem);
         }
 
 
@@ -72,6 +78,8 @@ namespace MinhaAgenda.API.Controllers
          
                 return BadRequest("Usuário temporariamente bloqueado por tentativas inválidas");
             }
+
+
             return BadRequest("Usuário ou Senha incorretos");
         }
 

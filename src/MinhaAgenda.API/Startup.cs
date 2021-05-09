@@ -1,22 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MinhaAgenda.API.Extensions;
 using MinhaAgenda.Data.Data;
 using MinhaAgenda.Data.Repository;
 using MinhaAgenda.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 using FluentValidation.AspNetCore;
 using MinhaAgenda.API.Validators;
 using MinhaAgenda.API.Configuration;
@@ -70,6 +62,7 @@ namespace MinhaAgenda.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

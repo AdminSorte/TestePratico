@@ -28,7 +28,16 @@ namespace MinhaAgenda.API.Configuration
                 .AddErrorDescriber<IdentityMensagensPortugues>()
                 .AddDefaultTokenProviders();
 
+            services.Configure<IdentityOptions>(o =>
+            {
+                o.Password.RequireDigit = false;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequireUppercase = false;
+                o.Password.RequiredLength = 6;
+                o.Password.RequiredUniqueChars = 0;
 
+            });
 
             // JWT TOKEN
             var appSettingsSection = configuration.GetSection("AppSettings");

@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@ViewData[""]
+
+<div class="card">
+    <div class="col-sm-12" style="padding:20px">
+    </div>
+    <div id="viewAll" class="card-body table-responsive"></div>
+</div>
+
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+             $('#viewAll').load('?handler=ViewAllPartial');
+        });
+
+        $(document).ready(function () {
+            $("#success-alert").hide();
+            $("#myWish").click(function showAlert() {
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#success-alert").slideUp(500);
+                });
+            });
+        });
+
+        $(function () {
+            $('#reload').on('click', function () {
+                $('#viewAll').load('?handler=ViewAllPartial');
+            });
+        });
+     
+    </script>
+
+}

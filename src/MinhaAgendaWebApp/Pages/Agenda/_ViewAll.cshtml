@@ -2,7 +2,11 @@
 
 @model IEnumerable<ViewModels.AgendaViewModel>
 @{
+
 }
+
+
+
 <table class="table table-bordered" id="customerTable">
     <thead>
         <tr>
@@ -13,7 +17,7 @@
                 Titutlo
             </th>
             <th>
-               
+
             </th>
         </tr>
     </thead>
@@ -29,7 +33,7 @@
                     <td>
                         @item.Titulo
                     </td>
-                  
+
                     <td text-right">
                         <a onclick="jQueryModalGet('?handler=Detalhe&id=@item.Id','Agenda')" class="btn btn-info text-white"> <spam class="fa fa-search"></spam> </a>
                         <a onclick="jQueryModalGet('?handler=CreateOrEdit&id=@item.Id','Editar Agenda')" class="btn btn-warning text-white"> <spam class="fa fa-pencil-alt"></spam> </a>
@@ -47,4 +51,6 @@
     $(document).ready(function () {
         $("#customerTable").DataTable();
     });
+   
+
 </script>
