@@ -31,13 +31,29 @@ namespace MinhaAgenda.Data.Migrations
                     { 2, new DateTime(2021, 5, 9, 21, 17, 9, 380, DateTimeKind.Local).AddTicks(8211), "hummmm", "Sorte Online" },
                     { 3, new DateTime(2021, 5, 9, 21, 17, 9, 380, DateTimeKind.Local).AddTicks(8223), "hummmm", "Sei não viu..." },
                     { 4, new DateTime(2021, 5, 9, 21, 17, 9, 380, DateTimeKind.Local).AddTicks(8225), "Vou Joga na mega Sena qualquer coisa...", "Então Beleza,Boa Segunda-Feira" }
+              
+                
                 });
+
+
+            migrationBuilder.Sql(@"CREATE  PROCEDURE AtualizarAgenda
+                @Id int,@Titulo Varchar(100),@Descricao varchar(500),@DataAgedamento Datetime2
+                AS
+                BEGIN
+                    UPDATE Agendas
+					set Titulo = @Titulo ,Descricao = @Descricao , DataAgedamento =@DataAgedamento
+					Where id = @ID
+                END");
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Agendas");
+
+            migrationBuilder.Sql(@"DROP PROCEDURE AtualizarAgenda");
+
         }
     }
 }
