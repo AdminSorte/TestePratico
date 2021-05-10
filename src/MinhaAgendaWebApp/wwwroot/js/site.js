@@ -49,7 +49,7 @@ $(document).ready(function () {
         }
     }
     jQueryModalDelete = form => {
-        if (confirm('Are you sure to delete this record ?')) {
+        if (confirm('Tem certeza que deseja deletar este registro?')) {
             try {
                 $.ajax({
                     type: 'POST',

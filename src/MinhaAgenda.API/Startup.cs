@@ -12,6 +12,7 @@ using MinhaAgenda.Domain.Interfaces;
 using FluentValidation.AspNetCore;
 using MinhaAgenda.API.Validators;
 using MinhaAgenda.API.Configuration;
+using MinhaAgenda.Domain.Service;
 
 namespace MinhaAgenda.API
 {
@@ -35,6 +36,8 @@ namespace MinhaAgenda.API
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IAgendaRepository, AgendaRepository>();
+
+            services.AddScoped<IAgendaService, AgendaService>();
 
 
             services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))

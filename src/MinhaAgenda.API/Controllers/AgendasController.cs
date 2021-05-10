@@ -14,9 +14,11 @@ namespace MinhaAgenda.API.Controllers
     public class AgendasController : ControllerBase
     {
         private readonly IAgendaRepository _AgendaRepository;
-        public AgendasController(IAgendaRepository agendaRepository)
+        private readonly IAgendaService _agendaService;
+        public AgendasController(IAgendaRepository agendaRepository,IAgendaService agendaService)
         {
             _AgendaRepository = agendaRepository;
+            _agendaService = agendaService;
         }
 
         [HttpGet("{Titulo}")]
@@ -35,7 +37,13 @@ namespace MinhaAgenda.API.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Agenda>> ObterPorId(int id)
         {
-            return Ok(await _AgendaRepository.ObterPorId(id));
+            var agenda =  await _agendaService.ObterPorId(id);
+
+            if (agenda == null)
+            {
+                return NotFound();
+            }
+            return agenda;
         }
 
 
@@ -61,7 +69,7 @@ namespace MinhaAgenda.API.Controllers
 
             if (!await _AgendaRepository.Existe(id)) return NotFound();
 
-            var agenda = new Agenda(viewModelAgenda.Descricao, viewModelAgenda.Descricao, viewModelAgenda.DataAgedamento);
+            var agenda = new Agenda(viewModelAgenda.Titulo, viewModelAgenda.Descricao, viewModelAgenda.DataAgedamento);
             agenda.Id = viewModelAgenda.Id;
             await _AgendaRepository.Atualizar(agenda);
 

@@ -20,6 +20,17 @@ CREATE TABLE [Agendas] (
 );
 GO
 
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'DataAgedamento', N'Descricao', N'Titulo') AND [object_id] = OBJECT_ID(N'[Agendas]'))
+    SET IDENTITY_INSERT [Agendas] ON;
+INSERT INTO [Agendas] ([Id], [DataAgedamento], [Descricao], [Titulo])
+VALUES (1, '2021-05-09T18:22:53.3363170-03:00', 'So deus Saber...', 'Sera se vou Passar?'),
+(2, '2021-05-09T18:22:53.3371021-03:00', 'hummmm', 'Sorte Online'),
+(3, '2021-05-09T18:22:53.3371033-03:00', 'hummmm', 'Sei não viu...'),
+(4, '2021-05-09T18:22:53.3371035-03:00', 'Vou Joga na mega Sena qualquer coisa...', 'Então Beleza,Boa Segunda-Feira!');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'DataAgedamento', N'Descricao', N'Titulo') AND [object_id] = OBJECT_ID(N'[Agendas]'))
+    SET IDENTITY_INSERT [Agendas] OFF;
+GO
+
 CREATE  PROCEDURE AtualizarAgenda
                 @Id int,@Titulo Varchar(100),@Descricao varchar(500),@DataAgedamento Datetime2
                 AS
@@ -31,7 +42,7 @@ CREATE  PROCEDURE AtualizarAgenda
 GO
 
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20210507043337_Inicial', N'5.0.5');
+VALUES (N'20210509212253_Inicial', N'5.0.5');
 GO
 
 COMMIT;
