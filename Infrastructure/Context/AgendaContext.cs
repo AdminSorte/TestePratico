@@ -17,10 +17,10 @@ namespace Infrastructure.Context
         
         public DbSet<Agenda> Agendas { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AAJ6U28\SQLEXPRESS;Initial Catalog=SorteOnline_DB;Integrated Security=True");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AAJ6U28\SQLEXPRESS;Initial Catalog=SorteOnline_DB;Integrated Security=True");
+        //}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
