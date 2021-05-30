@@ -7,7 +7,7 @@ namespace Services.Interfaces
     public interface IAgendaServico
     {
         Task<AgendaDTO> Criar(AgendaDTO agendaDTO);
-        Task<AgendaDTO> Atualizar(AgendaDTO agendaDTO);
+        Task<AgendaDTO> Atualizar(AgendaDTO agendaDTO, long id);
         Task Remove(long id);
         Task<AgendaDTO> Obter(long id);
         Task<List<AgendaDTO>> Obter();

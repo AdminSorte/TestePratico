@@ -10,6 +10,16 @@
         "runtime": {
           "lib/net5.0/FluentValidation.dll": {}
         }
+      },
+      "ExceptionsDomain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/ExceptionsDomain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ExceptionsDomain.dll": {}
+        }
       }
     }
   },
@@ -31,10 +41,16 @@
         "lib/netstandard2.1/FluentValidation.dll",
         "lib/netstandard2.1/FluentValidation.xml"
       ]
+    },
+    "ExceptionsDomain/1.0.0": {
+      "type": "project",
+      "path": "../ExceptionsDomain/ExceptionsDomain.csproj",
+      "msbuildProject": "../ExceptionsDomain/ExceptionsDomain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "ExceptionsDomain >= 1.0.0",
       "FluentValidation >= 10.2.0"
     ]
   },
@@ -74,7 +90,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\bebev\\OneDrive\\Área de Trabalho\\TestePratico\\ExceptionsDomain\\ExceptionsDomain.csproj": {
+              "projectPath": "C:\\Users\\bebev\\OneDrive\\Área de Trabalho\\TestePratico\\ExceptionsDomain\\ExceptionsDomain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

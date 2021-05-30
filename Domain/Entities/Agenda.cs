@@ -1,6 +1,8 @@
 ﻿using Domain.Validacoes;
+using ExceptionsDomain.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entities
 {
@@ -55,7 +57,7 @@ namespace Domain.Entities
                 {
                     _errors.Add(error.ErrorMessage);
 
-                    throw new Exception("Alguns campos estão invalidos por favor corrija-os " + _errors[0]); //Refatorar quando  Implenmentar Exceptions Personalizadas
+                    throw new DomainExceptions("Alguns campos estão invalidos por favor corrija-os " , _errors);
                 }
             }
 

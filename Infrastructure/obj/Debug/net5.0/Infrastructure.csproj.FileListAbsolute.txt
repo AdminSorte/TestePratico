@@ -16,3 +16,5 @@ C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Infrastructure\obj\Debug\
 C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
 C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb
 C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Infrastructure\obj\Debug\net5.0\Infrastructure.genruntimeconfig.cache
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Infrastructure\bin\Debug\net5.0\ExceptionsDomain.dll
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Infrastructure\bin\Debug\net5.0\ExceptionsDomain.pdb

@@ -1072,10 +1072,16 @@
       },
       "Domain/1.0.0": {
         "dependencies": {
+          "ExceptionsDomain": "1.0.0",
           "FluentValidation": "10.2.0"
         },
         "runtime": {
           "Domain.dll": {}
+        }
+      },
+      "ExceptionsDomain/1.0.0": {
+        "runtime": {
+          "ExceptionsDomain.dll": {}
         }
       }
     }
@@ -1773,6 +1779,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ExceptionsDomain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

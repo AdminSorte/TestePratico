@@ -11,6 +11,11 @@ namespace Infrastructure.Repositories
     {
         private readonly AgendaContext _context;
 
+        public AgendaRepositorio(AgendaContext context) : base(context)
+        {
+            _context = context;
+        }
+
         public virtual async Task<Agenda> ObterTitulo(string titulo)
         {
             var agenda = await _context.Agendas

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using ExceptionsDomain.Exceptions;
 using Infrastructure.Interfaces;
 using Services.DTO;
 using Services.Interfaces;
@@ -27,7 +28,7 @@ namespace Services.Services
             var agendaExistente = await _agendaRepositorio.ObterTitulo(agendaDTO.Titulo);
 
             if (agendaExistente != null)
-                throw new Exception("Já existe a agenda cadastrada com a descrição curta informada"); // Alterar quando tiver exceptions personalizadas
+                throw new DomainExceptions("Já existe a agenda cadastrada com a descrição curta informada"); 
 
             var agenda = _mapper.Map<Agenda>(agendaDTO);
             agenda.Validar();
@@ -37,12 +38,12 @@ namespace Services.Services
             return _mapper.Map<AgendaDTO>(agendaCriada);
 
         }
-        public async Task<AgendaDTO> Atualizar(AgendaDTO agendaDTO)
+        public async Task<AgendaDTO> Atualizar(AgendaDTO agendaDTO, long id)
         {
-            var agendaExistente = await _agendaRepositorio.ObterTitulo(agendaDTO.Titulo);
+            var agendaExistente = await _agendaRepositorio.Obter(id);
 
-            if (agendaExistente != null)
-                throw new Exception("Já existe a agenda cadastrada com a descrição curta informada"); // Alterar quando tiver exceptions personalizadas
+            if (agendaExistente == null)
+                throw new DomainExceptions("Altere uma agenda com um id Existente"); 
 
             var agenda = _mapper.Map<Agenda>(agendaDTO);
             agenda.Validar();

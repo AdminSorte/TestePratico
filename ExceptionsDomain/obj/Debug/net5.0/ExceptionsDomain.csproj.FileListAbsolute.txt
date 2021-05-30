@@ -1,0 +1,12 @@
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\bin\Debug\net5.0\ExceptionsDomain.deps.json
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\bin\Debug\net5.0\ExceptionsDomain.dll
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\bin\Debug\net5.0\ref\ExceptionsDomain.dll
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\bin\Debug\net5.0\ExceptionsDomain.pdb
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\obj\Debug\net5.0\ExceptionsDomain.csprojAssemblyReference.cache
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\obj\Debug\net5.0\ExceptionsDomain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\obj\Debug\net5.0\ExceptionsDomain.AssemblyInfoInputs.cache
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\obj\Debug\net5.0\ExceptionsDomain.AssemblyInfo.cs
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\obj\Debug\net5.0\ExceptionsDomain.csproj.CoreCompileInputs.cache
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\obj\Debug\net5.0\ExceptionsDomain.dll
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\obj\Debug\net5.0\ref\ExceptionsDomain.dll
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\ExceptionsDomain\obj\Debug\net5.0\ExceptionsDomain.pdb

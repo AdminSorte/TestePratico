@@ -10,3 +10,6 @@ C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Domain\obj\Debug\net5.0\D
 C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Domain\obj\Debug\net5.0\Domain.dll
 C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Domain\obj\Debug\net5.0\ref\Domain.dll
 C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Domain\obj\Debug\net5.0\Domain.pdb
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Domain\bin\Debug\net5.0\ExceptionsDomain.dll
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Domain\bin\Debug\net5.0\ExceptionsDomain.pdb
+C:\Users\bebev\OneDrive\Área de Trabalho\TestePratico\Domain\obj\Debug\net5.0\Domain.csproj.CopyComplete
