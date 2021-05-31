@@ -1,0 +1,4 @@
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.Agenda.Application.csproj.AssemblyReference.cache
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.Agenda.Application.AssemblyInfoInputs.cache
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.Agenda.Application.AssemblyInfo.cs
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.Agenda.Application.csproj.CoreCompileInputs.cache

@@ -1,0 +1,9 @@
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Domain\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.deps.json
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Domain\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.dll
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Domain\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.pdb
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Domain\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.AssemblyInfoInputs.cache
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Domain\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.AssemblyInfo.cs
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Domain\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.csproj.CoreCompileInputs.cache
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Domain\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.dll
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Domain\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.pdb
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Domain\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.csproj.AssemblyReference.cache

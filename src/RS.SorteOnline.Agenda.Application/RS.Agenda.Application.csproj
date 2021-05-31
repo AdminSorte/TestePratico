@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RS.SorteOnline.Agenda.Domain\RS.Agenda.Domain.csproj" />
+    <ProjectReference Include="..\RS.SorteOnline.Agenda.Infra.Data\RS.Agenda.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>

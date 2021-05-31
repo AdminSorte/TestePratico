@@ -1,0 +1,245 @@
+{
+  "format": 1,
+  "restore": {
+    "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Application\\RS.Agenda.Application.csproj": {}
+  },
+  "projects": {
+    "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Application\\RS.Agenda.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Application\\RS.Agenda.Application.csproj",
+        "projectName": "RS.Agenda.Application",
+        "projectPath": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Application\\RS.Agenda.Application.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Domain\\RS.Agenda.Domain.csproj": {
+                "projectPath": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Domain\\RS.Agenda.Domain.csproj"
+              },
+              "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Infra.Data\\RS.Agenda.Infra.Data.csproj": {
+                "projectPath": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Infra.Data\\RS.Agenda.Infra.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.ComponentModel.Primitives": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Domain\\RS.Agenda.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Domain\\RS.Agenda.Domain.csproj",
+        "projectName": "RS.Agenda.Domain",
+        "projectPath": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Domain\\RS.Agenda.Domain.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.2.0, )"
+            },
+            "System.ComponentModel": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Security.Claims": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Infra.Data\\RS.Agenda.Infra.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Infra.Data\\RS.Agenda.Infra.Data.csproj",
+        "projectName": "RS.Agenda.Infra.Data",
+        "projectPath": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Infra.Data\\RS.Agenda.Infra.Data.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Infra.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Domain\\RS.Agenda.Domain.csproj": {
+                "projectPath": "Y:\\DEV\\PROJETOS\\VS\\GITHUB\\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\\TestePratico\\src\\RS.SorteOnline.Agenda.Domain\\RS.Agenda.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Application.deps.json
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Application.dll
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Application.pdb
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.dll
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.dll
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.pdb
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.pdb
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Application.csproj.AssemblyReference.cache
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Application.AssemblyInfoInputs.cache
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Application.AssemblyInfo.cs
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Application.csproj.CoreCompileInputs.cache
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Application.csproj.CopyComplete
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Application.dll
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Application\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Application.pdb

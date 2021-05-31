@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RS.SorteOnline.Agenda.Application\RS.Agenda.Application.csproj" />
+    <ProjectReference Include="..\RS.SorteOnline.Agenda.Domain\RS.Agenda.Domain.csproj" />
+    <ProjectReference Include="..\RS.SorteOnline.Agenda.Infra.Data\RS.Agenda.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>

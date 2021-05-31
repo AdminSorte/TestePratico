@@ -1,0 +1,15 @@
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.deps.json
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.runtimeconfig.json
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.runtimeconfig.dev.json
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.dll
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.pdb
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.dll
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\bin\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Domain.pdb
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.csproj.AssemblyReference.cache
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.AssemblyInfoInputs.cache
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.AssemblyInfo.cs
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.csproj.CoreCompileInputs.cache
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.csproj.CopyComplete
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.dll
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.pdb
+C:\PROJETOS\VS\SorteOnline\RS.SorteOnline.Desafio.MinhaAgendaMinhaVida\src\RS.SorteOnline.Agenda.Infra.Data\obj\Debug\netcoreapp3.1\RS.SorteOnline.Agenda.Infra.Data.genruntimeconfig.cache
