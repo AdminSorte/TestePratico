@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "D/KcWYy69Dj9E//uo87SknFDSQkVcgEpXmmLoJMyM0OQcFu55qT3PhIsm+CJerAIACjfrcuznZSsi7b8tZ9h6Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bebev\\OneDrive\\Área de Trabalho\\TestePratico\\WebAPI\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bebev\\.nuget\\packages\\fluentvalidation\\10.2.0\\fluentvalidation.10.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}
