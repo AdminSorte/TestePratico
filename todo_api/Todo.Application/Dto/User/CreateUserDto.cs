@@ -1,8 +1,7 @@
-namespace Todo.Application.Dto
+namespace Todo.Application.Dto.User
 {
-    public class UserDto
+    public class CreateUserDto
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

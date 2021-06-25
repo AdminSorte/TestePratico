@@ -1,35 +1,168 @@
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Todo.Application.Business.Interface;
-using Todo.Application.Dto;
+using Todo.Application.Constant;
+using Todo.Application.Dto.User;
+using Todo.Application.Repository;
 using Todo.Application.Response;
+using Todo.Application.Secutiry;
+using Todo.Application.Service.Interface;
+using Todo.Domain.Entities;
 
 namespace Todo.Application.Business
 {
     public class UserBusiness : IUserBusiness
     {
-        public async Task<ResponseService> Login(UserDto data)
+        private readonly AppSettings _appSettings;
+        private readonly IUserRepository _userRepository;
+        private readonly IIdentityService _identityService;
+        private readonly ICryptoService _cryptoService;
+
+        public UserBusiness(
+            IOptions<AppSettings> appSettings,
+            IUserRepository userRepository,
+            IIdentityService identityService,
+            ICryptoService cryptoService
+        )
         {
-            throw new System.NotImplementedException();
+            _appSettings = appSettings.Value;
+            _userRepository = userRepository;
+            _identityService = identityService;
+            _cryptoService = cryptoService;
         }
 
-        public async Task<ResponseService> CreateAsync(UserDto data)
+        public async Task<ResponseService> Login(LoginDto data)
         {
-            throw new System.NotImplementedException();
+            try {
+                var user = await _userRepository.FindByEmail(data.Email);
+                
+                if (user != null && _cryptoService.CompareHash(data.Password, user.Password)) {
+                    var token = GenerateJwt(user);
+                    return new ResponseService(token);
+                }
+
+                return new ResponseService(messageError: "Invalid user");
+            }
+            catch(Exception ex) {
+                return new ResponseService(messageError: ex.Message);
+            }
         }
 
-        public async Task<ResponseService> ChangePasswordAsync(UserDto data)
+        public async Task<ResponseService> CreateAsync(CreateUserDto data)
         {
-            throw new System.NotImplementedException();
+            try {
+                var user = new User {
+                    Name = data.Name,
+                    LastName = data.LastName,
+                    Email = data.Email,
+                    CreateAt = DateTime.UtcNow,
+                    Password = _cryptoService.HashPassword(data.Password)
+                };
+
+                var result = await _userRepository.CreateAsync(user);
+
+                return new ResponseService(result);
+            }
+            catch(Exception ex) {
+                return new ResponseService(messageError: ex.Message);
+            }
         }
 
-        public async Task<ResponseService> UpdateAsync(UserDto data)
+        public async Task<ResponseService> UpdateAsync(UpdateUserDto data)
         {
-            throw new System.NotImplementedException();
+            try {
+                var user = await _userRepository.FindById(data.Id);
+
+                if (user != null) {
+                    user.Name = data.Name;
+                    user.LastName = data.LastName;
+
+                    var result = await _userRepository.UpdateAsync(user);
+
+                    return new ResponseService(result);
+                }
+
+                return new ResponseService(messageError: "Invalid user");
+            }
+            catch(Exception ex) {
+                return new ResponseService(messageError: ex.Message);
+            }
+        }
+
+        public async Task<ResponseService> ChangePasswordAsync(ChangePasswordDto data)
+        {
+            try {
+                var user = await _userRepository.FindById(data.Id);
+
+                if (user != null) {
+                    user.Password = _cryptoService.HashPassword(data.Password);
+
+                    var result = await _userRepository.UpdateAsync(user);
+
+                    return new ResponseService(result);
+                }
+
+                return new ResponseService(messageError: "Invalid user");
+            }
+            catch(Exception ex) {
+                return new ResponseService(messageError: ex.Message);
+            }
         }
 
         public async Task<ResponseService> RemoveAsync(int id)
         {
-            throw new System.NotImplementedException();
+            try {
+                 var user = await _userRepository.FindById(id);
+
+                if (user != null) {
+                    var result = await _userRepository.RemoveAsync(id);
+
+                    return new ResponseService(result);
+                }
+
+                return new ResponseService(messageError: "Invalid user");
+            }
+            catch(Exception ex) {
+                return new ResponseService(messageError: ex.Message);
+            }
+        }
+
+        private object GenerateJwt(User user)
+        {
+            var claims = new List<Claim>();
+
+            claims.Add(new Claim(ClaimConstant.USER_ID, user.Id.ToString()));
+            claims.Add(new Claim(ClaimConstant.EMAIL, user.Email));
+
+            var identityClaims = new ClaimsIdentity();
+            identityClaims.AddClaims(claims);
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            var expireDate = DateTime.UtcNow.AddHours(_appSettings.Expiration);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = identityClaims,
+                Issuer = _appSettings.Issuer,
+                Audience = _appSettings.Audience,
+                Expires = expireDate,
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            return new {
+                token = tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor)),
+                user = new {
+                    user.Email,
+                    user.Name
+                },
+                expireDate
+            };
         }
     }
 }

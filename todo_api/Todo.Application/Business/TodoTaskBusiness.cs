@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Todo.Application.Business.Interface;
-using Todo.Application.Dto;
+using Todo.Application.Dto.TodoTask;
 using Todo.Application.Response;
 
 namespace Todo.Application.Business

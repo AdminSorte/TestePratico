@@ -2,7 +2,7 @@ namespace Todo.Application.Service.Interface
 {
     public interface IIdentityService
     {
-        long GetUserIdentity();
+        int GetUserIdentity();
         string GetUserEmail();
     }
 }

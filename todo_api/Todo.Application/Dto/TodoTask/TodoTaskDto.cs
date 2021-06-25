@@ -1,4 +1,4 @@
-namespace Todo.Application.Dto
+namespace Todo.Application.Dto.TodoTask
 {
     public class TodoTaskDto
     {
