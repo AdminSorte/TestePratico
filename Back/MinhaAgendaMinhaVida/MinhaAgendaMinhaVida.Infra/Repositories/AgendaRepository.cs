@@ -53,5 +53,23 @@ namespace MinhaAgendaMinhaVida.Infra.Repositories
                 throw;
             }
         }
+
+        public bool Edit(Agenda model)
+        {
+            BeginTransaction();
+            try
+            {
+                _conn.Execute(QueryEdit.NormalizeWhiteSpaces(), model, _trans);
+
+                Commit();
+
+                return true;
+            }
+            catch
+            {
+                RollBack();
+                throw;
+            }
+        }
     }
 }

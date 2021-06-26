@@ -23,5 +23,8 @@ namespace MinhaAgendaMinhaVida.Api.Controllers
 
         [HttpDelete("v1/[controller]/delete/{id}")]
         public IActionResult Delete(int id) => BaseResponse(_agendaService.Delete(id));
+
+        [HttpPut("v1/[controller]/edit")]
+        public IActionResult Edit(UpdateAgendaCommand command) => BaseResponse(_agendaService.Edit(command));
     }
 }

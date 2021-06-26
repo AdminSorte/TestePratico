@@ -51,5 +51,14 @@ namespace MinhaAgendaMinhaVida.Service.Services
         }
 
         public bool Delete(int id) => _agendaRepository.Delete(id);
+
+        public bool Edit(UpdateAgendaCommand command)
+        {
+            Validate(command, new UpdateAgendaValidator());
+
+            var model = _mapper.Map<Agenda>(command);
+
+            return _agendaRepository.Edit(model);
+        }
     }
 }

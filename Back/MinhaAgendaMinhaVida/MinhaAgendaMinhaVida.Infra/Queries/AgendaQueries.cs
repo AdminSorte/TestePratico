@@ -54,5 +54,19 @@
         private const string QueryDelete = @"DELETE FROM Agenda WHERE Id = @Id;";
 
         #endregion
+
+        #region QueryEdit
+
+        private const string QueryEdit = @"
+            UPDATE
+                Agenda
+            SET
+                Titulo = @Titulo,
+                Descricao = @Descricao,
+                [Data] = @Data
+            WHERE
+                Id = @Id;";
+
+        #endregion
     }
 }

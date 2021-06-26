@@ -9,6 +9,7 @@ namespace MinhaAgendaMinhaVida.Domain.AutoMapper
         public CommandToDomainMappingProfile()
         {
             CreateMap<InsertAgendaCommand, Agenda>();
+            CreateMap<UpdateAgendaCommand, Agenda>();
         }
     }
 }

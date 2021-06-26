@@ -13,5 +13,7 @@ namespace MinhaAgendaMinhaVida.Domain.Interfaces.Service
         AgendaViewModel View(int id);
 
         bool Delete(int id);
+
+        bool Edit(UpdateAgendaCommand command);
     }
 }
