@@ -48,7 +48,7 @@ namespace Todo.Application.Business
                 var todoTask = new TodoTask {
                     Title = data.Title,
                     Description = data.Description,
-                    User = new User(_identityService.GetUserIdentity())
+                    UserId = _identityService.GetUserIdentity()
                 };
 
                 var result = await _todoTaskRepository.CreateAsync(todoTask);

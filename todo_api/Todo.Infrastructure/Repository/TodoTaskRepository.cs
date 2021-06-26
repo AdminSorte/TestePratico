@@ -5,6 +5,8 @@ using Todo.Domain.Entities;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Linq;
 
 namespace Todo.Infrastructure.Repository
 {
@@ -17,29 +19,63 @@ namespace Todo.Infrastructure.Repository
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-        public Task<TodoTask> GetById(int id)
+        public async Task<TodoTask> GetById(int id)
         {
-            throw new System.NotImplementedException();
+            var parameters = new DynamicParameters();
+            parameters.Add("@Id", id, DbType.Int32, ParameterDirection.Input);
+
+            using (var connection = new SqlConnection(_connectionString)) {
+                var result = await connection.QuerySingleAsync<TodoTask>("SP_FIND_TODO_TASK_BY_ID", parameters, commandType: CommandType.StoredProcedure);
+                return result;
+            }
         }
 
-        public Task<List<TodoTask>> GetAllAsync(int userId)
+        public async Task<List<TodoTask>> GetAllAsync(int userId)
         {
-            throw new System.NotImplementedException();
+            var parameters = new DynamicParameters();
+            parameters.Add("@UserId", userId, DbType.Int32, ParameterDirection.Input);
+
+            using (var connection = new SqlConnection(_connectionString)) {
+                var result = await connection.QueryAsync<TodoTask>("SP_FIND_TODO_TASK_BY_USER", parameters, commandType: CommandType.StoredProcedure);
+                return result.ToList();
+            }
         }
 
-        public Task<int> CreateAsync(TodoTask data)
+        public async Task<int> CreateAsync(TodoTask data)
         {
-            throw new System.NotImplementedException();
+            var parameters = new DynamicParameters();
+            parameters.Add("@Title", data.Title, DbType.String, ParameterDirection.Input, 30);
+            parameters.Add("@Description", data.Description, DbType.String, ParameterDirection.Input, 200);
+            parameters.Add("@UserId", data.UserId, DbType.Int32, ParameterDirection.Input);
+
+            using (var connection = new SqlConnection(_connectionString)) {
+                var result = await connection.QuerySingleAsync<int>("SP_CREATE_TODO_TASK", parameters, commandType: CommandType.StoredProcedure);
+                return result;
+            }
         }
 
-        public Task<bool> UpdateAsync(TodoTask data)
+        public async Task<bool> UpdateAsync(TodoTask data)
         {
-            throw new System.NotImplementedException();
+            var parameters = new DynamicParameters();
+            parameters.Add("@Id", data.Id, DbType.Int32, ParameterDirection.Input);
+            parameters.Add("@Title", data.Title, DbType.String, ParameterDirection.Input, 30);
+            parameters.Add("@Description", data.Description, DbType.String, ParameterDirection.Input, 200);
+            
+            using (var connection = new SqlConnection(_connectionString)) {
+                var result = await connection.ExecuteAsync("SP_UPDATE_TODO_TASK", parameters, commandType: CommandType.StoredProcedure);
+                return result > 0;
+            }
         }
 
-        public Task<bool> RemoveAsync(int id)
+        public async Task<bool> RemoveAsync(int id)
         {
-            throw new System.NotImplementedException();
+            var parameters = new DynamicParameters();
+            parameters.Add("@Id", id, DbType.Int32, ParameterDirection.Input);
+            
+            using (var connection = new SqlConnection(_connectionString)) {
+                var result = await connection.ExecuteAsync("SP_REMOVE_TODO_TASK", parameters, commandType: CommandType.StoredProcedure);
+                return result > 0;
+            }
         }
     }
 }
