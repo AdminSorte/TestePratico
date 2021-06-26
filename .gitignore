@@ -18,3 +18,17 @@
 /Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Service/obj
 /Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Test/bin/Debug/net5.0
 /Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Test/obj
+/MinhaAgendaMinhaVida.Api/bin/Debug/net5.0
+/MinhaAgendaMinhaVida.Api/obj
+/MinhaAgendaMinhaVida.CrossCutting/bin/Debug/net5.0
+/MinhaAgendaMinhaVida.CrossCutting/obj
+/MinhaAgendaMinhaVida.Domain/bin/Debug/net5.0
+/MinhaAgendaMinhaVida.Domain/obj
+/MinhaAgendaMinhaVida.Infra/bin/Debug/net5.0
+/MinhaAgendaMinhaVida.Infra/obj
+/MinhaAgendaMinhaVida.IoC/bin/Debug/net5.0
+/MinhaAgendaMinhaVida.IoC/obj
+/MinhaAgendaMinhaVida.Service/bin/Debug/net5.0
+/MinhaAgendaMinhaVida.Service/obj
+/MinhaAgendaMinhaVida.Test/bin
+/MinhaAgendaMinhaVida.Test/obj
