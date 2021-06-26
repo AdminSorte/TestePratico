@@ -18,5 +18,23 @@ namespace MinhaAgendaMinhaVida.Infra.Repositories
         {
             return _conn.Query<Agenda>(QueryListByFilters.NormalizeWhiteSpaces(), filter);
         }
+
+        public int Add(Agenda model)
+        {
+            BeginTransaction();
+            try
+            {
+                var id = _conn.ExecuteScalar<int>(QueryAdd.NormalizeWhiteSpaces(), model, _trans);
+
+                Commit();
+
+                return id;
+            }
+            catch
+            {
+                RollBack();
+                throw;
+            }
+        }
     }
 }

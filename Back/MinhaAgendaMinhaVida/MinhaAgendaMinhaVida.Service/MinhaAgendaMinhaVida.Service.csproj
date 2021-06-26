@@ -13,8 +13,4 @@
     <ProjectReference Include="..\MinhaAgendaMinhaVida.Domain\MinhaAgendaMinhaVida.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Validators\Agenda\" />
-  </ItemGroup>
-
 </Project>

@@ -8,7 +8,9 @@ using MinhaAgendaMinhaVida.Domain.Commands.Agenda;
 using MinhaAgendaMinhaVida.Domain.Filter;
 using MinhaAgendaMinhaVida.Domain.Interfaces.Infra;
 using MinhaAgendaMinhaVida.Domain.Interfaces.Service;
+using MinhaAgendaMinhaVida.Domain.Model;
 using MinhaAgendaMinhaVida.Domain.ViewModel;
+using MinhaAgendaMinhaVida.Service.Validators.Agenda;
 
 namespace MinhaAgendaMinhaVida.Service.Services
 {
@@ -31,6 +33,15 @@ namespace MinhaAgendaMinhaVida.Service.Services
             var model = _agendaRepository.List(filter);
             var viewModel = _mapper.Map<IEnumerable<AgendaViewModel>>(model);
             return viewModel;
+        }
+
+        public int Add(InsertAgendaCommand command)
+        {
+            Validate(command, new InsertAgendaValidator());
+
+            var model = _mapper.Map<Agenda>(command);
+
+            return _agendaRepository.Add(model);
         }
     }
 }
