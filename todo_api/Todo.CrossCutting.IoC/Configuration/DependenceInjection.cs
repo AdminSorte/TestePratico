@@ -14,10 +14,11 @@ namespace Todo.CrossCutting.IoC.Configuration
         {
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<ITodoTaskRepository, TodoTaskRepository>();
-            services.AddScoped<IIdentityService, IdentityService>();
+            
             services.AddScoped<ICryptoService, CryptoService>();
             services.AddScoped<IUserBusiness, UserBusiness>();
             services.AddScoped<ITodoTaskBusiness, TodoTaskBusiness>();
+            services.AddScoped<IIdentityService, IdentityService>();
         }
     }
 }

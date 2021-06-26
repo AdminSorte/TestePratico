@@ -47,26 +47,32 @@ namespace Todo.Application.Business
                     return new ResponseService(token);
                 }
 
-                return new ResponseService(messageError: "Invalid user");
+                return new ResponseService(messageError: "Incorrect username or password");
             }
-            catch(Exception ex) {
-                return new ResponseService(messageError: ex.Message);
+            catch {
+                return new ResponseService(messageError: "Invalid user");
             }
         }
 
         public async Task<ResponseService> CreateAsync(CreateUserDto data)
         {
             try {
-                var user = new User {
-                    Name = data.Name,
-                    LastName = data.LastName,
-                    Email = data.Email,
-                    Password = _cryptoService.HashPassword(data.Password)
-                };
+                var userExists = (await _userRepository.FindByEmail(data.Email)) != null;
 
-                var result = await _userRepository.CreateAsync(user);
+                if (!userExists) {
+                    var user = new User {
+                        Name = data.Name,
+                        LastName = data.LastName,
+                        Email = data.Email,
+                        Password = _cryptoService.HashPassword(data.Password)
+                    };
 
-                return new ResponseService(result);
+                    var result = await _userRepository.CreateAsync(user);
+
+                    return new ResponseService(result);
+                }
+
+                return new ResponseService(messageError: "User already exists");
             }
             catch(Exception ex) {
                 return new ResponseService(messageError: ex.Message);
@@ -76,7 +82,7 @@ namespace Todo.Application.Business
         public async Task<ResponseService> UpdateAsync(UpdateUserDto data)
         {
             try {
-                var user = await _userRepository.FindById(data.Id);
+                var user = await _userRepository.FindById(_identityService.GetUserIdentity());
 
                 if (user != null) {
                     user.Name = data.Name;
@@ -97,12 +103,12 @@ namespace Todo.Application.Business
         public async Task<ResponseService> ChangePasswordAsync(ChangePasswordDto data)
         {
             try {
-                var user = await _userRepository.FindById(data.Id);
+                var user = await _userRepository.FindById(_identityService.GetUserIdentity());
 
                 if (user != null) {
                     user.Password = _cryptoService.HashPassword(data.Password);
 
-                    var result = await _userRepository.UpdateAsync(user);
+                    var result = await _userRepository.ChangePasswordAsync(user);
 
                     return new ResponseService(result);
                 }
@@ -114,13 +120,13 @@ namespace Todo.Application.Business
             }
         }
 
-        public async Task<ResponseService> RemoveAsync(int id)
+        public async Task<ResponseService> RemoveAsync()
         {
             try {
-                 var user = await _userRepository.FindById(id);
+                 var user = await _userRepository.FindById(_identityService.GetUserIdentity());
 
                 if (user != null) {
-                    var result = await _userRepository.RemoveAsync(id);
+                    var result = await _userRepository.RemoveAsync(_identityService.GetUserIdentity());
 
                     return new ResponseService(result);
                 }

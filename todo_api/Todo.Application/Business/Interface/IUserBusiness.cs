@@ -10,6 +10,6 @@ namespace Todo.Application.Business.Interface
         Task<ResponseService> CreateAsync(CreateUserDto data);
         Task<ResponseService> UpdateAsync(UpdateUserDto data);
         Task<ResponseService> ChangePasswordAsync(ChangePasswordDto data);
-        Task<ResponseService> RemoveAsync(int id);
+        Task<ResponseService> RemoveAsync();
     }
 }
