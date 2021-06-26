@@ -27,6 +27,7 @@ namespace Todo.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Todo.Api", Version = "v1" });
             });
 
+            services.AddHttpContextAccessor();
             services.ConfigureDependencies();
             services.ConfigureCors();
             services.ConfigureJwt(Configuration);
