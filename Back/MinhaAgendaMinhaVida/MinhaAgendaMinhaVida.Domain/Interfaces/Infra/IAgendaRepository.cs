@@ -9,5 +9,7 @@ namespace MinhaAgendaMinhaVida.Domain.Interfaces.Infra
         IEnumerable<Agenda> List(SelectAgendaFilter filter);
 
         int Add(Agenda model);
+
+        Agenda View(int id);
     }
 }

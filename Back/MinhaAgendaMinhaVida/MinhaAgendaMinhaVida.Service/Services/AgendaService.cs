@@ -43,5 +43,11 @@ namespace MinhaAgendaMinhaVida.Service.Services
 
             return _agendaRepository.Add(model);
         }
+
+        public AgendaViewModel View(int id)
+        {
+            var model = _agendaRepository.View(id);
+            return _mapper.Map<AgendaViewModel>(model);
+        }
     }
 }

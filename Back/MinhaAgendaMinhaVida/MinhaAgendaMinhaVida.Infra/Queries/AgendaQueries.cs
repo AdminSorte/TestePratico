@@ -33,5 +33,20 @@
                 );";
 
         #endregion
+
+        #region QueryView
+
+        private const string QueryView = @"
+            SELECT
+                a.Id,
+                a.Titulo,
+                a.Descricao,
+                a.Data
+            FROM
+                Agenda a WITH (NOLOCK)
+            WHERE
+                a.Id = @Id;";
+
+        #endregion
     }
 }

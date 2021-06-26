@@ -14,10 +14,7 @@ namespace MinhaAgendaMinhaVida.Infra.Repositories
         {
         }
 
-        public IEnumerable<Agenda> List(SelectAgendaFilter filter)
-        {
-            return _conn.Query<Agenda>(QueryListByFilters.NormalizeWhiteSpaces(), filter);
-        }
+        public IEnumerable<Agenda> List(SelectAgendaFilter filter) => _conn.Query<Agenda>(QueryListByFilters.NormalizeWhiteSpaces(), filter);
 
         public int Add(Agenda model)
         {
@@ -36,5 +33,7 @@ namespace MinhaAgendaMinhaVida.Infra.Repositories
                 throw;
             }
         }
+
+        public Agenda View(int id) => _conn.QuerySingle<Agenda>(QueryView.NormalizeWhiteSpaces(), new { Id = id });
     }
 }

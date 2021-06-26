@@ -15,7 +15,10 @@ namespace MinhaAgendaMinhaVida.Api.Controllers
         [HttpPost("v1/[controller]/list")]
         public IActionResult List(SelectAgendaCommand command) => BaseResponse(_agendaService.List(command));
 
-        [HttpPost("vi/[controller]/add")]
+        [HttpPost("v1/[controller]/add")]
         public IActionResult Add(InsertAgendaCommand command) => BaseResponse(_agendaService.Add(command));
+
+        [HttpGet("v1/[controller]/view/{id}")]
+        public IActionResult View(int id) => BaseResponse(_agendaService.View(id));
     }
 }

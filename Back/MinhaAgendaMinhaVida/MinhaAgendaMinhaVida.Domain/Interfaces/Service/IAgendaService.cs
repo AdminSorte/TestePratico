@@ -8,5 +8,6 @@ namespace MinhaAgendaMinhaVida.Domain.Interfaces.Service
     {
         IEnumerable<AgendaViewModel> List(SelectAgendaCommand command);
         int Add(InsertAgendaCommand command);
+        AgendaViewModel View(int id);
     }
 }
