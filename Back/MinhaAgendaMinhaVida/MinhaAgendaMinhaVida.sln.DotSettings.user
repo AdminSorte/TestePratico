@@ -1,0 +1,8 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=651bc8fe_002D73a5_002D478e_002D93b4_002D6b5f2d1b9f1a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="RetornarLista" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::D5CB81B7-B70C-4EC3-81C5-550047388B22::net5.0::MinhaAgendaMinhaVida.Test.AgendaTest.RetornarLista&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D5CB81B7-B70C-4EC3-81C5-550047388B22::net5.0::MinhaAgendaMinhaVida.Test.AgendaTest.RetornarAgenda&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D5CB81B7-B70C-4EC3-81C5-550047388B22::net5.0::MinhaAgendaMinhaVida.Test.AgendaTest.CriarAgenda&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
