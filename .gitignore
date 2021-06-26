@@ -3,3 +3,18 @@
 ################################################################################
 
 /.vs
+/Back/MinhaAgendaMinhaVida/.vs/MinhaAgendaMinhaVida
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Api/bin/Debug/net5.0
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Api/obj
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.CrossCutting/bin/Debug/net5.0
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.CrossCutting/obj
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Domain/bin/Debug/net5.0
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Domain/obj
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Infra/bin/Debug/net5.0
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Infra/obj
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.IoC/bin/Debug/net5.0
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.IoC/obj
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Service/bin/Debug/net5.0
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Service/obj
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Test/bin/Debug/net5.0
+/Back/MinhaAgendaMinhaVida/MinhaAgendaMinhaVida.Test/obj
