@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Domain", "Todo.Domain\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Infrastructure", "Todo.Infrastructure\Todo.Infrastructure.csproj", "{DC840A39-D647-47DC-AE6F-11AFBB4E265B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.CrossCutting.IoC", "Todo.CrossCutting.IoC\Todo.CrossCutting.IoC.csproj", "{8CC255A6-D702-43A8-96ED-60183FF3142E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{DC840A39-D647-47DC-AE6F-11AFBB4E265B}.Release|x64.Build.0 = Release|Any CPU
 		{DC840A39-D647-47DC-AE6F-11AFBB4E265B}.Release|x86.ActiveCfg = Release|Any CPU
 		{DC840A39-D647-47DC-AE6F-11AFBB4E265B}.Release|x86.Build.0 = Release|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Debug|x64.Build.0 = Debug|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Debug|x86.Build.0 = Debug|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Release|x64.ActiveCfg = Release|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Release|x64.Build.0 = Release|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Release|x86.ActiveCfg = Release|Any CPU
+		{8CC255A6-D702-43A8-96ED-60183FF3142E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

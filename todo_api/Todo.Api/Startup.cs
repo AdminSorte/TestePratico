@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Todo.Api.Configuration;
+using Todo.CrossCutting.IoC.Configuration;
 
 namespace Todo.Api
 {
@@ -31,6 +26,10 @@ namespace Todo.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Todo.Api", Version = "v1" });
             });
+
+            services.ConfigureDependencies();
+            services.ConfigureCors();
+            services.ConfigureJwt(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -46,7 +45,10 @@ namespace Todo.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCors("CorsPolicy");
 
             app.UseEndpoints(endpoints =>
             {
