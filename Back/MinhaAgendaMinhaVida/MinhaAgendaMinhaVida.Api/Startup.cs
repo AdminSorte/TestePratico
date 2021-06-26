@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using MinhaAgendaMinhaVida.Api.Middleware;
 using MinhaAgendaMinhaVida.CrossCutting;
 using MinhaAgendaMinhaVida.Domain.AutoMapper;
 using MinhaAgendaMinhaVida.IoC;
@@ -54,6 +55,8 @@ namespace MinhaAgendaMinhaVida.Api
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+            app.UseResponseExceptionHandler();
         }
     }
 }
