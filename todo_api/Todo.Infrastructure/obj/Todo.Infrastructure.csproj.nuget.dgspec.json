@@ -4,14 +4,78 @@
     "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Infrastructure\\Todo.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Infrastructure\\Todo.Infrastructure.csproj": {
+    "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Application\\Todo.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Infrastructure\\Todo.Infrastructure.csproj",
-        "projectName": "Todo.Infrastructure",
-        "projectPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Infrastructure\\Todo.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Application\\Todo.Application.csproj",
+        "projectName": "Todo.Application",
+        "projectPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Application\\Todo.Application.csproj",
         "packagesPath": "C:\\Users\\gdan4\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Infrastructure\\obj\\",
+        "outputPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gdan4\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Domain\\Todo.Domain.csproj": {
+                "projectPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Domain\\Todo.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Domain\\Todo.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Domain\\Todo.Domain.csproj",
+        "projectName": "Todo.Domain",
+        "projectPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Domain\\Todo.Domain.csproj",
+        "packagesPath": "C:\\Users\\gdan4\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gdan4\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +103,81 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Infrastructure\\Todo.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Infrastructure\\Todo.Infrastructure.csproj",
+        "projectName": "Todo.Infrastructure",
+        "projectPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Infrastructure\\Todo.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\gdan4\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gdan4\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Application\\Todo.Application.csproj": {
+                "projectPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Application\\Todo.Application.csproj"
+              },
+              "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Domain\\Todo.Domain.csproj": {
+                "projectPath": "D:\\Projects\\MyProjects\\TestePratico\\todo_api\\Todo.Domain\\Todo.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.90, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
