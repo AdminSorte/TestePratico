@@ -11,5 +11,7 @@ namespace MinhaAgendaMinhaVida.Domain.Interfaces.Infra
         int Add(Agenda model);
 
         Agenda View(int id);
+
+        bool Delete(int id);
     }
 }

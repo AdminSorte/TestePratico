@@ -48,5 +48,11 @@
                 a.Id = @Id;";
 
         #endregion
+
+        #region QueryDelete
+
+        private const string QueryDelete = @"DELETE FROM Agenda WHERE Id = @Id;";
+
+        #endregion
     }
 }

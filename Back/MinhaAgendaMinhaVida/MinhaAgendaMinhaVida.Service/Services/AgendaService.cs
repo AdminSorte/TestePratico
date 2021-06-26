@@ -49,5 +49,7 @@ namespace MinhaAgendaMinhaVida.Service.Services
             var model = _agendaRepository.View(id);
             return _mapper.Map<AgendaViewModel>(model);
         }
+
+        public bool Delete(int id) => _agendaRepository.Delete(id);
     }
 }

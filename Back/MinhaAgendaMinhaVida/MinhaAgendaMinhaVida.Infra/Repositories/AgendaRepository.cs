@@ -35,5 +35,23 @@ namespace MinhaAgendaMinhaVida.Infra.Repositories
         }
 
         public Agenda View(int id) => _conn.QuerySingle<Agenda>(QueryView.NormalizeWhiteSpaces(), new { Id = id });
+
+        public bool Delete(int id)
+        {
+            BeginTransaction();
+            try
+            {
+                _conn.Execute(QueryDelete.NormalizeWhiteSpaces(), new { Id = id }, _trans);
+
+                Commit();
+
+                return true;
+            }
+            catch
+            {
+                RollBack();
+                throw;
+            }
+        }
     }
 }

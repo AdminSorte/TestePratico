@@ -20,5 +20,8 @@ namespace MinhaAgendaMinhaVida.Api.Controllers
 
         [HttpGet("v1/[controller]/view/{id}")]
         public IActionResult View(int id) => BaseResponse(_agendaService.View(id));
+
+        [HttpDelete("v1/[controller]/delete/{id}")]
+        public IActionResult Delete(int id) => BaseResponse(_agendaService.Delete(id));
     }
 }
