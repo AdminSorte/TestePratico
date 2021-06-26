@@ -7,8 +7,8 @@ namespace Todo.Application.Business.Interface
     public interface ITodoTaskBusiness
     {
          Task<ResponseService> GetAllAsync(int userId);
-        Task<ResponseService> CreateAsync(TodoTaskDto data);
-        Task<ResponseService> UpdateAsync(TodoTaskDto data);
+        Task<ResponseService> CreateAsync(CreateTodoTaskDto data);
+        Task<ResponseService> UpdateAsync(UpdateTodoTaskDto data);
         Task<ResponseService> RemoveAsync(int id);
     }
 }

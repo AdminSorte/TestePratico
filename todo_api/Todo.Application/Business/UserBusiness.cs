@@ -61,7 +61,6 @@ namespace Todo.Application.Business
                     Name = data.Name,
                     LastName = data.LastName,
                     Email = data.Email,
-                    CreateAt = DateTime.UtcNow,
                     Password = _cryptoService.HashPassword(data.Password)
                 };
 
