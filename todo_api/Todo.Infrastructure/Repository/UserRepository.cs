@@ -1,4 +1,5 @@
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.SqlClient;
@@ -23,8 +24,8 @@ namespace Todo.Infrastructure.Repository
             parameters.Add("@Id", id, DbType.Int32, ParameterDirection.Input);
 
             using (var connection = new SqlConnection(_connectionString)) {
-                var result = await connection.QuerySingleAsync<User>("SP_FIND_USER_BY_ID", parameters, commandType: CommandType.StoredProcedure);
-                return result;
+                var result = await connection.QueryAsync<User>("SP_FIND_USER_BY_ID", parameters, commandType: CommandType.StoredProcedure);
+                return result.Count() > 0 ? result.First() : null;
             }
         }
 
@@ -34,8 +35,8 @@ namespace Todo.Infrastructure.Repository
             parameters.Add("@Email", email, DbType.String, ParameterDirection.Input, 100);
 
             using (var connection = new SqlConnection(_connectionString)) {
-                var result = await connection.QuerySingleAsync<User>("SP_FIND_USER_BY_EMAIL", parameters, commandType: CommandType.StoredProcedure);
-                return result;
+                var result = await connection.QueryAsync<User>("SP_FIND_USER_BY_EMAIL", parameters, commandType: CommandType.StoredProcedure);
+                return result.Count() > 0 ? result.First() : null;
             }
         }
 
