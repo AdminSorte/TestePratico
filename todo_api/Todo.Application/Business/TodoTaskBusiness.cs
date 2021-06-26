@@ -24,7 +24,7 @@ namespace Todo.Application.Business
             _identityService = identityService;
         }
 
-        public async Task<ResponseService> GetAllAsync(int userId)
+        public async Task<ResponseService> GetAllAsync()
         {
             try {
                 var result = await _todoTaskRepository.GetAllAsync(_identityService.GetUserIdentity());
