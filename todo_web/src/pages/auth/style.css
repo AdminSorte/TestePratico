@@ -1,0 +1,64 @@
+html, body, #root {
+    height: 100% !important;
+    background-color: rgb(230,230,230);
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.content-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 23%;
+    background-color: white;
+    flex-direction: column;
+}
+
+.content-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+}
+
+.sized-box {
+    height: 15px;
+}
+.sized-box-2 {
+    height: 20px;
+}
+
+a {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+@media (max-width: 1600px) {
+    .content-actions {
+        width: 30%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .content-actions {
+        width: 35%;
+    }
+}
+
+@media (max-width: 900px) {
+    .content-actions {
+        width: 45%;
+    }
+}
+
+@media (max-width: 700px) {
+    .content-actions {
+        width: 80%;
+    }
+}

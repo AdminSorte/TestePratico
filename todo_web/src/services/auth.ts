@@ -33,28 +33,3 @@ export const login = (token: string, expiration: string) => {
 export const logout = () => {
     localStorage.removeItem(TOKEN_KEY);
 }
-
-export interface Auth {
-    login: string;
-    password: string;
-}
-
-export const  setAuth = (auth: Auth) => {
-    const authJson: string = JSON.stringify(auth);
-    localStorage.setItem(AUTH, authJson);
-}
-
-export const getAuth = (): Auth | null => {
-    const authJson: any = localStorage.getItem(AUTH) as string;
-
-    if (authJson !== null && authJson.trim() !== '') {
-        const auth: Auth = JSON.parse(authJson);
-        return auth;
-    }
-
-    return null;
-}
-
-export const removeAuth = () => {
-    localStorage.removeItem(AUTH);
-}

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Auth } from './pages/auth/auth.page';
+import { Auth } from './pages/auth';
 import { Todo } from './pages/todo/todo.page';
 import { Provider } from 'react-redux';
 import store from './store';
