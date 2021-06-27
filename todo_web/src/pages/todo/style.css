@@ -1,0 +1,35 @@
+html, body, #root {
+    height: 100% !important;
+    background-color: rgb(245,245,245);
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 100%;
+    flex-direction: column;
+}
+
+.content-table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.floating-position {
+    left: 26%;
+}
+
+.logout-content {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.title-page-content {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}

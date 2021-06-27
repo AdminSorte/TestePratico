@@ -42,7 +42,7 @@ export function Auth() {
   );
 
   return (
-    <div className="content">
+    <div className="content-login">
       {
         userState.authenticated && isAuthenticated() ? <Redirect to="/todo" /> : null
       }

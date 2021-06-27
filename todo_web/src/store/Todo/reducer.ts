@@ -18,22 +18,16 @@ const reducer: Reducer<TodoState> = (state = initialState, action) => {
 
         case TodoActionTypes.CreateFailure:
             return { ...state, data: undefined, loading: false, fail: true};
-        case TodoActionTypes.CreateSuccess:
-            return { ...state, data: action.payload, loading: false, fail: false};
         case TodoActionTypes.CreateRequest:
             return { ...state, data: undefined, loading: true, fail: false};
 
         case TodoActionTypes.UpdateFailure:
             return { ...state, data: undefined, loading: false, fail: true};
-        case TodoActionTypes.UpdateSuccess:
-            return { ...state, data: action.payload, loading: false, fail: false};
         case TodoActionTypes.UpdateRequest:
             return { ...state, data: undefined, loading: true, fail: false};
 
         case TodoActionTypes.RemoveFailure:
             return { ...state, data: undefined, loading: false, fail: true};
-        case TodoActionTypes.RemoveSuccess:
-            return { ...state, data: action.payload, loading: false, fail: false};
         case TodoActionTypes.RemoveRequest:
             return { ...state, data: undefined, loading: true, fail: false};
         

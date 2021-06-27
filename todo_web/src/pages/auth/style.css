@@ -3,7 +3,7 @@ html, body, #root {
     background-color: rgb(230,230,230);
 }
 
-.content {
+.content-login {
     display: flex;
     align-items: center;
     justify-content: center;

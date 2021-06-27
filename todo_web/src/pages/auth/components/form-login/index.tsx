@@ -25,7 +25,7 @@ export function FormLogin(props: StateProps) {
     event.preventDefault();
 
     let valid: boolean = true;
-    const expEmail: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const expEmail: RegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
     if (!email || email.length < 9 || !expEmail.test(email)) {
       setEmailError(true);
@@ -86,7 +86,7 @@ export function FormLogin(props: StateProps) {
       <div>
         <div className="sized-box-2"></div>
         <a 
-          href="#"
+          href="/#"
           onClick={props.handleFormRegister}>
           Não tem uma conta? Cria uma agora
         </a>

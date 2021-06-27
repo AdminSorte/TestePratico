@@ -3,6 +3,18 @@ import api from './../../services/api';
 import { AnyAction } from 'redux'
 import { Todo, TodoActionTypes } from './types';
 
+export function * loadTodo(): any {
+    try {
+        let response = yield call(api.get, '/todotask');
+
+        if (response.data.success) yield put({ type: TodoActionTypes.LoadSuccess, payload: response.data.data });
+        else yield put({ type: TodoActionTypes.LoadFailure });
+    }
+    catch (error: any) {
+        yield put({ type: TodoActionTypes.LoadFailure });
+    }
+}
+
 export function * createTodo(action: AnyAction): any {
     try {
         const todo: Todo = action.payload;
@@ -12,7 +24,7 @@ export function * createTodo(action: AnyAction): any {
             description: todo.description
         });
 
-        if (response.data.success) yield put({ type: TodoActionTypes.CreateSuccess, payload: response.data.data });
+        if (response.data.success) yield loadTodo();
         else yield put({ type: TodoActionTypes.CreateFailure });
     }
     catch (error: any) {
@@ -30,7 +42,7 @@ export function * updateTodo(action: AnyAction): any {
             description: todo.description
         });
 
-        if (response.data.success) yield put({ type: TodoActionTypes.UpdateSuccess, payload: response.data.data });
+        if (response.data.success) yield loadTodo();
         else yield put({ type: TodoActionTypes.UpdateFailure });
     }
     catch (error: any) {
@@ -40,11 +52,13 @@ export function * updateTodo(action: AnyAction): any {
 
 export function * removeTodo(action: AnyAction): any {
     try {
-        const todo: Todo = action.payload;
+        let response = yield call(api.delete, '/todotask', {
+            params: {
+                id: action.payload
+            }
+        });
 
-        let response = yield call(api.post, `/todotask?id=${todo.id}`);
-
-        if (response.data.success) yield put({ type: TodoActionTypes.RemoveFailure, payload: response.data.data });
+        if (response.data.success) yield loadTodo();
         else yield put({ type: TodoActionTypes.RemoveFailure });
     }
     catch (error: any) {

@@ -35,7 +35,7 @@ export function FormRegister(props: StateProps) {
     event.preventDefault();
 
     let valid = true;
-    const expEmail: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const expEmail: RegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!email || email.length < 9 || !expEmail.test(email)) {
       setEmailError(true);
@@ -141,7 +141,7 @@ export function FormRegister(props: StateProps) {
       </div>
       <div>
         <a 
-          href="#"
+          href="/#"
           onClick={props.handleFormRegister}>
           Voltar
         </a>

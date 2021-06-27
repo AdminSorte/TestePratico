@@ -8,7 +8,9 @@ export interface StateProps {
   onChange(event: any): void;
   hasError?: boolean;
   errorText?: string;
-  type?: string
+  type?: string;
+  multiline?: boolean;
+  rows?: number;
 }
 
 export function CustomInput(props: StateProps) {
@@ -24,6 +26,8 @@ export function CustomInput(props: StateProps) {
           onChange={props.onChange}
           error={props.hasError}
           type={props.type ? props.type : 'text'}
+          multiline={props.multiline}
+          rows={props.rows}
         />
         {
           props.hasError ? 
@@ -33,7 +37,7 @@ export function CustomInput(props: StateProps) {
             :
             <></>
         }
-        <div className="mb-1"></div>
+        <div className="mb"></div>
     </>
   )
 }
