@@ -16,6 +16,7 @@ CREATE TABLE [dbo].[tb_todo_task]
     [Id] INT IDENTITY PRIMARY KEY,
     [Title] VARCHAR(30) NOT NULL,
     [Description] VARCHAR(200) NOT NULL,
+    [DateTodo] DATETIME NOT NULL,
     [CreateAt] DATETIME NOT NULL,
     [UpdateAt] DATETIME,
     [UserId] INT NOT NULL,

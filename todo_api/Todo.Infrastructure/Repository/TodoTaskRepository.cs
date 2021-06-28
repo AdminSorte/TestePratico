@@ -46,6 +46,7 @@ namespace Todo.Infrastructure.Repository
             var parameters = new DynamicParameters();
             parameters.Add("@Title", data.Title, DbType.String, ParameterDirection.Input, 30);
             parameters.Add("@Description", data.Description, DbType.String, ParameterDirection.Input, 200);
+            parameters.Add("@DateTodo", data.DateTodo, DbType.DateTime, ParameterDirection.Input);
             parameters.Add("@UserId", data.UserId, DbType.Int32, ParameterDirection.Input);
 
             using (var connection = new SqlConnection(_connectionString)) {
@@ -60,6 +61,7 @@ namespace Todo.Infrastructure.Repository
             parameters.Add("@Id", data.Id, DbType.Int32, ParameterDirection.Input);
             parameters.Add("@Title", data.Title, DbType.String, ParameterDirection.Input, 30);
             parameters.Add("@Description", data.Description, DbType.String, ParameterDirection.Input, 200);
+            parameters.Add("@DateTodo", data.DateTodo, DbType.DateTime, ParameterDirection.Input);
             
             using (var connection = new SqlConnection(_connectionString)) {
                 var result = await connection.ExecuteAsync("SP_UPDATE_TODO_TASK", parameters, commandType: CommandType.StoredProcedure);

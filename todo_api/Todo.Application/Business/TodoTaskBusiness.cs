@@ -32,7 +32,8 @@ namespace Todo.Application.Business
                 var todoTasks = result.Select(x => new ResultTodoTaskDto {
                     Id = x.Id,
                     Title = x.Title,
-                    Description = x.Description
+                    Description = x.Description,
+                    DateTodo = x.DateTodo,
                 });
 
                 return new ResponseService(todoTasks);
@@ -48,6 +49,7 @@ namespace Todo.Application.Business
                 var todoTask = new TodoTask {
                     Title = data.Title,
                     Description = data.Description,
+                    DateTodo = data.DateTodo,
                     UserId = _identityService.GetUserIdentity()
                 };
 
@@ -68,6 +70,7 @@ namespace Todo.Application.Business
                 if (todoTask != null) {
                     todoTask.Title = data.Title;
                     todoTask.Description = data.Description;
+                    todoTask.DateTodo = data.DateTodo;
 
                     var result = await _todoTaskRepository.UpdateAsync(todoTask);
 

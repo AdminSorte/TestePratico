@@ -8,6 +8,7 @@
     SELECT  [Id],
             [Title],
             [Description],
+            [DateTodo],
             [CreateAt],
             [UpdateAt],
             [UserId]
@@ -26,6 +27,7 @@ GO
     SELECT  [Id],
             [Title],
             [Description],
+            [DateTodo],
             [CreateAt],
             [UpdateAt],
             [UserId]
@@ -39,7 +41,8 @@ GO
     (
         @Title VARCHAR(30),
         @Description VARCHAR(200),
-        @UserId INT
+        @UserId INT,
+        @DateTodo DATETIME
     )
     AS
 
@@ -47,6 +50,7 @@ GO
     (
         [Title],
         [Description],
+        [DateTodo],
         [UserId],
         [CreateAt]
     )
@@ -54,6 +58,7 @@ GO
     (
         @Title,
         @Description,
+        @DateTodo,
         @UserId,
         GETDATE()
     )
@@ -67,13 +72,15 @@ GO
     (
         @Id INT,
         @Title VARCHAR(30),
-        @Description VARCHAR(200)
+        @Description VARCHAR(200),
+        @DateTodo DATETIME
     )
     AS
 
     UPDATE  [dbo].[tb_todo_task]
     SET     [Title] = @Title,
             [Description] = @Description,
+            [DateTodo] = @DateTodo,
             [UpdateAt] = GETDATE()
     WHERE   [Id] = @Id
 
