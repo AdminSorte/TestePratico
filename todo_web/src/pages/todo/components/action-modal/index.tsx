@@ -16,15 +16,22 @@ export function ActionMoal(props: StateProps) {
 
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
+  const [dateTodo, setDateTodo] = useState<string>('');
   const [titleError, setTitleError] = useState<boolean>(false);
   const [descriptionError, setDescriptionError] = useState<boolean>(false);
+  const [dateTodoError, setDateTodoError] = useState<boolean>(false);
 
   const changeTitle = (event: any) => setTitle(event.target.value);
   const changeDescription = (event: any) => setDescription(event.target.value);
+  const changeDateTodo = (event: any) => setDateTodo(event.target.value);
 
   useEffect(() => {
+    const date = new Date(Date.parse(props.todo?.dateTodo as string));
+    const month = date.getMonth()+1 <= 9 ? `0${date.getMonth()+1}` : date.getMonth()+1;
+
     setTitle(props.todo?.title as string);
     setDescription(props.todo?.description as string);
+    setDateTodo(`${date.getFullYear()}-${month}-${date.getDate()}`);
   }, [props.todo]);
 
   const handleCloseModal = () => {
@@ -48,6 +55,12 @@ export function ActionMoal(props: StateProps) {
     }
     else setDescriptionError(false);
 
+    if (!dateTodo) {
+      setDateTodoError(true);
+      valid = false;
+    }
+    else setDateTodoError(false);
+
     return valid;
   }
 
@@ -57,11 +70,13 @@ export function ActionMoal(props: StateProps) {
     if (validForm()) {
       todoDispatcher.createRequest({
         title: title,
-        description: description
+        description: description,
+        dateTodo: dateTodo
       });
 
       setTitle('');
       setDescription('');
+      setDateTodo('');
     }
   }
 
@@ -72,11 +87,13 @@ export function ActionMoal(props: StateProps) {
       todoDispatcher.updateRequest({
         id: props.todo?.id,
         title: title,
-        description: description
+        description: description,
+        dateTodo: dateTodo
       });
 
       setTitle('');
       setDescription('');
+      setDateTodo('');
     }
   }
 
@@ -103,6 +120,15 @@ export function ActionMoal(props: StateProps) {
                 onChange={changeTitle}
                 errorText="Insira um titulo"
                 hasError={titleError}
+              />
+              <CustomInput 
+                label="Data"
+                placeholder="Insira a data"
+                value={dateTodo}
+                onChange={changeDateTodo}
+                errorText="Insira uma data"
+                hasError={dateTodoError}
+                type="date"
               />
               <CustomInput 
                 label="Descrição"

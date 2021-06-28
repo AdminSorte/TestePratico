@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AppBar, Toolbar, IconButton, Typography, Button, Fab } from '@material-ui/core';
-import { Book, Visibility, Edit, Delete, Add } from '@material-ui/icons';
+import { Book, Visibility, Edit, Delete, Add, Search } from '@material-ui/icons';
 import './style.css';
 import { ActionMoal } from './components/action-modal';
 import { ViewModal } from './components/view-modal';
@@ -14,26 +14,42 @@ import { useDispatch } from 'react-redux';
 import { TodoDispatcher } from '../../store/Todo/actions';
 import { Redirect } from 'react-router-dom';
 import { isAuthenticated, logout } from '../../services/auth';
+import { CustomInput } from '../../components/custom-input';
 
 export function Todo() {
   const dispatch: Dispatch = useDispatch();
   const todoDispatcher = new TodoDispatcher(dispatch);
   const todoState: TodoState = useSelector<ApplicationState, TodoState>((state: ApplicationState) => state.todo);
 
-  const [todoData, setTodoData] = useState<TodoType | undefined>(undefined);
+  const [todoSelected, setTodoSelected] = useState<TodoType | undefined>(undefined);
   const [redirectLogout, setRedirectLogout] = useState<boolean>(false);
+  const [filter, setFilter] = useState<string>('');
+  const [todoData, setTodoData] = useState<TodoType[]>([]);
+
+  const changeFilter = (event: any) => setFilter(event.target.value);
 
   useEffect(() => {
     todoDispatcher.loadRequest();
   }, []);
 
+  useEffect(() => {
+    setTodoData(todoState.data as TodoType[]);
+  }, [todoState.data]);
+
+  const handleFilterData = () => {
+    if (filter && filter.length > 0) {
+      setTodoData(todoData.filter(x => (x.title as string).indexOf(filter) >= 0));
+    }
+    else setTodoData(todoState.data as TodoType[]);
+  }
+
   const handleCloseModal = () => {
-    setTodoData(undefined);
+    setTodoSelected(undefined);
   }
 
   const handlerRemove = () => {
-    todoDispatcher.RemoveRequest(todoData?.id as number);
-    setTodoData(undefined);
+    todoDispatcher.RemoveRequest(todoSelected?.id as number);
+    setTodoSelected(undefined);
   }
 
   const logoutUser = () => {
@@ -59,37 +75,58 @@ export function Todo() {
         </Toolbar>
       </AppBar>
 
+      <div className="content-filter">
+        <div className="container">
+          <div className="row">
+            <div className="col-5">
+              <CustomInput 
+                label="Filtro"
+                placeholder="Insira o nome que deseja filtrar"
+                value={filter}
+                onChange={changeFilter}
+              />
+            </div>
+            <div className="col-1">
+              <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleFilterData}>
+                <Search />
+              </IconButton>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="content-table">
         <div className="container">
-          <div className="col-12">
-            <table className="table">
-              <thead className="thead-dark">
-                <th style={{width: "10%"}}>#</th>
-                <th style={{width: "70%"}}>Titulo</th>
-                <th style={{width: "20%"}}>Ações</th>
-              </thead>
-              <tbody>
-                {
-                  todoState.data?.map(x => (
-                    <tr>
-                      <td>{ x.id }</td>
-                      <td>{ x.title }</td>
-                      <td>
-                        <IconButton edge="start" color="primary" aria-label="menu" onClick={() => setTodoData(x)} data-toggle="modal" data-target="#viewModal">
-                          <Visibility />
-                        </IconButton>
-                        <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setTodoData(x)} data-toggle="modal" data-target="#actionModal">
-                          <Edit />
-                        </IconButton>
-                        <IconButton edge="start" color="secondary" aria-label="menu" onClick={() => setTodoData(x)} data-toggle="modal" data-target="#alertModal">
-                          <Delete />
-                        </IconButton>
-                      </td>
-                    </tr>
-                  ))
-                }
-              </tbody>
-            </table>
+          <div className="row">
+            <div className="col-12">
+              <table className="table">
+                <thead className="thead-dark">
+                  <th style={{width: "10%"}}>#</th>
+                  <th style={{width: "70%"}}>Titulo</th>
+                  <th style={{width: "20%"}}>Ações</th>
+                </thead>
+                <tbody>
+                  {
+                    todoData?.map(x => (
+                      <tr>
+                        <td>{ x.id }</td>
+                        <td>{ x.title }</td>
+                        <td>
+                          <IconButton edge="start" color="primary" aria-label="menu" onClick={() => setTodoSelected(x)} data-toggle="modal" data-target="#viewModal">
+                            <Visibility />
+                          </IconButton>
+                          <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setTodoSelected(x)} data-toggle="modal" data-target="#actionModal">
+                            <Edit />
+                          </IconButton>
+                          <IconButton edge="start" color="secondary" aria-label="menu" onClick={() => setTodoSelected(x)} data-toggle="modal" data-target="#alertModal">
+                            <Delete />
+                          </IconButton>
+                        </td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -100,11 +137,11 @@ export function Todo() {
 
       <ActionMoal
         handleClose={handleCloseModal}
-        todo={todoData}
+        todo={todoSelected}
       />
 
       <ViewModal
-        todo={todoData}
+        todo={todoSelected}
       />
 
       <AlertModal 

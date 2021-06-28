@@ -12,7 +12,7 @@ html, body, #root {
 }
 
 .content-table {
-    margin-top: 20px;
+    margin-top: 5px;
     width: 100%;
 }
 
@@ -32,4 +32,9 @@ html, body, #root {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+
+.content-filter {
+    margin-top: 20px;
+    width: 100%;
 }

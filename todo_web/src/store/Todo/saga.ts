@@ -21,7 +21,8 @@ export function * createTodo(action: AnyAction): any {
 
         let response = yield call(api.post, '/todotask', {
             title: todo.title,
-            description: todo.description
+            description: todo.description,
+            dateTodo: todo.dateTodo
         });
 
         if (response.data.success) yield loadTodo();
@@ -39,7 +40,8 @@ export function * updateTodo(action: AnyAction): any {
         let response = yield call(api.put, '/todotask', {
             id: todo.id,
             title: todo.title,
-            description: todo.description
+            description: todo.description,
+            dateTodo: todo.dateTodo
         });
 
         if (response.data.success) yield loadTodo();

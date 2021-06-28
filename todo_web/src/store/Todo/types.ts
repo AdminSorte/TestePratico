@@ -4,6 +4,7 @@ export interface Todo {
     id?: number;
     title?: string;
     description?: string;
+    dateTodo?: string;
 }
 
 export interface TodoDispatchAction extends Action<TodoActionTypes> {

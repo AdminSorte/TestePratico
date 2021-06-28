@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Todo } from '../../../../store/Todo/types';
 
 export interface StateProps {
@@ -6,6 +6,11 @@ export interface StateProps {
 }
 
 export function ViewModal(props: StateProps) {
+  const formatDate = (): string => {
+    const date = new Date(Date.parse(props.todo?.dateTodo as string));
+    return date.toLocaleDateString();
+  }
+
   return (
     <>
       <div className="modal fade" id="viewModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -20,6 +25,9 @@ export function ViewModal(props: StateProps) {
             <div className="modal-body">
               <h5>Titulo</h5>
               <p>{ props.todo?.title }</p>
+              <div className="sized-box"></div>
+              <h5>Data</h5>
+              <p>{ formatDate() }</p>
               <div className="sized-box"></div>
               <h5>Descrição</h5>
               <p>{ props.todo?.description }</p>
