@@ -37,10 +37,11 @@ export function Todo() {
   }, [todoState.data]);
 
   const handleFilterData = () => {
+    setTodoData(todoState.data as TodoType[]);
+    
     if (filter && filter.length > 0) {
-      setTodoData(todoData.filter(x => (x.title as string).indexOf(filter) >= 0));
+      setTodoData((todoState.data as TodoType[]).filter(x => (x.title as string).indexOf(filter) >= 0));
     }
-    else setTodoData(todoState.data as TodoType[]);
   }
 
   const handleCloseModal = () => {
