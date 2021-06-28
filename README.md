@@ -1,39 +1,34 @@
-# Desafio Minha Agenda Minha Vida
-
-## Instruções
-
-- Faça um fork desse repositório
-- Trabalhe exclusivamente no seu fork
-- Os commits de seu fork precisa ter mensagens claras e objetivas, a cada commit explique a mudança e evolução.
-- Ao finalizar abra um PR(Pull Request) para esse repositório
-
-## Requerimentos
-
-- O Website deverá ser desenvolvido em ReactJS ou VueJS ou Razor(C#).
-- Faça uso de boas práticas de desenvolvimento
-- Use conceitos de componentização e reaproveitamento de código
-- A Agenda deverá ter:
-  - Titulo do desafio: Minha Agenda Minha Vida
-  - Uma boa apresentação(Abuse das animações e efeitos)
-  - Tela inicial deverá ter uma listagem com ID da agenda, Descrição curta e uma lixeirinha para deletar a agenda, além de uma caixa de filtro para pesquisar pela descrição curta, um botão flutuante com um icone + para adicionar uma nova agenda
-  - Tela/Modal/Popup de nova/edição agenda deverá ter, descrição curta(titulo), descrição da agenda e data da agenda, necessário um botão para salvar. OBS essa tela deverá ser tanto edição quanto nova agenda, ao finalizar
-  - Tela/Modal/Popup de detalhe para exibir o as informações da agenda para somente leitura
-  - Qualquer mecanismo de login(JWT, Basic, localstorage)
-
 ## API
 
-- Deverá ser criada a a API exclusivamente em C# .net(Qualquer versão)
-- Necessário ter no minimo 4 métodos rest(GET, PUT, DELETE, POST)
-- Criar camada de acesso a dados para salvar as operações(ORM ou Procedures)
+Para executar a api faça:
+  - Execute no SQL Server os scripts que estão na pasta `SqlScripts`
+  - Ajuste a connection string no arquivo `Todo.Api/appsettings.json`
+    - Exemplo: `Data Source=.;Initial Catalog=DATABASE_NAME;User Id=USER;Password=PASSWORD`
 
-## Desejável
+Para acessar a documentação da api acesse o endereço (verifique a porta):
+  - `http://localhost:5000/swagger/index.html`
+    
+Recursos utilizados:
+  -.Net Core 5
+  - Autenticação JWT
+  - Dependency Injection
+  - ORM Dapper
+  - Procedures
+  - SQL Server
+  - Swagger
+    
 
-- MVVM, MVC, MVP, DDD ou qualquer um que ajude no entendimento do seu código
-- Possuir algum teste unitário
-- Operações em SQL com procedures
-- Documentação (pode alterar o readme.md padrão)
+## WEB
 
-## Bônus
+Antes de executar o projeto web, verifique se no arquivo 'todo_web/src/services/api.ts' na linha '5', se a url da api está correta.
 
-- Animações
-- Controle de cache
+Execute o comando `npm i` para instalar os pacotes.
+
+Recursos utilizados:
+  - ReactJS
+  - Typescript
+  - Redux
+  - Redux Saga
+  - React Hooks
+  - Axios
+  - Material-UI
