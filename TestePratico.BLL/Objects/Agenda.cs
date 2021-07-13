@@ -35,6 +35,9 @@ namespace TestePratico.BLL.Objects
         {
             try
             {
+                if(Agenda.ID == 0)
+                    throw new Exception("ID da Agenda não informado!");
+
                 if (String.IsNullOrEmpty(Agenda.Descricao))
                     throw new Exception("Descrição da agenda não informada!");
 
