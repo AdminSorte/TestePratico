@@ -65,7 +65,8 @@ C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Web\bin\Microsoft.AI.Depen
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Web\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Web\bin\Microsoft.AI.Web.xml
-C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Web\obj\Debug\TestePratico.Web.csprojResolveAssemblyReference.cache
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Web\obj\Debug\TestePratico.Web.csproj.CoreCompileInputs.cache
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Web\obj\Debug\TestePratico.Web.dll
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Web\obj\Debug\TestePratico.Web.pdb
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Web\bin\System.Net.Http.Formatting.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Web\bin\System.Net.Http.Formatting.xml

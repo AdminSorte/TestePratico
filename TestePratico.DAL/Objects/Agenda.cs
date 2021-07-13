@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,9 @@ namespace TestePratico.DAL.Objects
         {
             using (var db = new Context.TestePraticoContext())
             {
+                db.Agendas.Attach(Agenda);
+                db.Entry(Agenda).State = EntityState.Modified;
+
                 using (var repo = new Repository.Repository(db))
                 {
                     repo.Update(Agenda);

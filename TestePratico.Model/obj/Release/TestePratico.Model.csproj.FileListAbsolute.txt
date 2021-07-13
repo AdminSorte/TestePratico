@@ -1,0 +1,5 @@
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\bin\Release\TestePratico.Model.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\bin\Release\TestePratico.Model.pdb
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\obj\Release\TestePratico.Model.csproj.CoreCompileInputs.cache
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\obj\Release\TestePratico.Model.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\obj\Release\TestePratico.Model.pdb

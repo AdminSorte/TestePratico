@@ -23,6 +23,8 @@ namespace TestePratico.BLL.Objects
                 if (String.IsNullOrEmpty(Agenda.Descricao))
                     throw new Exception("Descrição da agenda não informada!");
 
+                Agenda.DataCadastro = DateTime.Now;
+
                 return _objAgendaDAL.Incluir(Agenda);
             }
             catch (Exception ex)
@@ -40,6 +42,8 @@ namespace TestePratico.BLL.Objects
 
                 if (String.IsNullOrEmpty(Agenda.Descricao))
                     throw new Exception("Descrição da agenda não informada!");
+
+                Agenda.DataCadastro = DateTime.Now;
 
                 return _objAgendaDAL.Alterar(Agenda);
             }

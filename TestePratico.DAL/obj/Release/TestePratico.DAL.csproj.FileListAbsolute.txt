@@ -1,0 +1,16 @@
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\TestePratico.DAL.dll.config
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\TestePratico.DAL.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\TestePratico.DAL.pdb
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\EntityFramework.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\EntityFramework.SqlServerCompact.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\System.Data.SqlServerCe.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\TestePratico.Model.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\TestePratico.Model.pdb
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\EntityFramework.xml
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\bin\Release\EntityFramework.SqlServerCompact.xml
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\obj\Release\TestePratico.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\obj\Release\TestePratico.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\obj\Release\TestePratico.DAL.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.DAL\obj\Release\TestePratico.DAL.pdb

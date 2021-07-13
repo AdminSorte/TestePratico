@@ -26,7 +26,9 @@ namespace TestePratico.API.Controllers
             var result = listaAgendas.Select(p => new Models.AgendaDTO()
             {
                 ID = p.ID,
-                Descricao = p.Descricao
+                Descricao = p.Descricao,
+                Titulo = p.Titulo,
+                DataCadastro = p.DataCadastro
             }).ToList();
 
             if (result == null)
@@ -55,6 +57,8 @@ namespace TestePratico.API.Controllers
                             {
                                 ID = p.ID,
                                 Descricao = p.Descricao,
+                                Titulo = p.Titulo,
+                                DataCadastro = p.DataCadastro
                             }).SingleOrDefault(p => p.ID == id);
 
                 return Ok(result);
@@ -84,7 +88,8 @@ namespace TestePratico.API.Controllers
                 var objAgendaDTO = new Models.AgendaDTO()
                 {
                     ID = agenda.ID,
-                    Descricao = agenda.Descricao
+                    Descricao = agenda.Descricao,
+                    Titulo = agenda.Titulo
                 };
 
                 return CreatedAtRoute("DefaultApi", new { id = agenda.ID }, objAgendaDTO);
@@ -106,6 +111,8 @@ namespace TestePratico.API.Controllers
 
             try
             {
+                agenda.DataCadastro = DateTime.Now;
+
                 var result = _objAgendaBLL.Alterar(agenda);
 
                 if (!result)
@@ -114,7 +121,9 @@ namespace TestePratico.API.Controllers
                 var objAgendaDTO = new Models.AgendaDTO()
                 {
                     ID = agenda.ID,
-                    Descricao = agenda.Descricao
+                    Descricao = agenda.Descricao,
+                    Titulo = agenda.Titulo,
+                    DataCadastro = agenda.DataCadastro
                 };
 
                 return CreatedAtRoute("DefaultApi", new { id = agenda.ID }, objAgendaDTO);

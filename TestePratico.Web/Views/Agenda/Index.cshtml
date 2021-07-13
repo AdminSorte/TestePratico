@@ -2,4 +2,100 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<head>
 
+    <script src="~/Scripts/moment.js"></script>
+</head>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //Localization texts
+        var portugueseMessages = {
+            serverCommunicationError: 'Erro ao tentar conexão com o servidor.',
+            loadingMessage: 'Carregando registros...',
+            noDataAvailable: 'Não existem dados a serem exibidos no momento!',
+            addNewRecord: '+ Adicionar novo registro',
+            editRecord: 'Editar registro',
+            areYouSure: 'Você tem certeza ?',
+            deleteConfirmation: 'Este registro será excluído. Confirmar ?',
+            save: 'Salvar',
+            saving: 'Salvando...',
+            cancel: 'Cancelar',
+            deleteText: 'Excluir',
+            deleting: 'Excluindo...',
+            error: 'Erro',
+            close: 'Fechar',
+            cannotLoadOptionsFor: 'Não foi possível carregar opções para o campo {0}!',
+            pagingInfo: 'Exibindo registros {0} a {1} de {2}',
+            canNotDeletedRecords: 'Não foi possível excluir registro(s) {0} de {1}!',
+            deleteProggress: 'Excluindo {0} de {1} registros, processando...',
+            pageSizeChangeLabel: 'Linhas',
+            gotoPageLabel: 'Ir para página'
+        };
+
+        $('#AgendaTableContainer').jtable({
+            title: 'Lista de Agendas',
+            messages: portugueseMessages,
+            paging: true, 
+            pageSize: 10, 
+            sorting: true, 
+            defaultSorting: 'Descricao ASC', 
+            actions: {
+                listAction: '/Agenda/ListaAgendas',
+                deleteAction: '/Agenda/DeletarAgenda',
+                updateAction: '/Agenda/AtualizarAgenda',
+                createAction: '/Agenda/IncluirAgenda'
+            },
+            fields: {
+                ID: {
+                    title: 'ID',
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: true
+                },
+                Titulo: {
+                    title: 'Título',
+                    width: '20%',
+                    list: true,
+                },
+                Descricao: {
+                    title: 'Descrição detalhada',
+                    width: '80%',
+                    list: false,
+                    create: true,
+                    edit: true,
+                },
+                DataCadastro: {
+                    title: 'Data de Cadastro',
+                    width: '15%',
+                    create: false,
+                    edit: false,
+                    display: function (data) {
+                        return moment(data.record.DataCadastro).format('DD/MM/YYYY HH:mm:ss');
+                    }
+                },
+            }
+        });
+
+        //Load student list from server
+        $('#AgendaTableContainer').jtable('load');
+    });
+
+</script>
+
+<div class="jumbotron">
+    <h1>Minhas Agendas</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Consulte ou crie sua agenda</h2>
+
+        <div>
+            <div id="AgendaTableContainer"></div>
+        </div>
+    </div>
+</div>
