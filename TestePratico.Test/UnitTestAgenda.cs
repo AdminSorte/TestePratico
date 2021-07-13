@@ -1,15 +1,23 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace TestePratico.Test
 {
-    [TestClass]
+    [TestFixture]
     public class UnitTestAgenda
     {
-        [TestMethod]
-        public void TestMethod1()
+        [Test]
+        public void TestMethodIncluir()
         {
+            var objAgendaBLL = new BLL.Objects.Agenda();
 
+            var result = objAgendaBLL.Incluir(new Model.Entity.Agenda()
+            {
+                Descricao = "Agenda do Paulo"
+            });
+
+            if (!result)
+                Assert.Fail();
         }
     }
 }

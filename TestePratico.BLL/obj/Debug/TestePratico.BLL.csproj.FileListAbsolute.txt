@@ -1,0 +1,16 @@
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\TestePratico.BLL.dll.config
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\TestePratico.BLL.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\TestePratico.BLL.pdb
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\EntityFramework.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\TestePratico.DAL.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\TestePratico.Model.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\TestePratico.DAL.pdb
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\TestePratico.DAL.dll.config
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\TestePratico.Model.pdb
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\EntityFramework.xml
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\obj\Debug\TestePratico.BLL.csprojResolveAssemblyReference.cache
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\obj\Debug\TestePratico.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\obj\Debug\TestePratico.BLL.dll
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.BLL\obj\Debug\TestePratico.BLL.pdb

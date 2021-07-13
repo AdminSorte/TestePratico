@@ -1,6 +1,6 @@
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\bin\Debug\TestePratico.Model.dll
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\bin\Debug\TestePratico.Model.pdb
+C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\obj\Debug\TestePratico.Model.csprojResolveAssemblyReference.cache
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\obj\Debug\TestePratico.Model.csproj.CoreCompileInputs.cache
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\obj\Debug\TestePratico.Model.dll
 C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\obj\Debug\TestePratico.Model.pdb
-C:\Users\Paulo\Source\Repos\TestePratico\TestePratico.Model\obj\Debug\TestePratico.Model.csprojResolveAssemblyReference.cache
