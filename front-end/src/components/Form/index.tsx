@@ -1,11 +1,110 @@
-import { Box, FormControl, FormLabel, Input, Textarea, VStack } from "@chakra-ui/react";
+import { Button, Box, FormControl, FormLabel, Input, Textarea, VStack, useToast } from "@chakra-ui/react";
+import { useForm } from "react-hook-form";
 
-export function Form() : JSX.Element {
+import { useCalendar } from "../../context/Calendar";
+import { api } from "../../services/api";
+
+interface IFormProps {
+    isEditable: boolean;
+    changeId?: string | null;
+    onClose: () => void;
+};
+
+export function Form({ isEditable, changeId, onClose }: IFormProps): JSX.Element {
+
+    const { calendar, saveCalendar } = useCalendar();
+
+    const { register, handleSubmit, reset } = useForm();
+
+    const toast = useToast();
+
+    console.log({
+        isEditable, changeId
+    })
+
+    if (isEditable && changeId) {
+
+        const newCalendar = [...calendar];
+
+        const editable = newCalendar.find(element => element.id === changeId);
+
+        console.log('editable', editable);
+
+        if(editable) {
+            reset({
+                date: editable?.date,
+                description: editable?.description,
+                description_short: editable?.description_short
+            })
+        }
+
+    }
+
+    const onSubmit = data => {
+
+        onClose();
+
+        if(!isEditable) {
+
+            api.post('/calendar', data)
+                .then(response => {
+
+                    saveCalendar([
+                        ...calendar,
+                        response.data
+                    ])
+
+                    toast({
+                        status: 'success',
+                        title: 'Item cadastrado com sucesso!',
+                        position: 'top-right'
+                    })
+
+                })
+
+        } else {
+
+            api.put(`calendar/${changeId}`, data)
+                .then(response => {
+
+                    const newList = [...calendar].map(element => {
+
+                        if(element.id === changeId) {
+                            const updateItem = {
+                                ...element,
+                                date: response.data.date,
+                                description: response.data.description,
+                                description_short: response.data.description_short
+                            }
+
+                            return updateItem;
+                        }
+
+                        return element;
+
+                    });
+
+                    console.log([...newList]);
+
+                    saveCalendar(newList);
+
+                    toast({
+                        status: 'success',
+                        title: 'Item atualizado com sucesso!',
+                        position: 'top-right'
+                    });
+
+                })
+
+        }
+        
+    }
 
     return (
 
-        <Box 
+        <Box
             as="form"
+            onSubmit={handleSubmit(onSubmit)}
         >
 
             <VStack>
@@ -14,22 +113,37 @@ export function Form() : JSX.Element {
                     <FormLabel>Data:</FormLabel>
                     <Input
                         placeholder="Escolha uma data"
-                        type="date" />
-                </FormControl>  
+                        type="date"
+                        {...register('date', { required: true })}
+                    />
+                </FormControl>
 
                 <FormControl id="description_short">
                     <FormLabel>Descrição Curta (resumo):</FormLabel>
                     <Input
                         placeholder="Digite uma descrição curta"
-                        type="text" />
+                        type="text"
+                        {...register('description_short', { required: true })} />
                 </FormControl>
 
                 <FormControl id="description">
                     <FormLabel>Descrição:</FormLabel>
-                    <Textarea 
+                    <Textarea
                         placeholder="Digite uma descrição"
+                        {...register('description', { required: true })}
                     />
                 </FormControl>
+
+                <Button
+                    type="submit"
+                    backgroundColor="primary"
+                    _hover={{
+                        backgroundColor: "primary"
+                    }}
+                    color="white"
+                >
+                    Salvar
+                </Button>
 
             </VStack>
 

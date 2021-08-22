@@ -10,7 +10,7 @@ class CalendarList {
     readonly id: string;
 
     @Column()
-    date: Date;
+    date: string;
     
     @Column()
     description_short: string;

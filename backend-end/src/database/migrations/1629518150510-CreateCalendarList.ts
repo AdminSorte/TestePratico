@@ -16,7 +16,7 @@ export class CreateCalendarList1629518150510 implements MigrationInterface {
                     },
                     {
                         name: 'date',
-                        type: 'timestamp'
+                        type: 'varchar'
                     },
                     {
                         name: 'description_short',

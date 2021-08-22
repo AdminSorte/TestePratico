@@ -1,11 +1,23 @@
 import { Box, Button, Heading, IconButton, Table, TableCaption, Tbody, Td, Tfoot, Th, Thead, Tr, useDisclosure } from "@chakra-ui/react";
+import { useState } from "react";
 import { FaRegTrashAlt, FaEdit, FaAngleRight, FaAngleLeft } from 'react-icons/fa';
+
+import { useCalendar } from "../../context/Calendar";
 
 import { ModalItem } from "../ModalItem";
 
 export function CalendarList(): JSX.Element {
 
+    const [changeId, setChangeId] = useState('');
+
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const { calendar } = useCalendar();
+
+    const handleEdit = (id: string) => {
+        onOpen();
+        setChangeId(id);
+    };
 
     return (
 
@@ -40,54 +52,41 @@ export function CalendarList(): JSX.Element {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        <Tr>
-                            <Td>25/02/1996</Td>
-                            <Td>Pequena descrição</Td>
-                            <Td
-                                display="flex"
-                            >
-                                <IconButton
-                                    aria-label="Editar"
-                                    icon={<FaEdit />}
-                                    onClick={onOpen}
-                                    backgroundColor="transparent"
-                                />
-                                <IconButton
-                                    aria-label="Excluir"
-                                    icon={<FaRegTrashAlt />}
-                                    backgroundColor="transparent"
-                                />
-                            </Td>
-                        </Tr>
+
+                        {
+                            calendar &&
+                            calendar.map(element => (
+
+                                <Tr key={element.id}>
+
+                                    <Td>{element.date}</Td>
+                                    <Td>{element.description_short}</Td>
+                                    <Td
+                                        display="flex"
+                                    >
+
+                                        <IconButton
+                                            aria-label="Editar"
+                                            icon={<FaEdit />}
+                                            backgroundColor="transparent"
+                                            onClick={() => handleEdit(element.id)}
+                                        />
+
+                                        <IconButton
+                                            aria-label="Excluir"
+                                            icon={<FaRegTrashAlt />}
+                                            backgroundColor="transparent"
+                                        />
+                                    </Td>
+
+                                </Tr>
+
+                            ))
+                        }
+
+                        
                     </Tbody>
-                    <Tfoot>
-                        <Tr>
-                            <Td 
-                                colSpan="3"
-                                textAlign="right"
-                            >
-                                <IconButton
-                                    color="white"
-                                    backgroundColor="primary"
-                                    _hover={{
-                                        backgroundColor: "primary"
-                                    }}
-                                    aria-label="Voltar"
-                                    icon={<FaAngleLeft />}
-                                    marginRight="4"
-                                />
-                                <IconButton
-                                    color="white"
-                                    backgroundColor="primary"
-                                    _hover={{
-                                        backgroundColor: "primary"
-                                    }}
-                                    aria-label="Avançar"
-                                    icon={<FaAngleRight />}
-                                />
-                            </Td>
-                        </Tr>
-                    </Tfoot>
+                
                 </Table>
 
             </Box>
@@ -96,6 +95,7 @@ export function CalendarList(): JSX.Element {
                 isOpen={isOpen}
                 onClose={onClose}
                 isEditable={true}
+                changeId={changeId}
             />
 
         </Box>

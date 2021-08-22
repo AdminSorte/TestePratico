@@ -1,13 +1,20 @@
-import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
-import { Form } from "../Form";
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 
+import { Form } from "../Form";
 interface IModalItemProps {
     isOpen: boolean;
     onClose: () => void;
     isEditable?: boolean;
+    changeId?: string | null;
 }
 
-export function ModalItem({ isOpen, onClose, isEditable = false }: IModalItemProps): JSX.Element {
+export function ModalItem({ isOpen, onClose, isEditable = false, changeId = null }: IModalItemProps) {    
+
+    if(!isOpen) {
+
+        return (null);
+
+    }
 
     return (
 
@@ -27,23 +34,14 @@ export function ModalItem({ isOpen, onClose, isEditable = false }: IModalItemPro
 
                 <ModalBody>
 
-                    <Form />
+                    <Form 
+                        isEditable={isEditable}
+                        changeId={changeId}
+                        onClose={onClose}
+                    />
 
                 </ModalBody>
 
-                <ModalFooter>
-
-                    <Button
-                        backgroundColor="primary"
-                        _hover={{
-                            backgroundColor: "primary"
-                        }}
-                        color="white"
-                    >
-                        Salvar
-                    </Button>
-
-                </ModalFooter>
             </ModalContent>
         </Modal>
 
