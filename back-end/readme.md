@@ -9,11 +9,11 @@ Após o clone do repositório, entre no diretório do projeto e rode:
 npm install
 ```
 
-Apos instalar as dependencias, rode: 
+Apos instalar as dependências, rode: 
 ```
 npm run typeorm migration:run
 ```
-> Este comando rodará as migrations disponiveis
+> Este comando rodará as migrations disponíveis
 
 ## Comandos 
 Start do projeto: 
