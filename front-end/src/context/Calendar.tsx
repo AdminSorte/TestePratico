@@ -11,6 +11,7 @@ interface ICalendar {
 }
 
 interface CalendarContextData {
+    isLoadingCalendar: boolean;
     calendar: ICalendar[];
     saveCalendar: (newCalendar: ICalendar[]) => void;
 };
@@ -24,15 +25,24 @@ const CalendarContext = createContext({} as CalendarContextData);
 export function CalendarProvider({ children }: CalendarProviderProps) {
 
     const [calendar, setCalendar] = useState<ICalendar[]>([]);
+    const [isLoadingCalendar, setIsLoadingCalendar] = useState(false);
 
     const toast = useToast();
 
     useEffect(() => {
 
-        api.get('calendar')
-            .then(response => setCalendar(response.data))
-            .catch(error => {
+        const getCalendar = async () => {
 
+            setIsLoadingCalendar(true)
+
+            try {
+                
+                const { data } = await api.get('calendar');
+
+                setCalendar(data);
+
+            } catch (error) {
+                
                 toast({
                     status: 'error',
                     title: 'Aconteceu um erro na listagem dos itens!',
@@ -40,7 +50,13 @@ export function CalendarProvider({ children }: CalendarProviderProps) {
                     position: 'top-right'
                 });
 
-            });
+            }
+
+            setIsLoadingCalendar(false);
+
+        };
+        
+        getCalendar();
 
     }, []);
 
@@ -49,6 +65,7 @@ export function CalendarProvider({ children }: CalendarProviderProps) {
     return (
 
         <CalendarContext.Provider value={{
+            isLoadingCalendar,
             calendar,
             saveCalendar
         }}>

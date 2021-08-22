@@ -1,10 +1,11 @@
-import { Box, Button, Heading, IconButton, Table, TableCaption, Tbody, Td, Tfoot, Th, Thead, Tr, useDisclosure, useToast } from "@chakra-ui/react";
+import { Box, IconButton, Table, TableCaption, Tbody, Td, Thead, Tr, Th, useDisclosure, useToast, Heading } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaRegTrashAlt, FaEdit, FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 
 import { useCalendar } from "../../context/Calendar";
 import { api } from "../../services/api";
 
+import { LoadingCalendarList } from "../LoadingCalendarList";
 import { ModalItem } from "../ModalItem";
 
 export function CalendarList(): JSX.Element {
@@ -15,7 +16,7 @@ export function CalendarList(): JSX.Element {
 
     const toast = useToast();
 
-    const { calendar, saveCalendar } = useCalendar();
+    const { isLoadingCalendar, calendar, saveCalendar } = useCalendar();
 
     const handleEdit = (id: string) => {
         onOpen();
@@ -54,6 +55,12 @@ export function CalendarList(): JSX.Element {
 
         }
 
+    }
+
+    if(isLoadingCalendar) {
+        return (
+            <LoadingCalendarList />
+        )
     }
 
     return (
