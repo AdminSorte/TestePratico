@@ -3,7 +3,11 @@ import { useForm } from "react-hook-form";
 
 import { useCalendar } from "../../context/Calendar";
 import { api } from "../../services/api";
-
+interface IOnSubmitData {
+    date: string;
+    description: string;
+    description_short: string;
+}
 interface IFormProps {
     isEditable: boolean;
     changeId?: string | null;
@@ -40,7 +44,7 @@ export function Form({ isEditable, changeId, onClose }: IFormProps): JSX.Element
 
     }
 
-    const onSubmit = data => {
+    const onSubmit = (data: IOnSubmitData) => {
 
         onClose();
 

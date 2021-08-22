@@ -1,8 +1,9 @@
-import { Box, Button, Heading, IconButton, Table, TableCaption, Tbody, Td, Tfoot, Th, Thead, Tr, useDisclosure } from "@chakra-ui/react";
+import { Box, Button, Heading, IconButton, Table, TableCaption, Tbody, Td, Tfoot, Th, Thead, Tr, useDisclosure, useToast } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaRegTrashAlt, FaEdit, FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 
 import { useCalendar } from "../../context/Calendar";
+import { api } from "../../services/api";
 
 import { ModalItem } from "../ModalItem";
 
@@ -12,12 +13,39 @@ export function CalendarList(): JSX.Element {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const { calendar } = useCalendar();
+    const toast = useToast();
+
+    const { calendar, saveCalendar } = useCalendar();
 
     const handleEdit = (id: string) => {
         onOpen();
         setChangeId(id);
     };
+
+    const handleDelete = (id: string) => {
+
+        const confirmDelete = confirm(`Você realmente deseja excluir o item: ${id}`);
+
+        if(confirmDelete) {
+
+            api.delete(`calendar/${id}`)
+                .then(response => {
+
+                    const newCalendar = calendar.filter(element => element.id !== id);
+
+                    saveCalendar([...newCalendar]);
+
+                    toast({
+                        status: 'success',
+                        title: 'Item deletado com sucesso!',
+                        position: 'top-right'
+                    });
+
+                })
+
+        }
+
+    }
 
     return (
 
@@ -76,6 +104,7 @@ export function CalendarList(): JSX.Element {
                                             aria-label="Excluir"
                                             icon={<FaRegTrashAlt />}
                                             backgroundColor="transparent"
+                                            onClick={() => handleDelete(element.id)}
                                         />
                                     </Td>
 
