@@ -64,7 +64,16 @@ export function Form({ isEditable, changeId, onClose }: IFormProps): JSX.Element
                         position: 'top-right'
                     })
 
-                })
+                }).catch(error => {
+
+                    toast({
+                        status: 'error',
+                        title: 'Aconteceu um erro no cadastro!',
+                        description: error.message,
+                        position: 'top-right'
+                    });
+
+                });
 
         } else {
 
@@ -98,7 +107,16 @@ export function Form({ isEditable, changeId, onClose }: IFormProps): JSX.Element
                         position: 'top-right'
                     });
 
-                })
+                }).catch(error => {
+
+                    toast({
+                        status: 'error',
+                        title: 'Aconteceu um erro na alteração!',
+                        description: error.message,
+                        position: 'top-right'
+                    });
+
+                });
 
         }
         

@@ -26,7 +26,7 @@ export function CalendarList(): JSX.Element {
 
         const confirmDelete = confirm(`Você realmente deseja excluir o item: ${id}`);
 
-        if(confirmDelete) {
+        if (confirmDelete) {
 
             api.delete(`calendar/${id}`)
                 .then(response => {
@@ -41,7 +41,16 @@ export function CalendarList(): JSX.Element {
                         position: 'top-right'
                     });
 
-                })
+                }).catch(error => {
+
+                    toast({
+                        status: 'error',
+                        title: 'Aconteceu um erro na exclusão!',
+                        description: error.message,
+                        position: 'top-right'
+                    });
+
+                });
 
         }
 
@@ -66,12 +75,26 @@ export function CalendarList(): JSX.Element {
                     Veja seus agendamentos
                 </Heading>
 
-                <Table 
-                    variant="simple" 
+                <Table
+                    variant="simple"
                     size="sm"
                     colorScheme="blackAlpha"
                 >
-                    <TableCaption>Os seus compromissos estão listados acima</TableCaption>
+                    <TableCaption>
+
+                        {
+                            calendar.length > 0 ? (
+
+                                <>Os seus compromissos estão listados acima</>
+
+                            ) : (
+
+                                <>Você não possui nenhum item cadastrado!</>
+
+                            )
+                        }
+                        
+                    </TableCaption>
                     <Thead>
                         <Tr>
                             <Th>Data</Th>
@@ -113,9 +136,9 @@ export function CalendarList(): JSX.Element {
                             ))
                         }
 
-                        
+
                     </Tbody>
-                
+
                 </Table>
 
             </Box>
