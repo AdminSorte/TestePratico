@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "b8f22bb4-2e9d-4a76-b0bf-d2c79eb480a8",
+		"name": "Sorte Online",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Calendar List",
+			"item": [
+				{
+					"name": "Calendar List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"2021-08-03\",\n    \"description\": \"Descrição completa\",\n    \"description_short\": \"Descrição curta...\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/calendar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"calendar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calendar List",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"2021-08-04\",\n    \"description_short\": \"Descrição curta atualizada 2...\",\n    \"description\": \"Descrição completa atualizada 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/calendar/3b16910b-d067-4d27-8e8e-312208c295b6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"calendar",
+								"3b16910b-d067-4d27-8e8e-312208c295b6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calendar List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/calendar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"calendar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calendar List One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/calendar/3b16910b-d067-4d27-8e8e-312208c295b6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"calendar",
+								"3b16910b-d067-4d27-8e8e-312208c295b6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Calendar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/calendar/fd8cfb85-1bcd-4eaf-8291-1c9e5749152f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"calendar",
+								"fd8cfb85-1bcd-4eaf-8291-1c9e5749152f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
