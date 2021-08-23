@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Box, Heading, Table, Tbody, Td, Tr, Th, Flex, IconButton } from "@chakra-ui/react";
+import { formatDate } from './../../helpers/formatDate';
 
 import { FaAngleDoubleLeft } from 'react-icons/fa';
 
@@ -13,6 +14,8 @@ interface IInfoProps {
 }
 
 export function Resume({ info }: IInfoProps): JSX.Element {
+
+    const formattedDate = formatDate(info.date);
 
     return (
 
@@ -67,7 +70,7 @@ export function Resume({ info }: IInfoProps): JSX.Element {
                     <Tr>
 
                         <Th>Data:</Th>
-                        <Td>{info.date}</Td>
+                        <Td>{formattedDate}</Td>
                     </Tr>
                     <Tr>
 

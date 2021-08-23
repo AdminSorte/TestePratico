@@ -5,6 +5,7 @@ import { FaRegTrashAlt, FaEdit, FaEye } from 'react-icons/fa';
 
 import { useCalendar } from "../../context/Calendar";
 import { api } from "../../services/api";
+import { formatDate } from './../../helpers/formatDate';
 
 import { LoadingCalendarList } from "../LoadingCalendarList";
 import { ModalItem } from "../ModalItem";
@@ -18,6 +19,14 @@ export function CalendarList(): JSX.Element {
     const toast = useToast();
 
     const { isLoadingCalendar, calendar, saveCalendar } = useCalendar();
+
+    const calendarFormatedData = calendar.map(element => (
+        {
+            ...element,
+            date: formatDate(element.date)
+        }
+
+    ));
 
     const handleEdit = (id: string) => {
         onOpen();
@@ -58,7 +67,7 @@ export function CalendarList(): JSX.Element {
 
     }
 
-    if(isLoadingCalendar) {
+    if (isLoadingCalendar) {
         return (
             <LoadingCalendarList />
         )
@@ -91,7 +100,7 @@ export function CalendarList(): JSX.Element {
                     <TableCaption>
 
                         {
-                            calendar.length > 0 ? (
+                            calendarFormatedData.length > 0 ? (
 
                                 <>Os seus compromissos estão listados acima</>
 
@@ -101,7 +110,7 @@ export function CalendarList(): JSX.Element {
 
                             )
                         }
-                        
+
                     </TableCaption>
                     <Thead>
                         <Tr>
@@ -113,8 +122,8 @@ export function CalendarList(): JSX.Element {
                     <Tbody>
 
                         {
-                            calendar &&
-                            calendar.map(element => (
+                            calendarFormatedData &&
+                            calendarFormatedData.map(element => (
 
                                 <Tr key={element.id}>
 
@@ -123,7 +132,7 @@ export function CalendarList(): JSX.Element {
                                     <Td
                                         display="flex"
                                     >
-                                        
+
                                         <Link
                                             href={`/info/${element.id}`}
                                             passHref
@@ -149,7 +158,7 @@ export function CalendarList(): JSX.Element {
                                             backgroundColor="transparent"
                                             onClick={() => handleDelete(element.id)}
                                         />
-                                        
+
                                     </Td>
 
                                 </Tr>
