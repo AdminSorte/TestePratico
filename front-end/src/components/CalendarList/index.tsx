@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import { Box, IconButton, Table, TableCaption, Tbody, Td, Thead, Tr, Th, useDisclosure, useToast, Heading } from "@chakra-ui/react";
 import { useState } from "react";
-import { FaRegTrashAlt, FaEdit, FaAngleRight, FaAngleLeft } from 'react-icons/fa';
+import { FaRegTrashAlt, FaEdit, FaEye } from 'react-icons/fa';
 
 import { useCalendar } from "../../context/Calendar";
 import { api } from "../../services/api";
@@ -122,6 +123,18 @@ export function CalendarList(): JSX.Element {
                                     <Td
                                         display="flex"
                                     >
+                                        
+                                        <Link
+                                            href={`/info/${element.id}`}
+                                            passHref
+                                        >
+                                            <IconButton
+                                                aria-label="Visualizar"
+                                                as="a"
+                                                backgroundColor="transparent"
+                                                icon={<FaEye />}
+                                            />
+                                        </Link>
 
                                         <IconButton
                                             aria-label="Editar"
@@ -136,6 +149,7 @@ export function CalendarList(): JSX.Element {
                                             backgroundColor="transparent"
                                             onClick={() => handleDelete(element.id)}
                                         />
+                                        
                                     </Td>
 
                                 </Tr>
