@@ -78,7 +78,7 @@ namespace MinhaAgendaAPI.Controllers
             _context.AgendaModels.Add(agendaModel);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAgendaModel", new { id = agendaModel.Id }, agendaModel);
+            return CreatedAtAction(nameof(GetAgendaModel), new { id = agendaModel.Id }, agendaModel);
         }
 
         // DELETE: api/Agenda/5

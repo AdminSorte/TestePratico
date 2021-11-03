@@ -22,8 +22,10 @@ namespace MinhaAgendaAPI
         {
 
             services.AddControllers();
+            // services.AddDbContext<DataContext>(opt =>
+            //                                    opt.UseInMemoryDatabase("AgendaModel"));
              services.AddDbContext<DataContext>(opt =>
-                                               opt.UseInMemoryDatabase("AgendaModel"));
+                                               opt.UseSqlite(Configuration.GetConnectionString("DataContext")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
