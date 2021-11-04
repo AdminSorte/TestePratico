@@ -3,7 +3,9 @@
 ## Techs
 
 .NET Core 5.0
+
 SQLite
+
 Insomnia para as requests
 
 ## Instruções
