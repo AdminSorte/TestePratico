@@ -2,11 +2,11 @@
 
 ## Techs
 
-.NET Core 5.0
+.NET Core 5.0;
 
-SQLite
+SQLite;
 
-Insomnia para as requests
+Insomnia para as requests;
 
 ## Instruções
 
