@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "ada321e2-34c4-4214-8990-42be3163bf42",
+		"name": "Agenda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Adiciona evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Descricao\":\"Estudar IA\",\r\n    \"Periodo\": \"22:00\",\r\n    \"Data\": \"2021-11-23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44395/Agenda",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44395",
+					"path": [
+						"Agenda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista eventos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44395/Agenda",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44395",
+					"path": [
+						"Agenda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisa eventos por descricao",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44395/Agenda/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44395",
+					"path": [
+						"Agenda",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Altera evento",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"descricao\": \"Clinico Geral\",\r\n    \"periodo\": 12,\r\n    \"data\": \"23-11-2021\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44395/Agenda/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44395",
+					"path": [
+						"Agenda",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta evento",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:44395/Agenda/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44395",
+					"path": [
+						"Agenda",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
