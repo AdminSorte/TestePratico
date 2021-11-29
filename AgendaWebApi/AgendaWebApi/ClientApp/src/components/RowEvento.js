@@ -10,14 +10,49 @@ export default class RowEvento extends Component {
         this.state = {
 
             modalExcluirEvento: false,
-            ltsEventoEdicao:[]
+            //ltsEvento: [],
+            EditaEvento: false,
+            visualizaEvento: false,
+            
         }
              
         this.excluirEvento = this.excluirEvento.bind(this);
         this.getEventoPorId = this.getEventoPorId.bind(this);
+        this.visualizarEvento = this.visualizarEvento.bind(this);
+        this.editaEvento = this.editaEvento.bind(this);
     }
 
 
+    //Visualizar evento
+    visualizarEvento(id) {
+
+
+        this.setState({
+            visualizaEvento: true,
+
+
+        });
+
+        this.getEventoPorId(id) 
+
+    }
+
+
+    //Edita Evento
+    editaEvento(id) {
+
+
+        this.setState({
+            EditaEvento: true,
+            
+
+        });
+
+
+        this.getEventoPorId(id) 
+
+
+    }
 
     //Excluir Evento 
     excluirEvento(evento) {
@@ -38,7 +73,10 @@ export default class RowEvento extends Component {
     getEventoPorId(id) {
 
         let eventoAgenda = []
+
         const { openModalEditarCadastroEventos } = this.props;
+        const { openModalVisualizaEventos  } = this.props;
+
         var url = "Agenda/"+id
         fetch(url, {
             method: 'GET',
@@ -47,24 +85,19 @@ export default class RowEvento extends Component {
             }
         }).then(response => response.json())
             .then(data => {
+                if (this.state.EditaEvento) {
+                    openModalEditarCadastroEventos(data)
 
-                this.setState({
+                } else {
 
-                    ltsEventoEdicao: data
+                    openModalVisualizaEventos(data)
 
-                });
-                //if (data.length > 0) {
-                //    console.log(data)
-                   
+                }
+=
 
-                //}
-               // console.log(this.state.ltsEventoEdicao)
-               
-                openModalEditarCadastroEventos(this.state.ltsEventoEdicao)
-
-
-            });
-
+         });
+        console.log(this.state.ltsEvento)
+       
 
     }
    
@@ -78,13 +111,13 @@ export default class RowEvento extends Component {
                     this.props.lstEventosCadastrados.map(eventos =>
 
                         <tr key={eventos.id} >
-                            <td style={{ textAlign: "center" }}>{eventos.id}</td>
+                            <td style={{ textAlign: "center" }} onClick={() => this.visualizarEvento(eventos.id)} >{eventos.id}</td>
                             <td style={{ textAlign: "center" }}>{eventos.descricao}</td>
                             <td style={{ textAlign: "center" }}>{eventos.periodo}</td>
                             <td style={{ textAlign: "center" }}>{eventos.data}</td>
                             <td> <Button variant="danger" className="btnExcluirEventos" style={{ marginLeft: '3%', marginTop: '1%' }} onClick={() => this.excluirEvento(eventos.id)}>Excluir</Button>
                             </td>
-                            <td> <Button variant="warning" className="btnAlterarEventos" style={{ marginLeft: '3%', marginTop: '1%' }} onClick={() => this.getEventoPorId(eventos.id)}>Alterar</Button>
+                            <td> <Button variant="warning" className="btnAlterarEventos" style={{ marginLeft: '3%', marginTop: '1%' }} onClick={() => this.editaEvento(eventos.id)}>Alterar</Button>
                             </td>
                             
 

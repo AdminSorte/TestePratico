@@ -11,13 +11,11 @@ export default class EditarEvento extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            descricao: '',
-            hora: '',
-            data: '',
-            id: '',
-            descricaoOriginal: '',
-            horaOriginal: '',
-            dataOriginal: '',
+            descricaoEvento:"",
+            periodoEvento: "",
+            dataEvento: "",
+            
+            
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -25,7 +23,15 @@ export default class EditarEvento extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentDidMount() {
 
+        this.setState({
+            descricaoEvento: this.props.descricaoEvento,
+            periodoEvento: this.props.periodoEvento,
+            dataEvento: this.props.dataEvento
+        });
+
+    }
     
 
 
@@ -35,41 +41,33 @@ export default class EditarEvento extends Component {
 
    
 
-     onSubmit = e => {
-            e.preventDefault();
+    onSubmit = e => {
+        e.preventDefault();
 
-         const { descricao, hora, data,  } = this.state
-         //this props do insert na Agenda
-         const id = this.props.idEvento
-         const { atualizaEventoAgenda } = this.props
-            let continuar = true;
-            let mensagem = "";
-         
-         if (descricao === "" || hora === "" || data === "") {
+        const { descricaoEvento, periodoEvento, dataEvento } = this.state
+        //this props do insert na Agenda
+        const id = this.props.idEvento
+        const { atualizaEventoAgenda } = this.props
 
-             
+        let continuar = true;
+        let mensagem = "";
 
-             this.setState({
-                 descricao: this.state.descricaoOriginal,
-                 hora: this.state.horaOriginal,
-                 data: this.state.dataOriginal
-                 
-             });
-             
-
-
-         } 
+        if (descricaoEvento === "" || periodoEvento === "" || dataEvento === "") {
+            alert("Por favor preencha todos os campos para cadastro do evento na agenda");
+            continuar = false;
+        }
 
             if (continuar) {
                 const dados = {
-                    Descricao: descricao,
-                    Periodo: hora,
-                    Data: data,
+                    Descricao: descricaoEvento,
+                    Periodo: periodoEvento,
+                    Data: dataEvento,
                     
                 }
 
                 console.log("atualiza registros")
                 console.log(dados)
+                console.log(id)
                 atualizaEventoAgenda(id,dados);
                 
             } else {
@@ -102,7 +100,7 @@ export default class EditarEvento extends Component {
                                 <Form.Control type="text"
                                     readOnly 
                                     disabled 
-                                    name={"id"}
+                                    name={"idEvento"}
                                     value={this.props.idEvento}
                                     placeholder=""
                                      />
@@ -110,8 +108,8 @@ export default class EditarEvento extends Component {
                             <Form.Group className="mb-3" controlId="formDescricao">
                                 <Form.Label>Descrição</Form.Label>
                                 <Form.Control type="text" 
-                                    name={"descricao"}
-                                    value={this.props.descricaoEvento}
+                                    name={"descricaoEvento"}
+                                    value={this.state.descricaoEvento}
                                     placeholder=""
                                     onChange={(event) => this.handleChange(event)} />
                             </Form.Group>
@@ -119,16 +117,17 @@ export default class EditarEvento extends Component {
                             <Form.Group className="mb-3" controlId="formPeriodo">
                                 <Form.Label>Horário</Form.Label>
                                 <Form.Control type="text"
-                                    name={"hora"}
-                                    value={this.props.periodoEvento}
+                                    name={"periodoEvento"}
+                                    value={this.state.periodoEvento}
                                     placeholder="HH:MM"
                                     onChange={(event) => this.handleChange(event)} />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formData">
                                 <Form.Label>Data</Form.Label>
-                                <Form.Control type="date" name={"data"}
-                                    
-                                    defaultValue={this.props.dataEvento}
+                                <Form.Control type="text" name={"dataEvento"}
+                                    readOnly
+                                    disabled 
+                                    value={this.state.dataEvento}
                                     placeholder=""
                                     onChange={(event) => this.handleChange(event)} />
                             </Form.Group>
