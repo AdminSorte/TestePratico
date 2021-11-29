@@ -27,15 +27,16 @@ namespace AgendaWebApi.Controllers
 
 
         [HttpPost]
-        public IActionResult AdicionarEvento([FromBody] CreateEventoDto novoEvento)
+        public IActionResult AdicionarEvento([FromBody]CreateEventoDto novoEvento)
         {
             Evento evento = _mapper.Map<Evento>(novoEvento);
 
             _context.Eventos.Add(evento);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(PesquisaDescricaoEvento), new { descricao = evento.Descricao }, evento);
+            return Ok() ;
         }
+
 
         [HttpGet]
         public IEnumerable<Evento> RecuperaEvento()
@@ -45,11 +46,10 @@ namespace AgendaWebApi.Controllers
         }
 
 
-
-        [HttpGet("{descricao}")]
-        public IActionResult PesquisaDescricaoEvento(string descricao)
+        [HttpGet("{id}")]
+        public IActionResult PesquisaDescricaoEvento(int id)
         {
-            Evento evento = _context.Eventos.FirstOrDefault(evento => evento.Descricao == descricao);
+            Evento evento = _context.Eventos.FirstOrDefault(evento => evento.Id == id);
             if (evento != null)
             {
                 ReadEvento ltsEvento = _mapper.Map<ReadEvento>(evento);
@@ -57,6 +57,20 @@ namespace AgendaWebApi.Controllers
             }
             return NotFound();
         }
+
+
+        //[HttpGet("{descricao}")]
+        //public IActionResult PesquisaDescricaoEvento(string descricao)
+        //{
+        //    Evento evento = _context.Eventos.FirstOrDefault(evento => evento.Descricao == descricao);
+        //    if (evento != null)
+        //    {
+        //        ReadEvento ltsEvento = _mapper.Map<ReadEvento>(evento);
+        //        return Ok(ltsEvento);
+        //    }
+        //    return NotFound();
+        //}
+
 
         [HttpPut("{id}")]
         public IActionResult AtualizaEvento(int id, [FromBody] UpdateEventoDto eventoatualizado)

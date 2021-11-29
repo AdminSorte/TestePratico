@@ -36,7 +36,8 @@ export default class TabelaEventos extends Component {
 
                     <RowEvento
                         lstEventosCadastrados={this.props.lstEventosCadastrados}
-                        atualizaTabelaEventos ={this.props.atualizaTabelaEventos}
+                        atualizaTabelaEventos={this.props.atualizaTabelaEventos}
+                        openModalEditarCadastroEventos={this.props.openModalEditarCadastroEventos}
 
                     />
 

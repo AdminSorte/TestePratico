@@ -9,13 +9,25 @@ namespace AgendaWebApi.Data.Dtos
     public class CreateEventoDto
     {
 
+
         [Required]
         [MaxLength(200)]
         public string Descricao { get; set; }
+
+
+
         [Required]
         public string Periodo { get; set; }
+
+
         [Required]
         public DateTime Data { get; set; }
+
+
+
+
+        
+        
 
     }
 }

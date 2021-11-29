@@ -9,23 +9,18 @@ export default class RowEvento extends Component {
         super(props);
         this.state = {
 
-            modalExcluirEvento: false
-
+            modalExcluirEvento: false,
+            ltsEventoEdicao:[]
         }
              
         this.excluirEvento = this.excluirEvento.bind(this);
-        this.handleOpenModal = this.handleOpenModal.bind(this);
-        
+        this.getEventoPorId = this.getEventoPorId.bind(this);
     }
 
 
 
     //Excluir Evento 
     excluirEvento(evento) {
-
-
-
-
 
         console.log(evento)
         fetch('Agenda/' + evento, { method: 'DELETE' })
@@ -39,12 +34,39 @@ export default class RowEvento extends Component {
     }
 
 
+    //Consulta Eventos por Id
+    getEventoPorId(id) {
 
-    handleOpenModal(evento) {
+        let eventoAgenda = []
+        const { openModalEditarCadastroEventos } = this.props;
+        var url = "Agenda/"+id
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'text/html',
+            }
+        }).then(response => response.json())
+            .then(data => {
 
-        console.log(evento)
+                this.setState({
+
+                    ltsEventoEdicao: data
+
+                });
+                //if (data.length > 0) {
+                //    console.log(data)
+                   
+
+                //}
+               // console.log(this.state.ltsEventoEdicao)
+               
+                openModalEditarCadastroEventos(this.state.ltsEventoEdicao)
+
+
+            });
+
+
     }
-
    
     render() {
 
@@ -62,11 +84,9 @@ export default class RowEvento extends Component {
                             <td style={{ textAlign: "center" }}>{eventos.data}</td>
                             <td> <Button variant="danger" className="btnExcluirEventos" style={{ marginLeft: '3%', marginTop: '1%' }} onClick={() => this.excluirEvento(eventos.id)}>Excluir</Button>
                             </td>
-                            <td> <Button variant="warning" className="btnAlterarEventos" style={{ marginLeft: '3%', marginTop: '1%' }} onClick={()  => this.handleOpenModal(eventos.id)}> Alterar</Button>
+                            <td> <Button variant="warning" className="btnAlterarEventos" style={{ marginLeft: '3%', marginTop: '1%' }} onClick={() => this.getEventoPorId(eventos.id)}>Alterar</Button>
                             </td>
                             
-
-
 
                         </tr>
 
