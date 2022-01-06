@@ -26,7 +26,7 @@ export const Content = styled.div`
   padding: 0px 15px;
 
   border-radius: 15px;
-  border: 1px solid #c6c6c6;
+  border: 1px solid #484848;
 
   -webkit-box-shadow: 0px 4px 7px 0px rgba(150, 150, 150, 0.4);
   box-shadow: 0px 4px 7px 0px rgba(150, 150, 150, 0.4);

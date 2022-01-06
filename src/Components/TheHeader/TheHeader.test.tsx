@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { TheHeader } from './TheHeader'
+import { TheHeader } from '.'
 
 describe('TheHeader', () => {
   it('should render the title of the TaskCard', () => {
