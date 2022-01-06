@@ -26,6 +26,7 @@ const Card = ({ title, content, openSelected, deleteSelected }: Props) => {
             content.map((commitment, index) => (
               <div key={index}>
                 <TaskCard
+                  data-testid="task-card-content"
                   commitment={commitment}
                   openSelected={() => openSelected(commitment.id)}
                   deleteSelected={() => deleteSelected(commitment.id)}

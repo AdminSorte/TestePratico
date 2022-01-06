@@ -11,10 +11,9 @@ interface Props {
 }
 
 const TaskCard = ({ commitment, deleteSelected, openSelected }: Props) => {
-  const { id, title, description, date } = commitment
+  const { id, title, description, date, hour } = commitment
 
   const idFormated = id < 10 ? `0${id}` : id
-  const dateFormated = date.replace(/-/g, '/')
   // prettier-ignore
   const slicedDescription = description.length >= 150
     ? description.slice(0, 150) + '...'
@@ -36,7 +35,7 @@ const TaskCard = ({ commitment, deleteSelected, openSelected }: Props) => {
           <S.Description>{slicedDescription}</S.Description>
         </S.Body>
         <S.Footer>
-          <S.Date data-testid="date">{dateFormated}</S.Date>
+          <S.Date>{date}</S.Date>
           <S.Actions onClick={deleteSelected}>
             <S.Id>#{idFormated}</S.Id>
             <div>
