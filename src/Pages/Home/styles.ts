@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  flex: 1;
+  display: flex;
+  justify-content: center;
 `
 
 export const ContentContainer = styled.div`
   min-height: 100vh;
+  max-width: 1000px;
 
   padding: 0 10px;
 `
