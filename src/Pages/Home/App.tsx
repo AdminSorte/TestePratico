@@ -101,6 +101,8 @@ function App() {
       if (commitment.id !== newCommitment.id) return
 
       commitment.title = newCommitment.title
+      commitment.date = newCommitment.date
+      commitment.hour = newCommitment.hour
       commitment.description = newCommitment.description
     })
 

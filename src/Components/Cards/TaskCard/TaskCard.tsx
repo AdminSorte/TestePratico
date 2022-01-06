@@ -35,7 +35,9 @@ const TaskCard = ({ commitment, deleteSelected, openSelected }: Props) => {
           <S.Description>{slicedDescription}</S.Description>
         </S.Body>
         <S.Footer>
-          <S.Date>{date}</S.Date>
+          <S.Date>
+            {date} - {hour}
+          </S.Date>
           <S.Actions onClick={deleteSelected}>
             <S.Id>#{idFormated}</S.Id>
             <div>

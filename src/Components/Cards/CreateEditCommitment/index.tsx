@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import * as S from './styles'
 
@@ -7,6 +7,9 @@ import { CloseIcon, TrashIcon, CheckIcon } from '../../../assets/icons'
 
 // types
 import { Commitment } from '../../../types/commitment'
+
+// utils
+import { generateToday } from '../../../utils/generateToday'
 
 interface Props {
   selectedNote: Commitment
@@ -25,7 +28,15 @@ const CreateEditCommitment = ({
   const [commitment, setCommitment] = useState<Commitment>(selectedNote)
 
   const save = () => {
-    saveCommitment(commitment)
+    const today = generateToday()
+
+    const newCommitment = {
+      ...commitment,
+      date: today.date,
+      hour: today.hour,
+    }
+
+    saveCommitment(newCommitment)
   }
 
   return (
@@ -54,7 +65,7 @@ const CreateEditCommitment = ({
         </S.Body>
         <S.Footer>
           <span>
-            Última atualização <br /> {commitment.date}
+            Última atualização <br /> {commitment.date} - {commitment.hour}
           </span>
 
           <div
