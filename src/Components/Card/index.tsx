@@ -15,9 +15,22 @@ const Card = ({ title, content }: Props) => {
           <S.Title>{title}</S.Title>
         </S.TitleContainer>
         <S.TasksContainer>
-          {content.map((item, index) => (
-            <TaskCard key={index} task={item} />
-          ))}
+          {content.length ? (
+            content.map((item, index) => <TaskCard key={index} task={item} />)
+          ) : (
+            <div
+              style={{
+                display: 'flex',
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'teal',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <p>Loading</p>
+            </div>
+          )}
         </S.TasksContainer>
       </S.Content>
     </S.Wrapper>
