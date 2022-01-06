@@ -36,9 +36,11 @@ export const Header = styled.div`
   width: 100%;
 `
 
-export const Title = styled.span`
+export const Title = styled.input`
   font-size: 2rem;
   font-weight: bold;
+
+  border: none;
 `
 
 export const Body = styled.div`
@@ -75,10 +77,6 @@ export const Footer = styled.div`
 
   & div {
     display: flex;
-
-    & svg:first-child {
-      margin-right: 1.5rem;
-    }
 
     & svg {
       stroke: #2f2f2f;

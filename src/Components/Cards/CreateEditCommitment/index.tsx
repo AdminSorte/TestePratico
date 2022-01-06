@@ -1,38 +1,70 @@
+import { useState } from 'react'
+
 import * as S from './styles'
 
 // icons
-import { CloseIcon, TrashIcon, EditIcon } from '../../../assets/icons'
+import { CloseIcon, TrashIcon, CheckIcon } from '../../../assets/icons'
 
 // types
 import { Commitment } from '../../../types/commitment'
 
-
 interface Props {
   selectedNote: Commitment
   close: () => void
+  saveCommitment: (commitment: Commitment) => void
 }
 
-const CreateEditCommitment = ({ selectedNote, close }: Props) => {
+const CreateEditCommitment = ({
+  selectedNote,
+  close,
+  saveCommitment,
+}: Props) => {
+  const [change, setChange] = useState(false)
+  const [commitment, setCommitment] = useState<Commitment>(selectedNote)
+
+  const save = () => {
+    saveCommitment(commitment)
+  }
+
   return (
     <S.Wrapper>
       <S.Content>
         <S.Header>
-          <S.Title>{selectedNote.title}</S.Title>
+          <S.Title
+            value={commitment.title}
+            onChange={(change: React.ChangeEvent<HTMLInputElement>) => {
+              setCommitment({ ...commitment, title: change.target.value })
+              setChange(true)
+            }}
+          />
           <div data-testid="close" onClick={close}>
             <CloseIcon />
           </div>
         </S.Header>
         <S.Body>
-          <S.Commitment defaultValue={selectedNote.description} />
+          <S.Commitment
+            onChange={(change: React.ChangeEvent<HTMLTextAreaElement>) => {
+              setCommitment({ ...commitment, description: change.target.value })
+              setChange(true)
+            }}
+            defaultValue={commitment.description}
+          />
         </S.Body>
         <S.Footer>
           <span>
-            Última atualização <br /> {selectedNote.date}
+            Última atualização <br /> {commitment.date}
           </span>
 
-          <div>
-            <EditIcon />
-            <TrashIcon />
+          <div
+            onClick={() => {
+              if (!change) return close()
+
+              save()
+              setChange(false)
+              close()
+            }}
+          >
+            {change ? <CheckIcon /> : <TrashIcon />}
           </div>
         </S.Footer>
       </S.Content>

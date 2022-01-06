@@ -87,11 +87,28 @@ function App() {
     setFiltCommitments(newCommitments)
   }
 
+  const saveCommitment = (newCommitment: Commitment) => {
+    let newCommitments = [...commitments]
+
+    newCommitments.forEach((commitment) => {
+      if (commitment.id !== newCommitment.id) return
+
+      commitment.title = newCommitment.title
+      commitment.description = newCommitment.description
+    })
+
+    setCommitments(newCommitments)
+    setFiltCommitments(newCommitments)
+  }
+
   return (
     <div className="App">
       {showModal && (
         <Modal>
           <CreateEditCommitment
+            saveCommitment={(commitment: Commitment) =>
+              saveCommitment(commitment)
+            }
             selectedNote={selectedCommitment}
             close={() => setShowModal(false)}
           />
