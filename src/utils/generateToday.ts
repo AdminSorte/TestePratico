@@ -11,7 +11,10 @@ export function generateToday(): GenerateToday {
   const hour = today.getHours()
   const minute = today.getMinutes()
 
-  const dateString = `${date}/${month}/${year}`
+  const formatdDate = date < 10 ? `0${date}` : date
+  const formatedMonth = month < 10 ? `0${month}` : month
+
+  const dateString = `${formatdDate}/${formatedMonth}/${year}`
   const hourString = `${hour}:${minute}`
 
   return {
