@@ -32,10 +32,14 @@ export const Body = styled.div`
 
 export const Title = styled.span`
   font-size: 2rem;
+  font-weight: bold;
+  color: #2f2f2f;
 `
 
 export const Id = styled.span`
   font-size: 1.5rem;
+  font-weight: bold;
+  color: #2f2f2f;
 `
 
 export const Description = styled.span`
@@ -45,6 +49,8 @@ export const Description = styled.span`
 
 export const Date = styled.span`
   font-size: 1.5rem;
+  font-weight: bold;
+  color: #2f2f2f;
 `
 
 export const Footer = styled.div`
