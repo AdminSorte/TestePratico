@@ -74,6 +74,19 @@ function App() {
     setShowModal(true)
   }
 
+  const deleteCommitment = (id: number) => {
+    const newCommitments: Commitment[] = []
+
+    filtCommitments.forEach((commitment) => {
+      if (commitment.id === id) return
+
+      newCommitments.push(commitment)
+    })
+
+    setCommitments(newCommitments)
+    setFiltCommitments(newCommitments)
+  }
+
   return (
     <div className="App">
       {showModal && (
@@ -101,6 +114,7 @@ function App() {
               title="Minha agenda"
               content={filtCommitments}
               openSelected={(id) => openCommitment(id)}
+              deleteSelected={(id) => deleteCommitment(id)}
             />
           </S.Content>
         </S.ContentContainer>

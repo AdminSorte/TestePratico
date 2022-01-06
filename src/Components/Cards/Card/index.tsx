@@ -11,9 +11,10 @@ interface Props {
   title: string
   content: Commitment[]
   openSelected: (id: number) => void
+  deleteSelected: (id: number) => void
 }
 
-const Card = ({ title, content, openSelected }: Props) => {
+const Card = ({ title, content, openSelected, deleteSelected }: Props) => {
   return (
     <S.Wrapper>
       <S.Content>
@@ -22,9 +23,13 @@ const Card = ({ title, content, openSelected }: Props) => {
         </S.TitleContainer>
         <S.TasksContainer>
           {content.length ? (
-            content.map((item, index) => (
-              <div key={index} onClick={() => openSelected(item.id)}>
-                <TaskCard task={item} />
+            content.map((commitment, index) => (
+              <div key={index}>
+                <TaskCard
+                  commitment={commitment}
+                  openSelected={() => openSelected(commitment.id)}
+                  deleteSelected={() => deleteSelected(commitment.id)}
+                />
               </div>
             ))
           ) : (

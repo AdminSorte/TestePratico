@@ -11,7 +11,7 @@ describe('Card', () => {
   }
 
   it('should render the title of the Card', () => {
-    render(<Card openSelected={() => {''}} title={props.title} content={[]} />)
+    render(<Card deleteSelected={() => {''}} openSelected={() => {''}} title={props.title} content={[]} />)
 
     const element = screen.getByText(props.title)
 
@@ -20,7 +20,7 @@ describe('Card', () => {
 
   it('should render the content of the Card', () => {
     render(
-      <Card openSelected={() => ''} title={props.title} content={props.content} />
+      <Card deleteSelected={() => {''}} openSelected={() => ''} title={props.title} content={props.content} />
     )
 
     const element = screen.getByText(props.content[0].description)

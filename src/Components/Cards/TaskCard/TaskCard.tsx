@@ -5,11 +5,13 @@ import { Commitment } from '../../../types/commitment'
 import { TrashIcon } from '../../../assets/icons/TrashIcon'
 
 interface Props {
-  task: Commitment
+  commitment: Commitment
+  deleteSelected: () => void
+  openSelected: () => void
 }
 
-const TaskCard = (props: Props) => {
-  const { id, title, description, date } = props.task
+const TaskCard = ({ commitment, deleteSelected, openSelected }: Props) => {
+  const { id, title, description, date } = commitment
 
   const idFormated = id < 10 ? `0${id}` : id
   const dateFormated = date.replace(/-/g, '/')
@@ -18,22 +20,28 @@ const TaskCard = (props: Props) => {
     ? description.slice(0, 150) + '...'
     : description
 
+  const open = () => {
+    openSelected()
+  }
+
   return (
     <S.Wrapper>
       <S.Content>
-        <S.Header>
+        <S.Header onClick={open}>
           <div>
             <S.Title>{title}</S.Title>
           </div>
         </S.Header>
-        <S.Body>
+        <S.Body onClick={open}>
           <S.Description>{slicedDescription}</S.Description>
         </S.Body>
         <S.Footer>
           <S.Date data-testid="date">{dateFormated}</S.Date>
-          <S.Actions>
+          <S.Actions onClick={deleteSelected}>
             <S.Id>#{idFormated}</S.Id>
-            <TrashIcon />
+            <div>
+              <TrashIcon />
+            </div>
           </S.Actions>
         </S.Footer>
       </S.Content>
