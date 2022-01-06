@@ -6,10 +6,10 @@ const SearchIcon = () => {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#484848"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke="#2f2f2f"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="feather feather-search"
     >
       <circle cx="11" cy="11" r="8"></circle>
