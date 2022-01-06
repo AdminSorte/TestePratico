@@ -1,18 +1,31 @@
 import { useEffect, useState } from 'react'
 
+// styles
 import * as S from './styles'
 
-import { Menu } from '../../Components/index'
-import { Card } from '../../Components/index'
-import { TheHeader } from '../../Components/TheHeader/TheHeader'
+// components
+import {
+  Card,
+  CreateEditCommitment,
+  Menu,
+  Modal,
+  TheHeader,
+} from '../../Components/index'
+
+// types
+import { Commitment } from '../../types/commitment'
 
 // mock
 import comp from '../../mock/commitments'
-import { Commitment } from '../../types/commitment'
 
 function App() {
   const [commitments, setCommitments] = useState<Commitment[]>([])
   const [filtCommitments, setFiltCommitments] = useState<Commitment[]>([])
+
+  const [showModal, setShowModal] = useState(false)
+
+  // TODO: Put the clicked commitment in the state
+  const [selectedCommitment, setSelectedCommitment] = useState<Commitment>({} as Commitment)
 
   useEffect(() => {
     setTimeout(() => {
@@ -51,8 +64,27 @@ function App() {
     )
   }
 
+  const openCommitment = (id: number) => {
+    const selectedCommitment = commitments.filter(
+      (commitment) => commitment.id === id && commitment
+    )[0]
+
+    setSelectedCommitment(selectedCommitment)
+    setShowModal(true)
+  }
+
   return (
     <div className="App">
+      {showModal && (
+        <Modal>
+          <CreateEditCommitment
+            selectedNote={selectedCommitment}
+            close={() => setShowModal(false)}
+          />
+        </Modal>
+      )}
+
+      {/*  */}
       <S.Wrapper>
         <S.ContentContainer>
           <S.Header>
@@ -64,7 +96,11 @@ function App() {
             />
           </S.Header>
           <S.Content>
-            <Card title="Minha agenda" content={filtCommitments} />
+            <Card
+              title="Minha agenda"
+              content={filtCommitments}
+              openSelected={(id) => openCommitment(id)}
+            />
           </S.Content>
         </S.ContentContainer>
       </S.Wrapper>
