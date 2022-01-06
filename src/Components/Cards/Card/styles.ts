@@ -52,3 +52,11 @@ export const TasksContainer = styled.div`
 
   box-shadow: 0px 10px 5px rgba(237, 237, 237, 0.8) inset;
 `
+
+export const LoadContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`

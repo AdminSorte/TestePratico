@@ -19,13 +19,14 @@ import { Commitment } from '../../types/commitment'
 import comp from '../../mock/commitments'
 
 function App() {
-  const [commitments, setCommitments] = useState<Commitment[]>([])
-  const [filtCommitments, setFiltCommitments] = useState<Commitment[]>([])
-
   const [showModal, setShowModal] = useState(false)
 
-  // TODO: Put the clicked commitment in the state
-  const [selectedCommitment, setSelectedCommitment] = useState<Commitment>({} as Commitment)
+  // commitments
+  const [commitments, setCommitments] = useState<Commitment[]>([])
+  const [filtCommitments, setFiltCommitments] = useState<Commitment[]>([])
+  const [selectedCommitment, setSelectedCommitment] = useState<Commitment>(
+    {} as Commitment
+  )
 
   useEffect(() => {
     setTimeout(() => {

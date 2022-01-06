@@ -1,5 +1,10 @@
 import { Commitment } from '../../../types/commitment'
 import { TaskCard } from '../TaskCard/TaskCard'
+
+// components
+import { Loading } from '../../index'
+
+// style
 import * as S from './styles'
 
 interface Props {
@@ -18,23 +23,14 @@ const Card = ({ title, content, openSelected }: Props) => {
         <S.TasksContainer>
           {content.length ? (
             content.map((item, index) => (
-              <div onClick={() => openSelected(item.id)}>
-                <TaskCard key={index} task={item} />
+              <div key={index} onClick={() => openSelected(item.id)}>
+                <TaskCard task={item} />
               </div>
             ))
           ) : (
-            <div
-              style={{
-                display: 'flex',
-                width: '100%',
-                height: '100%',
-                backgroundColor: 'teal',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <p>Loading</p>
-            </div>
+            <S.LoadContainer>
+              <Loading />
+            </S.LoadContainer>
           )}
         </S.TasksContainer>
       </S.Content>
