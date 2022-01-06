@@ -23,6 +23,9 @@ export const Content = styled.div`
 
   border-radius: 15px;
   border: 1px solid #c6c6c6;
+
+  -webkit-box-shadow: 0px 4px 7px 0px rgba(72, 72, 72, 0.4);
+  box-shadow: 0px 4px 7px 0px rgba(72, 72, 72, 0.4);
 `
 
 export const Title = styled.div`
