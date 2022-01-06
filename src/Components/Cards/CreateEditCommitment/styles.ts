@@ -77,7 +77,18 @@ export const Footer = styled.div`
     display: flex;
 
     & svg:first-child {
-      margin-right: 0.5rem;
+      margin-right: 1.5rem;
+    }
+
+    & svg {
+      stroke: #2f2f2f;
+      transition: 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        stroke: red;
+        transition: 0.3s;
+      }
     }
   }
 

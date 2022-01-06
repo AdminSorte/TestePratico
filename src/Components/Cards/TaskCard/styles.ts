@@ -44,6 +44,7 @@ export const Id = styled.span`
 
 export const Description = styled.span`
   font-size: 1.5rem;
+
   margin-bottom: 5px;
 `
 
