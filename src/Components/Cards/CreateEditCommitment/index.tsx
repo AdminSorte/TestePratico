@@ -12,12 +12,14 @@ interface Props {
   selectedNote: Commitment
   close: () => void
   saveCommitment: (commitment: Commitment) => void
+  deleteCommitment: () => void
 }
 
 const CreateEditCommitment = ({
   selectedNote,
   close,
   saveCommitment,
+  deleteCommitment,
 }: Props) => {
   const [change, setChange] = useState(false)
   const [commitment, setCommitment] = useState<Commitment>(selectedNote)
@@ -57,7 +59,12 @@ const CreateEditCommitment = ({
 
           <div
             onClick={() => {
-              if (!change) return close()
+              if (!change) {
+                close()
+                deleteCommitment()
+
+                return
+              }
 
               save()
               setChange(false)

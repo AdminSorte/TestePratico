@@ -75,6 +75,13 @@ function App() {
   }
 
   const deleteCommitment = (id: number) => {
+    // confirm delete
+    const confitm = window.confirm(
+      'Tem certeza que deseja excluir essa tarefa?'
+    )
+
+    if (!confitm) return
+
     const newCommitments: Commitment[] = []
 
     filtCommitments.forEach((commitment) => {
@@ -106,11 +113,12 @@ function App() {
       {showModal && (
         <Modal>
           <CreateEditCommitment
+            selectedNote={selectedCommitment}
+            close={() => setShowModal(false)}
+            deleteCommitment={() => deleteCommitment(selectedCommitment.id)}
             saveCommitment={(commitment: Commitment) =>
               saveCommitment(commitment)
             }
-            selectedNote={selectedCommitment}
-            close={() => setShowModal(false)}
           />
         </Modal>
       )}
