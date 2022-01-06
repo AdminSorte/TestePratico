@@ -3,6 +3,9 @@ import { Card } from '../../Components/index'
 
 import * as S from './styles'
 
+// mock
+import comp from '../../mock/commitments'
+
 function App() {
   return (
     <div className="App">
@@ -12,8 +15,7 @@ function App() {
             <Menu title="Minha agenda minha vida" />
           </S.Header>
           <S.Content>
-            <Card title="Hoje" content="teste " />
-            <Card title="Próximos compromissos" content="teste " />
+            <Card title="Minha agenda" content={comp} />
           </S.Content>
         </S.ContentContainer>
       </S.Wrapper>
