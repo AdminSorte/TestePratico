@@ -37,7 +37,7 @@ export const Logo = styled.img`
 export const Title = styled.span`
   font-size: 2rem;
   font-weight: bold;
-  color: #2f2f2f;
+  color: #1a8a75;
 
   @media (min-width: 768px) {
     font-size: 3rem;

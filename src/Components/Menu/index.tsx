@@ -27,16 +27,18 @@ const Menu = ({ title, clearSearch, onSearch }: Props) => {
           value={search}
         />
         {!!search.length ? (
-          <div
+          <S.IconContainer
             onClick={() => {
               setSearch('')
               clearSearch()
             }}
           >
             <CloseIcon />
-          </div>
+          </S.IconContainer>
         ) : (
-          <SearchIcon />
+          <S.IconContainer>
+            <SearchIcon />
+          </S.IconContainer>
         )}
       </S.Content>
     </S.Wrapper>

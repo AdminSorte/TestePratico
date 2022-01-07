@@ -16,7 +16,7 @@ export const Content = styled.div`
   padding: 10px;
 
   border-radius: 15px;
-  border: 1px solid #484848;
+  box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.5);
 
   background-color: #ffffff;
 
@@ -38,7 +38,7 @@ export const Title = styled.div`
 
   font-size: 2.5rem;
   font-weight: bold;
-  color: #2f2f2f;
+  color: #1a8a75;
 `
 
 export const TasksContainer = styled.div`
@@ -50,7 +50,7 @@ export const TasksContainer = styled.div`
 
   border-radius: 1rem;
 
-  box-shadow: 0px 10px 5px rgba(237, 237, 237, 0.8) inset;
+  box-shadow: 0px 15px 0.2rem rgba(237, 237, 237, 0.2) inset;
 `
 
 export const LoadContainer = styled.div`

@@ -23,10 +23,14 @@ export const Content = styled.div`
   width: 100%;
   height: 100%;
 
-  padding: 0px 15px;
+  padding-left: 15px;
 
-  border-radius: 15px;
-  border: 1px solid #484848;
+  background-color: #e1e3e4;
+
+  border-radius: 10px;
+  /* border: 1px solid #484848; */
+
+  overflow: hidden;
 
   -webkit-box-shadow: 0px 4px 7px 0px rgba(150, 150, 150, 0.4);
   box-shadow: 0px 4px 7px 0px rgba(150, 150, 150, 0.4);
@@ -34,19 +38,25 @@ export const Content = styled.div`
 
 export const Title = styled.input`
   font-size: 1.8rem;
-  font-weight: lighter;
 
   border: none;
-  
-  color: #2f2f2f;
 
+  color: #8f8f90;
+
+  background-color: transparent;
 `
 
-export const Icon = styled.div`
-  height: 30px;
-  width: 30px;
+export const IconContainer = styled.div`
+  height: 100%;
+  width: 50px;
+
+  background-color: #188a74;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  & svg {
+    stroke: #fff;
+  }
 `

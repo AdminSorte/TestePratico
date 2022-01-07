@@ -1,14 +1,19 @@
 import styled from 'styled-components'
 
+interface Props {
+  color: string
+}
+
 export const Wrapper = styled.div`
   margin-bottom: 10px;
 `
 
-export const Content = styled.div`
-  border-radius: 10px;
+export const Content = styled.div<Props>`
+  border-radius: 5px;
   padding: 0 12px;
 
-  border: 1px solid #484848;
+  border-top: 5px solid ${({ color }) => color};
+  box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
 `
 
 export const Header = styled.div`
@@ -30,16 +35,16 @@ export const Body = styled.div`
   padding: 5px 0;
 `
 
-export const Title = styled.span`
+export const Title = styled.span<Props>`
   font-size: 2rem;
   font-weight: bold;
-  color: #2f2f2f;
+  color: ${({ color }) => color};
 `
 
-export const Id = styled.span`
+export const Id = styled.span<Props>`
   font-size: 1.5rem;
   font-weight: bold;
-  color: #2f2f2f;
+  color: ${({ color }) => color};
 `
 
 export const Description = styled.span`
@@ -48,13 +53,13 @@ export const Description = styled.span`
   margin-bottom: 5px;
 `
 
-export const Date = styled.span`
+export const Date = styled.span<Props>`
   font-size: 1.5rem;
   font-weight: bold;
-  color: #2f2f2f;
+  color: ${({ color }) => color};
 `
 
-export const Footer = styled.div`
+export const Footer = styled.div<Props>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,9 +71,10 @@ export const Footer = styled.div`
   & svg {
     width: 20px;
     transition: 0.2s;
+    stroke: ${({ color }) => color};
 
     &:hover {
-      stroke: red;
+      stroke: #d94a38;
       transition: 0.2s;
     }
   }
