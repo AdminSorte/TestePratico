@@ -55,4 +55,8 @@ export const Wrapper = styled.div<Props>`
   & svg {
     stroke: ${({ theme }) => theme.colors.white};;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `
