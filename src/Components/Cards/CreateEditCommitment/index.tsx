@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import * as S from './styles'
 
@@ -44,7 +44,9 @@ const CreateEditCommitment = ({
       <S.Content>
         <S.Header>
           <S.Title
-            value={commitment.title}
+            type="text"
+            value={commitment.title || ''}
+            placeholder='Título'
             onChange={(change: React.ChangeEvent<HTMLInputElement>) => {
               setCommitment({ ...commitment, title: change.target.value })
               setChange(true)
@@ -56,11 +58,12 @@ const CreateEditCommitment = ({
         </S.Header>
         <S.Body>
           <S.Commitment
+            placeholder='Descrição'
             onChange={(change: React.ChangeEvent<HTMLTextAreaElement>) => {
               setCommitment({ ...commitment, description: change.target.value })
               setChange(true)
             }}
-            defaultValue={commitment.description}
+            value={commitment.description}
           />
         </S.Body>
         <S.Footer>
