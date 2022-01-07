@@ -17,6 +17,7 @@ export const Header = styled.div`
   width: 100%;
   height: 20%;
   max-height: 20vh;
+  min-height: 150px;
   
   display: flex;
   align-items: center;
