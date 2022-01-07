@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { Commitment } from '../../../types/commitment'
-import { TaskCard } from './TaskCard'
+import { TaskCard } from '.'
 
 describe('TaskCard', () => {
   const commitmentMock = {
@@ -19,7 +18,7 @@ describe('TaskCard', () => {
         deleteSelected={() => console.log('')}
       />
     )
-    const element = screen.getByText(commitmentMock.title)
+    const element = screen.getByText(commitmentMock.title + '...')
     expect(element).toBeInTheDocument()
   })
 
