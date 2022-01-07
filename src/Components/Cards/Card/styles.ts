@@ -18,7 +18,7 @@ export const Content = styled.div`
   border-radius: 15px;
   box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.5);
 
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.white};
 
   overflow: hidden;
 `
@@ -38,7 +38,7 @@ export const Title = styled.div`
 
   font-size: 2.5rem;
   font-weight: bold;
-  color: #1a8a75;
+  color: ${({ theme }) => theme.colors.luck_green};
 `
 
 export const TasksContainer = styled.div`

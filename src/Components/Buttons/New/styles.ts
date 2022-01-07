@@ -13,14 +13,14 @@ export const Wrapper = styled.div<Props>`
   justify-content: center;
 
   font-size: 5rem;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   text-align: center;
 
   position: fixed;
 
   border-radius: 50%;
 
-  background-color: #309583;
+  background-color: ${({ theme }) => theme.colors.luck_green};
 
   z-index: 10;
 
@@ -53,6 +53,6 @@ export const Wrapper = styled.div<Props>`
   }
 
   & svg {
-    stroke: #fff;
+    stroke: ${({ theme }) => theme.colors.white};;
   }
 `

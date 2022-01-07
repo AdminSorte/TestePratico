@@ -108,11 +108,11 @@ export const CommitmentProvider: React.FC = ({ children }) => {
   }
 
   const deleteCommitment = (id: number) => {
-    const confitm = window.confirm(
+    const confirm = window.confirm(
       'Tem certeza que deseja excluir esse compromisso?'
     )
 
-    if (!confitm) return
+    if (!confirm) return
 
     const newCommitments: Commitment[] = []
 

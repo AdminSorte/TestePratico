@@ -29,10 +29,18 @@ export const Header = styled.div`
     align-items: center;
     justify-content: space-between;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const Body = styled.div`
   padding: 5px 0;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const Title = styled.span<Props>`
@@ -74,8 +82,9 @@ export const Footer = styled.div<Props>`
     stroke: ${({ color }) => color};
 
     &:hover {
-      stroke: #d94a38;
+      stroke: ${({ theme }) => theme.colors.red};
       transition: 0.2s;
+      cursor: pointer;
     }
   }
 `

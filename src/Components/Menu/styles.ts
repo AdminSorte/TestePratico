@@ -25,10 +25,9 @@ export const Content = styled.div`
 
   padding-left: 15px;
 
-  background-color: #e1e3e4;
+  background-color: ${({ theme }) => theme.colors.light_gray};
 
   border-radius: 10px;
-  /* border: 1px solid #484848; */
 
   overflow: hidden;
 
@@ -41,22 +40,26 @@ export const Title = styled.input`
 
   border: none;
 
-  color: #8f8f90;
+  color: ${({ theme }) => theme.colors.gray};
 
   background-color: transparent;
+
+  width: 100%;
+  padding-right: 1rem;
 `
 
 export const IconContainer = styled.div`
   height: 100%;
-  width: 50px;
+  width: 55px;
 
-  background-color: #188a74;
+  background-color: ${({ theme }) => theme.colors.luck_green};
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   & svg {
-    stroke: #fff;
+    width: 55px;
+    stroke: ${({ theme }) => theme.colors.white};
   }
 `

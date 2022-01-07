@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-
 import * as S from './styles'
 
 import { Commitment } from '../../../types/commitment'
@@ -13,29 +11,13 @@ interface Props {
 }
 
 const TaskCard = ({ commitment, deleteSelected, openSelected }: Props) => {
-  const [currentColor, setCurrentColor] = useState('#1a8a75')
+  const currentColor = '#1a8a75'
   const { id, title, description, date, hour } = commitment
-
-  // useEffect(() => {
-  //   setCurrentColor(returnRandomColor())
-  // }, [])
 
   const returnSliced = (string: string, maxLength: number) => {
     return string.length > maxLength
       ? string.slice(0, maxLength) + '...'
       : string
-  }
-
-  const returnRandomColor = (): string => {
-    const colors = [
-      '#323369',
-      '#588202',
-      '#0d46a6',
-      '#d2a907',
-    ]
-
-    const value = Math.floor(Math.random() * ((colors.length - 1) - 0 + 1)) + 0
-    return colors[value]
   }
 
   const open = () => {
@@ -51,7 +33,7 @@ const TaskCard = ({ commitment, deleteSelected, openSelected }: Props) => {
       <S.Content color={currentColor}>
         <S.Header onClick={open}>
           <div>
-            <S.Title color={currentColor}>{slicedTitle}</S.Title>
+            <S.Title data-testid="title" color={currentColor}>{slicedTitle}</S.Title>
           </div>
         </S.Header>
         <S.Body onClick={open}>

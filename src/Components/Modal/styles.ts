@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 
   width: 100%;
   height: 100%;
-  background-color: #00000060;
+  background-color: ${({ theme }) => theme.colors.black_transparent};
 
   display: flex;
   align-items: center;
