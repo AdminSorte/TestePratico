@@ -59,10 +59,11 @@ export const Commitment = styled.textarea`
   height: 100%;
 
   border: none;
-  outline: none;
 
   font-size: 1.7rem;
   color: #000;
+
+  resize: none;
 `
 
 export const Footer = styled.div`

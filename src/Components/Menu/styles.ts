@@ -37,8 +37,7 @@ export const Title = styled.input`
   font-weight: lighter;
 
   border: none;
-
-  outline: none;
+  
   color: #2f2f2f;
 
 `
