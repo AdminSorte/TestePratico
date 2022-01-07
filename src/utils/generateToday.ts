@@ -5,20 +5,21 @@ interface GenerateToday {
 
 export function generateToday(): GenerateToday {
   const today = new Date()
-  const date = today.getDate()
-  const month = today.getMonth() + 1
+  const date = __returnWithZeroIfLessThan10(today.getDate())
+  const month = __returnWithZeroIfLessThan10(today.getMonth() + 1)
   const year = today.getFullYear()
-  const hour = today.getHours()
-  const minute = today.getMinutes()
+  const hour = __returnWithZeroIfLessThan10(today.getHours())
+  const minute = __returnWithZeroIfLessThan10(today.getMinutes())
 
-  const formatdDate = date < 10 ? `0${date}` : date
-  const formatedMonth = month < 10 ? `0${month}` : month
-
-  const dateString = `${formatdDate}/${formatedMonth}/${year}`
+  const dateString = `${date}/${month}/${year}`
   const hourString = `${hour}:${minute}`
 
   return {
     date: dateString,
     hour: hourString,
   }
+}
+
+function __returnWithZeroIfLessThan10(number: number): string {
+  return number < 10 ? `0${number}` : number.toString()
 }
