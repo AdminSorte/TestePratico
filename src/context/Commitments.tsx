@@ -122,7 +122,7 @@ export const CommitmentProvider: React.FC = ({ children }) => {
       newCommitments.push(commitment)
     })
 
-    setLastId(lastId - 1)
+    lastId - 1 === 0 ? setLastId(0) : setLastId(lastId - 1)
     setSelectedCommitment({} as Commitment)
     setCommitments(newCommitments)
     setFiltCommitments(newCommitments)
@@ -131,8 +131,10 @@ export const CommitmentProvider: React.FC = ({ children }) => {
   const saveCommitment = (newCommitment: Commitment) => {
     let newCommitments = [...commitments]
 
-    const commitmentExist = commitments.findIndex((commitment) =>
-      commitment.id === newCommitment.id ? false : true
+    let commitmentExist: boolean = false
+    commitments.forEach(
+      (commitment) =>
+        commitment.id === newCommitment.id && (commitmentExist = true)
     )
 
     if (!commitmentExist) {
