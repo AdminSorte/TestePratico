@@ -30,7 +30,11 @@ const Card = ({
           <S.Title>{title}</S.Title>
         </S.TitleContainer>
         <S.TasksContainer>
-          {!isLoading ? (
+          {!isLoading && !content.length ? (
+            <S.LoadContainer>
+              <S.ErrorMessage>Nada aqui por aqui 😉</S.ErrorMessage>
+            </S.LoadContainer>
+          ) : !isLoading ? (
             content.map((commitment, index) => (
               <div key={index}>
                 <TaskCard

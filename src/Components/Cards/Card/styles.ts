@@ -60,3 +60,9 @@ export const LoadContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
+
+export const ErrorMessage = styled.span`
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.dark_gray};
+`
