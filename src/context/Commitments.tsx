@@ -122,6 +122,7 @@ export const CommitmentProvider: React.FC = ({ children }) => {
       newCommitments.push(commitment)
     })
 
+    setLastId(lastId - 1)
     setSelectedCommitment({} as Commitment)
     setCommitments(newCommitments)
     setFiltCommitments(newCommitments)
