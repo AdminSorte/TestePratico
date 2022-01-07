@@ -32,6 +32,10 @@ export const LogoContainer = styled.div`
 
 export const Logo = styled.img`
   width: 90%;
+
+  @media (min-width: 768px) {
+    max-width: 22rem;
+  }
 `
 
 export const Title = styled.span`
