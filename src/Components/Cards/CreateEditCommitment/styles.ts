@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
 
   padding: 1.5rem;
 
@@ -34,11 +34,24 @@ export const Header = styled.div`
 
   height: 10%;
   width: 100%;
+
+  & svg {
+    cursor: pointer;
+  }
 `
 
 export const Title = styled.input`
   font-size: 2rem;
   font-weight: bold;
+  color: ${({ theme }) => theme.colors.luck_green};
+
+  border: 2px solid #ededed;
+  border-radius: 1rem;
+  
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+
+  width: 90%;
 
   border: none;
 `
@@ -51,7 +64,7 @@ export const Body = styled.div`
   height: 80%;
 
   border-radius: 1rem;
-  border: 1px solid #484848;
+  border: 2px solid #ededed;
 `
 
 export const Commitment = styled.textarea`
@@ -61,9 +74,11 @@ export const Commitment = styled.textarea`
   border: none;
 
   font-size: 1.7rem;
-  color: #000;
+  color: ${({ theme }) => theme.colors.dark_gray};
 
   resize: none;
+
+  white-space: pre-wrap;
 `
 
 export const Footer = styled.div`
@@ -80,7 +95,7 @@ export const Footer = styled.div`
     display: flex;
 
     & svg {
-      stroke: #2f2f2f;
+      color: ${({ theme }) => theme.colors.dark_gray};
       transition: 0.3s;
 
       &:hover {
@@ -94,5 +109,6 @@ export const Footer = styled.div`
   & span {
     font-weight: bold;
     font-size: 1.5rem;
+    color: ${({ theme }) => theme.colors.dark_gray};
   }
 `

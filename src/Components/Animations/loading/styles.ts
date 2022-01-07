@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Spinner = styled.div`
   border: 5px solid #f3f3f3;
-  border-top: 5px solid #309583;
+  border-top: 5px solid ${({ theme }) => theme.colors.luck_green};
   border-radius: 50%;
   width: 40px;
   height: 40px;

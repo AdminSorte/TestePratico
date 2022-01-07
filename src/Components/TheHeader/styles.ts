@@ -37,7 +37,7 @@ export const Logo = styled.img`
 export const Title = styled.span`
   font-size: 2rem;
   font-weight: bold;
-  color: #1a8a75;
+  color: ${({ theme }) => theme.colors.luck_green};
 
   @media (min-width: 768px) {
     font-size: 3rem;
