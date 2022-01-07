@@ -32,7 +32,7 @@ const Card = ({
         <S.TasksContainer>
           {!isLoading && !content.length ? (
             <S.LoadContainer>
-              <S.ErrorMessage>Nada aqui por aqui 😉</S.ErrorMessage>
+              <S.ErrorMessage>Nada por aqui 😉</S.ErrorMessage>
             </S.LoadContainer>
           ) : !isLoading ? (
             content.map((commitment, index) => (
