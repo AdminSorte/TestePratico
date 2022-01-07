@@ -3,15 +3,14 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-
   `
 
 export const ContentContainer = styled.div`
   min-height: 100vh;
-  max-width: 1000px;
+  width: 800px;
   
-  padding: 0 10px;
-  
+  padding: 0 10px;  
+  position: relative;
   `
 
 export const Header = styled.div`
