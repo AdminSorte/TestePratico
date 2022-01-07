@@ -81,10 +81,12 @@ export const Footer = styled.div<Props>`
     transition: 0.2s;
     stroke: ${({ color }) => color};
 
-    &:hover {
-      stroke: ${({ theme }) => theme.colors.red};
-      transition: 0.2s;
-      cursor: pointer;
+    @media (min-width: 768px) {
+      &:hover {
+        stroke: ${({ theme }) => theme.colors.red};
+        transition: 0.2s;
+        cursor: pointer;
+      }
     }
   }
 `

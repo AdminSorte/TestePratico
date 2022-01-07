@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
 
   width: 100%;
-  height: 100%;
+  height: 95%;
 
   background-color: ${({ theme }) => theme.colors.white};
 
@@ -61,7 +61,7 @@ export const Body = styled.div`
 
   padding: 1rem;
 
-  height: 80%;
+  height: 77%;
 
   border-radius: 1rem;
   border: 2px solid #ededed;
@@ -83,7 +83,7 @@ export const Commitment = styled.textarea`
 
 export const Footer = styled.div`
   width: 100%;
-  height: 10%;
+  height: 13%;
 
   margin-top: 0.5rem;
 
