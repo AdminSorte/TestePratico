@@ -7,9 +7,9 @@ export const Wrapper = styled.div`
 
 export const ContentContainer = styled.div`
   min-height: 100vh;
-  width: 800px;
+  width: 80rem;
   
-  padding: 0 10px;  
+  padding: 0 1rem;  
   position: relative;
   `
 
@@ -17,14 +17,14 @@ export const Header = styled.div`
   width: 100%;
   height: 20%;
   max-height: 20vh;
-  min-height: 150px;
+  min-height: 15rem;
   
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   
-  padding: 10px;
+  padding: 1rem;
 `
 
 export const Content = styled.div`
@@ -35,5 +35,5 @@ export const Content = styled.div`
   height: 80%;
   max-height: 80vh;
 
-  padding: 10px;
+  padding: 1rem;
 `

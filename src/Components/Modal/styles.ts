@@ -16,10 +16,10 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   width: 90%;
-  max-width: 700px;
+  max-width: 70rem;
   height: 60vh;
 
-  border-radius: 10px;
+  border-radius: 1rem;
 
   @media (min-width: 768px) {
     height: 70vh;

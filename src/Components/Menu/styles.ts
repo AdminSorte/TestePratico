@@ -23,11 +23,11 @@ export const Content = styled.div`
   width: 100%;
   height: 100%;
 
-  padding-left: 15px;
+  padding-left: 1.5rem;
 
   background-color: ${({ theme }) => theme.colors.light_gray};
 
-  border-radius: 10px;
+  border-radius: 1rem;
 
   overflow: hidden;
 
@@ -46,11 +46,15 @@ export const Title = styled.input`
 
   width: 100%;
   padding-right: 1rem;
+
+  @media (min-width: 768px) {
+    padding-top: 0.5rem;
+  }
 `
 
 export const IconContainer = styled.div`
   height: 100%;
-  width: 55px;
+  width: 5.5rem;
 
   background-color: ${({ theme }) => theme.colors.luck_green};
 
@@ -59,7 +63,7 @@ export const IconContainer = styled.div`
   justify-content: center;
 
   & svg {
-    width: 55px;
+    width: 5.5rem;
     stroke: ${({ theme }) => theme.colors.white};
   }
 `

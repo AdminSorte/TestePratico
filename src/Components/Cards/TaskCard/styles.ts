@@ -5,12 +5,12 @@ interface Props {
 }
 
 export const Wrapper = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 `
 
 export const Content = styled.div<Props>`
-  border-radius: 5px;
-  padding: 0 12px;
+  border-radius: 0.5rem;
+  padding: 0 1.2rem;
 
   border-top: 5px solid ${({ color }) => color};
   box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
@@ -58,7 +58,7 @@ export const Id = styled.span<Props>`
 export const Description = styled.span`
   font-size: 1.5rem;
 
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
 `
 
 export const Date = styled.span<Props>`
@@ -77,7 +77,7 @@ export const Footer = styled.div<Props>`
   padding: 5px 0;
 
   & svg {
-    width: 20px;
+    width: 2rem;
     transition: 0.2s;
     stroke: ${({ color }) => color};
 
@@ -97,6 +97,6 @@ export const Actions = styled.div`
   justify-content: center;
 
   ${Id} {
-    margin-right: 10px;
+    margin-right: 1rem;
   }
 `

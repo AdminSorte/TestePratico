@@ -4,8 +4,8 @@ export const Spinner = styled.div`
   border: 5px solid #f3f3f3;
   border-top: 5px solid ${({ theme }) => theme.colors.luck_green};
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 4rem;
+  height: 4rem;
   animation: spin 1.5s linear infinite;
 
   @keyframes spin {

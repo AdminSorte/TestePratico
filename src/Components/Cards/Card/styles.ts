@@ -13,9 +13,9 @@ export const Content = styled.div`
   width: 100%;
   height: calc(100% - 10px);
 
-  padding: 10px;
+  padding: 1rem;
 
-  border-radius: 15px;
+  border-radius: 1.5rem;
   box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.5);
 
   background-color: ${({ theme }) => theme.colors.white};
@@ -30,7 +30,7 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
 
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 `
 
 export const Title = styled.div`
