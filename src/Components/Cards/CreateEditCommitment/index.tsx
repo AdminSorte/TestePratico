@@ -85,7 +85,7 @@ const CreateEditCommitment = ({
               close()
             }}
           >
-            {change ? <CheckIcon /> : <TrashIcon />}
+            {change || !selectedNote.id ? <CheckIcon /> : <TrashIcon />}
           </div>
         </S.Footer>
       </S.Content>
