@@ -12,7 +12,7 @@ const TheHeader = () => {
             alt="Logo sorte online com o texto Minha agenda minha vida ao lado"
           />
         </S.LogoContainer>
-        <S.Title>Minha agenda <br /> Minha vida</S.Title>
+        <S.Title>Minha Agenda <br /> Minha Vida</S.Title>
       </S.Content>
     </S.Wrapper>
   )
