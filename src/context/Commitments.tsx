@@ -129,6 +129,9 @@ export const CommitmentProvider: React.FC = ({ children }) => {
   }
 
   const saveCommitment = (newCommitment: Commitment) => {
+    if (!newCommitment.title)
+      return window.alert('O título do compromisso é obrigatório.')
+
     let newCommitments = [...commitments]
 
     let commitmentExist: boolean = false
