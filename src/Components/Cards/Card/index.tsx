@@ -1,20 +1,28 @@
 import { Commitment } from '../../../types/commitment'
-import { TaskCard } from '../TaskCard/TaskCard'
+import { TaskCard } from '../../.'
 
 // components
-import { Loading } from '../../index'
+import { Loading } from '../../.'
 
 // style
 import * as S from './styles'
 
 interface Props {
-  title: string
   content: Commitment[]
-  openSelected: (id: number) => void
+  isLoading: boolean
+  title: string
+
   deleteSelected: (id: number) => void
+  openSelected: (id: number) => void
 }
 
-const Card = ({ title, content, openSelected, deleteSelected }: Props) => {
+const Card = ({
+  title,
+  content,
+  openSelected,
+  deleteSelected,
+  isLoading,
+}: Props) => {
   return (
     <S.Wrapper>
       <S.Content>
@@ -22,7 +30,7 @@ const Card = ({ title, content, openSelected, deleteSelected }: Props) => {
           <S.Title>{title}</S.Title>
         </S.TitleContainer>
         <S.TasksContainer>
-          {content.length ? (
+          {!isLoading ? (
             content.map((commitment, index) => (
               <div key={index}>
                 <TaskCard

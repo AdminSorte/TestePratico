@@ -3,7 +3,6 @@ import { Card } from '.'
 
 import commitmentMock from '../../../mock/singleCommitment'
 
-
 describe('Card', () => {
   const props = {
     title: 'Minha agenda',
@@ -11,7 +10,15 @@ describe('Card', () => {
   }
 
   it('should render the title of the Card', () => {
-    render(<Card deleteSelected={jest.fn()} openSelected={jest.fn()} title={props.title} content={[]} />)
+    render(
+      <Card
+        isLoading={false}
+        deleteSelected={jest.fn()}
+        openSelected={jest.fn()}
+        title={props.title}
+        content={[]}
+      />
+    )
 
     const element = screen.getByText(props.title)
 
@@ -20,7 +27,13 @@ describe('Card', () => {
 
   it('should render the content of the Card', () => {
     render(
-      <Card deleteSelected={jest.fn()} openSelected={() => ''} title={props.title} content={props.content} />
+      <Card
+        isLoading={false}
+        deleteSelected={jest.fn()}
+        openSelected={() => ''}
+        title={props.title}
+        content={props.content}
+      />
     )
 
     const element = screen.getByText(props.content[0].description)
