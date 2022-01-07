@@ -45,15 +45,13 @@ export const Title = styled.input`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.luck_green};
 
-  border: 2px solid #ededed;
+  border: 2px solid ${({ theme }) => theme.colors.light_gray};
   border-radius: 1rem;
   
   padding: 1rem;
   margin-bottom: 0.5rem;
 
   width: 90%;
-
-  border: none;
 `
 
 export const Body = styled.div`
@@ -64,7 +62,7 @@ export const Body = styled.div`
   height: 77%;
 
   border-radius: 1rem;
-  border: 2px solid #ededed;
+  border: 2px solid ${({ theme }) => theme.colors.light_gray};
 `
 
 export const Commitment = styled.textarea`

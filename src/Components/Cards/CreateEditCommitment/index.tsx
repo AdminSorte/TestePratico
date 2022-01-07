@@ -46,7 +46,7 @@ const CreateEditCommitment = ({
           <S.Title
             type="text"
             value={commitment.title || ''}
-            placeholder='Título'
+            placeholder="Título"
             onChange={(change: React.ChangeEvent<HTMLInputElement>) => {
               setCommitment({ ...commitment, title: change.target.value })
               setChange(true)
@@ -58,7 +58,7 @@ const CreateEditCommitment = ({
         </S.Header>
         <S.Body>
           <S.Commitment
-            placeholder='Descrição'
+            placeholder="Descrição"
             onChange={(change: React.ChangeEvent<HTMLTextAreaElement>) => {
               setCommitment({ ...commitment, description: change.target.value })
               setChange(true)
@@ -73,10 +73,14 @@ const CreateEditCommitment = ({
 
           <div
             onClick={() => {
+              if (!commitment.description) return
+
+              if (!commitment.title)
+                return window.alert('O título do compromisso é obrigatório.')
+
               if (!change) {
                 close()
                 deleteCommitment()
-
                 return
               }
 
