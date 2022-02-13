@@ -107,7 +107,12 @@ namespace CalendarAPI
             services.AddScoped<IUserServiceInterface, UserService>();
 
 
+            services.AddDbContext<CalendarDB>(options =>
+                  options.UseSqlite(Configuration["CalendarDBConnectString"]));
+          
 
+
+            services.AddScoped<ICalendarServiceInterface, CalendarService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
