@@ -67,6 +67,12 @@ namespace CalendarAPI.Models
             public string description { get; set; }
         }
 
+        public class CalendarUpdate
+        {
+            public string name { get; set; } = null;
+            public string description { get; set; } = null;
+        }
+
         public class EventsPost
         {
             [Required]
@@ -78,6 +84,14 @@ namespace CalendarAPI.Models
             public DateTime dateStart { get; set; } = DateTime.Now;
             [Required]
             public DateTime dateEnd { get; set; } = DateTime.Now.AddHours(2);
+        }
+
+        public class EventsUpdate
+        {
+            public string name { get; set; } = null;
+            public string description { get; set; } = null;
+            public DateTime? dateStart { get; set; } = null;
+            public DateTime? dateEnd { get; set; } = null;
         }
 
 

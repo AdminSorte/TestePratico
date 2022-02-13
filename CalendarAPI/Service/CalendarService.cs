@@ -112,6 +112,58 @@ namespace CalendarAPI.Service
             this._db.SaveChanges();
         }
 
+        public EventResponse UpdateEvent(string token,string id, EventsUpdate eventUpdate)
+        {
+            var email = this._users.GetEmailFromToken(token);
+            var eventDBUpdate = this._db.events.Where(x => (x.id == id) && (x.useremail == email)).FirstOrDefault();
+            if(eventDBUpdate is null)
+            {
+                throw new Exception("Not Found");
+            }
+            if(!(eventUpdate.dateEnd is null))
+            {
+                eventDBUpdate.dateEnd = (DateTime)eventUpdate.dateEnd;
+            }
+            if (!(eventUpdate.dateStart is null))
+            {
+                eventDBUpdate.dateStart = (DateTime)eventUpdate.dateStart;
+            }
+            if (!(eventUpdate.name is null))
+            {
+                eventDBUpdate.name = eventUpdate.name;
+            }
+            if (!(eventUpdate.description is null))
+            {
+                eventDBUpdate.description = eventUpdate.description;
+            }
+
+            this._db.events.Update(eventDBUpdate);
+            this._db.SaveChanges();
+            return new EventResponse(eventDBUpdate);
+
+        }
+
+        public Calendar UpdateCalendar(string token,string id, CalendarUpdate calendar)
+        {
+            var email = this._users.GetEmailFromToken(token);
+            var calendarDBUpdate = this._db.calendar.Where(x => (x.id == id) && (x.useremail == email)).FirstOrDefault();
+            if (calendarDBUpdate is null)
+            {
+                throw new Exception("Not Found");
+            }
+            if (!(calendar.name is null))
+            {
+                calendarDBUpdate.name = calendar.name;
+            }
+            if (!(calendar.description is null))
+            {
+                calendarDBUpdate.description = calendar.description;
+            }
+
+            this._db.calendar.Update(calendarDBUpdate);
+            this._db.SaveChanges();
+            return calendarDBUpdate;
+        }
     }
 
 
@@ -126,6 +178,9 @@ namespace CalendarAPI.Service
         void DeleteCalendar(string token, string id);
         Calendar CreateCalendar(string token, CalendarPost calendar);
         List<Calendar> GetAllCalendars(string token);
+        EventResponse UpdateEvent(string token,string id, EventsUpdate eventUpdate);
+
+        Calendar UpdateCalendar(string token, string id,  CalendarUpdate calendar);
 
     }
 }
