@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace CalendarAPI
 {
@@ -28,6 +29,28 @@ namespace CalendarAPI
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Calendar API",
+                    Description = "An ASP.NET Core Web API for managing Calendars/Events items",
+                });
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                        .AllowAnyMethod()
+                        .AllowCredentials()
+                        .SetIsOriginAllowed((host) => true)
+                        .AllowAnyHeader());
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +70,8 @@ namespace CalendarAPI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseCors("CorsPolicy");
+
 
             app.UseRouting();
 
@@ -56,15 +81,29 @@ namespace CalendarAPI
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
-
-            app.UseSpa(spa =>
+            /*
+            app.MapWhen(x => !x.Request.Path.Value.Contains("swagger/ui"), builder =>
             {
-                spa.Options.SourcePath = "ClientApp";
-
-                if (env.IsDevelopment())
+                app.UseSpa(spa =>
                 {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
-                }
+                    spa.Options.SourcePath = "ClientApp";
+                    if (env.IsDevelopment())
+                    {
+                        spa.UseReactDevelopmentServer(npmScript: "start");
+                    }
+
+                });
+            });
+            
+            */
+         
+            
+            app.UseSwagger();
+
+            app.UseSwaggerUI(options =>
+            {
+                options.RoutePrefix = "swagger/ui";
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Calendar");
             });
         }
     }
