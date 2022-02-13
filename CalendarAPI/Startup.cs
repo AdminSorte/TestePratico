@@ -1,8 +1,11 @@
+using CalendarAPI.BD;
+using CalendarAPI.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -95,6 +98,14 @@ namespace CalendarAPI
                         .SetIsOriginAllowed((host) => true)
                         .AllowAnyHeader());
             });
+
+
+          
+            services.AddDbContext<UserDB>(options =>
+                   options.UseSqlite(Configuration["UserDBConnectString"]));
+
+            services.AddScoped<IUserServiceInterface, UserService>();
+
 
 
         }
