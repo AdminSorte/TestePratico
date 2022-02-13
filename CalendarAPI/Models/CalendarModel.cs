@@ -106,13 +106,16 @@ namespace CalendarAPI.Models
 
             public DateTime dateEnd { get; set; }
 
+            public string id { get; set; }
+
             public EventResponse(Events ev)
             {
                 this.name = ev.name;
                 this.description = ev.description;
-                this.calendarId = ev.calendar.id;
+                this.calendarId = ev.calendar?.id;
                 this.dateStart = ev.dateStart;
                 this.dateEnd = ev.dateEnd;
+                this.id = ev.id;
 
             }
 

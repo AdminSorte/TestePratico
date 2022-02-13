@@ -57,7 +57,7 @@ namespace CalendarAPI.Controllers
         public async Task<ActionResult> GetEvents()
         {
             var eventDB = calendarService.GetAllEventsUser(Request.Headers["Authorization"]);
-            return Ok(JsonConvert.SerializeObject(eventDB));
+            return Ok(eventDB);
         }
 
         [HttpGet("events/filter")]
