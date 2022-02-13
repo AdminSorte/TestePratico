@@ -113,6 +113,8 @@ namespace CalendarAPI
 
 
             services.AddScoped<ICalendarServiceInterface, CalendarService>();
+
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -11,6 +11,7 @@ using CalendarAPI.Models;
 using CalendarAPI.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CalendarAPI.Controllers
@@ -21,9 +22,11 @@ namespace CalendarAPI.Controllers
     {
 
         private readonly IUserServiceInterface _userService;
-        public AuthController(IUserServiceInterface userService)
+        private readonly IMemoryCache memoryCache;
+        public AuthController(IUserServiceInterface userService, IMemoryCache memoryCache )
         {
             _userService = userService;
+            this.memoryCache = memoryCache;
         }
         /// <summary>
         /// Create a token to authentification
@@ -35,7 +38,18 @@ namespace CalendarAPI.Controllers
         {
             try
             {
+                object value;
+                memoryCache.TryGetValue($"Key{credencials.email}{credencials.password}", out value);
+                if(!(value is null))
+                {
+                    return Ok(value);
+                }
                 var responseCredencials = _userService.CreateToken(credencials);
+                memoryCache.Set($"Key{credencials.email}{credencials.password}", responseCredencials, new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30),
+                    SlidingExpiration = TimeSpan.FromMinutes(30)
+                });
                 return Ok(responseCredencials);
             }
             catch (Exception ex)
