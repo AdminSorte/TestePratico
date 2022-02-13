@@ -136,7 +136,7 @@ namespace CalendarAPI
 
 
             app.UseRouting();
-
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -161,7 +161,7 @@ namespace CalendarAPI
          
             
             app.UseSwagger();
-
+           
             app.UseSwaggerUI(options =>
             {
                 options.RoutePrefix = string.Empty;
