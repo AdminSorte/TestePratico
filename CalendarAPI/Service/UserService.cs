@@ -80,12 +80,19 @@ namespace CalendarAPI.Service
 
         public string GetEmailFromToken(string token)
         {
-            throw new NotImplementedException();
+            var refreshToken = token.ToString().Replace("Bearer", "").Trim();
+            var validationParams = new TokenValidationParameters();
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+            var decodedJwtToken = jwtTokenHandler.ReadJwtToken(refreshToken);
+            IEnumerable<Claim> claims = decodedJwtToken.Claims;
+            var email = claims.Where(x => x.Type == "email").FirstOrDefault()?.Value;
+            return email;
         }
 
         public User GetUserFromToken(string token)
         {
-            throw new NotImplementedException();
+            var email = GetEmailFromToken(token);
+            return this._db.users.Where(x => x.email == email).FirstOrDefault();
         }
     }
 
