@@ -164,7 +164,7 @@ namespace CalendarAPI
 
             app.UseSwaggerUI(options =>
             {
-                options.RoutePrefix = "swagger/ui";
+                options.RoutePrefix = string.Empty;
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Calendar");
             });
         }
