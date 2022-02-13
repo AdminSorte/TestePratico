@@ -3,7 +3,7 @@ import moment from 'moment';
 import { ReactAgenda, ReactAgendaCtrl, guid, getUnique, getLast, getFirst, Modal } from 'react-agenda';
 
 var now = new Date();
-
+const URL_BASE = process.env.REACT_APP_URL_BASE
 require('moment/locale/fr.js');
 var colors = {
     'color-1': "rgba(102, 195, 131 , 1)",
@@ -73,7 +73,10 @@ export class Agenda extends Component {
             showModal: false,
             rowsPerHour: 4,
             numberOfDays: 4,
-            startDate: new Date()
+            startDate: new Date(),
+            email: "",
+            password: "",
+            token: ""
         }
         this.handleRangeSelection = this.handleRangeSelection.bind(this)
         this.handleItemEdit = this.handleItemEdit.bind(this)
@@ -86,6 +89,9 @@ export class Agenda extends Component {
         this.editEvent = this.editEvent.bind(this)
         this.changeView = this.changeView.bind(this)
         this.handleCellSelection = this.handleCellSelection.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.inputUsername = this.inputUsername.bind(this)
+        this.inputPassword = this.inputPassword.bind(this)
 
     }
 
@@ -138,6 +144,54 @@ export class Agenda extends Component {
 
     }
 
+    async  handleSubmit(event) {
+        event.preventDefault();
+        const bodyData = {
+            email: this.state.email,
+            password: this.state.password
+        }
+        const response = await fetch(URL_BASE + "/api/Auth", {
+            method: "post", headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }, body: JSON.stringify(bodyData) });
+        if (!response.ok) {
+            alert("Email/Password wrongs")
+        }
+        else {
+            const data = await response.json()
+            this.setState({ token: data["token"] })
+          
+            const responseEvents = await fetch(URL_BASE + "/api/calendar/events", {
+                method: "get", headers: {
+                    'Authorization': 'Bearer ' + this.state.token,
+                }
+            });
+            if (responseEvents.ok) {
+                const dataEvents = await responseEvents.json()
+                let events = []
+                dataEvents.forEach(element => {
+                    const event = {
+                        _id: element.id,
+                        name: element.name,
+                        startDateTime: new Date(element.dateStart),
+                        endDateTime: new Date(element.dateEnd),
+                        classes: 'color-2'
+                    };
+                    events.push(event)
+                })
+                this.setState({ items: events})
+            }
+            else {
+                alert("Não foi possivel recuperar")
+            }
+
+        }
+        this.setState({ email: "" })
+        this.setState({ password: "" })
+       
+    }
+
     handleRangeSelection(selected) {
 
 
@@ -149,12 +203,24 @@ export class Agenda extends Component {
     _openModal() {
         this.setState({ showModal: true })
     }
+
+    getToken(username,password) {
+        this.setState({ token: "teste" })
+    }
     _closeModal(e) {
         if (e) {
             e.stopPropagation();
             e.preventDefault();
         }
         this.setState({ showModal: false })
+    }
+
+    inputUsername(e) {
+        this.setState({ email: e.target.value })
+    }
+
+    inputPassword(e) {
+        this.setState({ password: e.target.value })
     }
 
     handleItemChange(items, item) {
@@ -165,6 +231,10 @@ export class Agenda extends Component {
 
         this.setState({ items: items })
 
+    }
+
+    addUsername(username, usernam) {
+        this.setState({ items: items })
     }
 
     removeEvent(items, item) {
@@ -197,7 +267,24 @@ export class Agenda extends Component {
         return (
 
             <div className="content-expanded ">
+                <form onSubmit={this.handleSubmit}>
+                    <label>Enter your email:
+                    <input
+                            type="text"
+                            value={this.state.email}
+                            onChange={this.inputUsername}
+                        />
+                    </label>
 
+                    <label>Enter your pasword:
+                    <input
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.inputPassword}
+                        />
+                    </label>
+                    <input type="submit" />
+                </form>
                 <div className="control-buttons">
                     <button className="button-control" onClick={this.zoomIn}> <i className="zoom-plus-icon"></i> </button>
                     <button className="button-control" onClick={this.zoomOut}> <i className="zoom-minus-icon"></i> </button>
