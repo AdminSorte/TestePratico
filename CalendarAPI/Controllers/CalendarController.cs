@@ -37,8 +37,6 @@ namespace CalendarAPI.Controllers
             return Ok(JsonConvert.SerializeObject(eventDB));
         }
 
-
-
         [HttpGet("calendar")]
         public async Task<ActionResult> GetCalendars()
         {
@@ -80,6 +78,19 @@ namespace CalendarAPI.Controllers
         {
             calendarService.DeleteEvent(Request.Headers["Authorization"], id);
             return Ok();
+        }
+
+        [HttpPut("calendar/{id}")]
+        public async Task<ActionResult> UpdateCalendar(string id,[FromBody]CalendarUpdate calendar)
+        {
+            var newCalendar = calendarService.UpdateCalendar(Request.Headers["Authorization"], id, calendar);
+            return Ok(newCalendar);
+        }
+        [HttpPut("events/{id}")]
+        public async Task<ActionResult> UpdateEvent(string id ,[FromBody]EventsUpdate eventUpdate)
+        {
+            var newEvent = calendarService.UpdateEvent(Request.Headers["Authorization"], id, eventUpdate);
+            return Ok(newEvent);
         }
 
 
