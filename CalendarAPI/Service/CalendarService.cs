@@ -13,14 +13,14 @@ namespace CalendarAPI.Service
 
     public interface ICalendarServiceInterface
     {
-        List<Events> GetAllEventsUser(string token);
-        Events CreateEvent(string token, Events newEvent);
+        List<EventResponse> GetAllEventsUser(string token);
+        Events CreateEvent(string token, EventsPost newEvent);
         void DeleteEvent(string token, string id);
         List<Events> GetAllEventsInInterval(string token, DateTime startDate);
         Calendar GetCalendar(string token, string id);
         Calendar CreateCalendar(string token, string name);
         void DeleteCalendar(string token, string id);
-        Calendar CreateCalendar(string token, Calendar calendar);
+        Calendar CreateCalendar(string token, CalendarPost calendar);
         List<Calendar> GetAllCalendars(string token);
 
     }
