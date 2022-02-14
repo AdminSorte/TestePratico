@@ -1,39 +1,146 @@
 # Desafio Minha Agenda Minha Vida
 
-## Instruções
+Projeto de gerenciamento de agenda
 
-- Faça um fork desse repositório
-- Trabalhe exclusivamente no seu fork
-- Os commits de seu fork precisa ter mensagens claras e objetivas, a cada commit explique a mudança e evolução.
-- Ao finalizar abra um PR(Pull Request) para esse repositório
+## Pré-requisitos 
 
-## Requerimentos
+Os seguintes programas são necessários:
 
-- O Website deverá ser desenvolvido em ReactJS ou VueJS ou Razor(C#).
-- Faça uso de boas práticas de desenvolvimento
-- Use conceitos de componentização e reaproveitamento de código
-- A Agenda deverá ter:
-  - Titulo do desafio: Minha Agenda Minha Vida
-  - Uma boa apresentação(Abuse das animações e efeitos)
-  - Tela inicial deverá ter uma listagem com ID da agenda, Descrição curta e uma lixeirinha para deletar a agenda, além de uma caixa de filtro para pesquisar pela descrição curta, um botão flutuante com um icone + para adicionar uma nova agenda
-  - Tela/Modal/Popup de nova/edição agenda deverá ter, descrição curta(titulo), descrição da agenda e data da agenda, necessário um botão para salvar. OBS essa tela deverá ser tanto edição quanto nova agenda, ao finalizar
-  - Tela/Modal/Popup de detalhe para exibir o as informações da agenda para somente leitura
-  - Qualquer mecanismo de login(JWT, Basic, localstorage)
+1. [dotnet 3.1](https://dotnet.microsoft.com/en-us/download) 
+2. [npm](https://docs.npmjs.com/cli/v7/configuring-npm/install)
 
-## API
+## Configurações
 
-- Deverá ser criada a a API exclusivamente em C# .net(Qualquer versão)
-- Necessário ter no minimo 4 métodos rest(GET, PUT, DELETE, POST)
-- Criar camada de acesso a dados para salvar as operações(ORM ou Procedures)
+### Backend (dotnet)
 
-## Desejável
+Configure o arquivo [appsettings.json](CalendarAPI\appsettings.json). 
+As seguintes chaves são necessárias:
 
-- MVVM, MVC, MVP, DDD ou qualquer um que ajude no entendimento do seu código
-- Possuir algum teste unitário
-- Operações em SQL com procedures
-- Documentação (pode alterar o readme.md padrão)
+1. AuthKey: chave para construir o jwt token
+2. UserDBConnectString: Connecstring do banco sqlite para salvar dados dos usuários
+3. CalendarDBConnectString: Connecstring do banco sqlite para salvar dados de eventos
 
-## Bônus
+### Frontend (react)
 
-- Animações
-- Controle de cache
+Configure o arquivo [.env](CalendarAPI\ClientApp\.env). 
+As seguintes chaves são necessárias:
+
+1. REACT_APP_URL_BASE: url do backend
+
+
+## Primeiros passos
+
+Após configurar o projeto, é necessário instalar as bibliotecas do react e inicializar o banco SQL
+
+
+### Inicialização do banco sql
+
+Rode os seguintes comandos:
+
+```
+cd CalendarAPI
+```
+
+```
+dotnet ef migrations add InitialCreateUser --contenxt UserDB
+```
+
+```
+dotnet ef migrations add InitialCreateUser --contenxt CalendarDB
+```
+
+```
+dotnet ef database update --context UserDB
+```
+
+```
+dotnet ef database update --context CalendarDB
+```
+
+Os comandos acima criarão as tabelas e criarão o usuário padrão
+
+```
+{
+  "email":"root",
+  "password":"root",
+  "senha":"root"
+}
+```
+
+### Instalação das bibliotecas
+
+Rode os seguintes comandos:
+
+```
+cd CalendarAPI
+```
+
+```
+cd ClienteApp
+```
+
+```
+npm install
+```
+
+## Run
+
+Rode os seguintes comandos:
+
+
+```
+cd CalendarAPI
+```
+
+```
+dotnet build
+```
+
+```
+dotnet run
+```
+
+Em outro terminal
+
+```
+cd CalendarAPI
+```
+
+```
+cd ClienteApp
+```
+
+```
+npm start
+```
+
+
+## Acessando API
+
+O backend possui swagger para acessar a documentação dos endpoints
+Acesse /swagger/ui/index.html ou o botão 'Swagger' na tela inicial
+
+## Rodar os testes unitários
+
+Roda os seguintes comandos
+
+```
+cd CalendarTest
+```
+
+```
+dotnet build
+```
+
+```
+dotnet test
+```
+
+
+# TODO 
+
+1. Melhorar a documentação
+2. Mudar modal do calendário para adicionar descrição
+3. Criar testes unitários para considerar o banco SQL
+4. Mudar banco SQLite para MySQL
+5. Tratar casos de excessões
