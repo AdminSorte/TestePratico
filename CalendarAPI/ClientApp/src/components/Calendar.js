@@ -14,51 +14,8 @@ var colors = {
 }
 
 
-var items = [
-    {
-        _id: guid(),
-        name: 'Meeting , dev staff!',
-        startDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0),
-        endDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0),
-        classes: 'color-1 color-4'
-    },
-    {
-        _id: guid(),
-        name: 'Working lunch , Holly',
-        startDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 11, 0),
-        endDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 13, 0),
-        classes: 'color-2'
-    },
-    {
-        _id: guid(),
-        name: 'Conference , plaza',
-        startDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 11, 0),
-        endDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 14, 30),
-        classes: 'color-4'
-    },
-    {
-        _id: 'event-4',
-        name: 'Customers issues review',
-        startDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2, 10, 0),
-        endDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2, 15, 0),
-        classes: 'color-3'
 
-    },
-    {
-        _id: 'event-5',
-        name: 'Group activity',
-        startDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 3, 10, 0),
-        endDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 3, 16, 30),
-        classes: 'color-4'
-    },
-    {
-        _id: 'event-6',
-        name: 'Fun Day !',
-        startDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 7, 9, 14),
-        endDateTime: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 7, 17),
-        classes: 'color-3'
-    }
-];
+var items = [];
 
 export class Agenda extends Component {
     constructor(props) {
@@ -204,9 +161,7 @@ export class Agenda extends Component {
         this.setState({ showModal: true })
     }
 
-    getToken(username,password) {
-        this.setState({ token: "teste" })
-    }
+   
     _closeModal(e) {
         if (e) {
             e.stopPropagation();
@@ -237,18 +192,64 @@ export class Agenda extends Component {
         this.setState({ items: items })
     }
 
-    removeEvent(items, item) {
-        console.log("remover")
-        this.setState({ items: items });
+    async removeEvent(items, item) {
+        const responseEvents = await fetch(URL_BASE + "/api/calendar/events/" + item["_id"], {
+            method: "DELETE", headers: {
+                'Authorization': 'Bearer ' + this.state.token,
+            }
+        });
+        if (responseEvents.ok) {
+            this.setState({ items: items });
+        }
+        else {
+            alert("Wrong to delete")
+        }
     }
 
-    addNewEvent(items, newItems) {
-        console.log("Adicinou evento")
-        this.setState({ showModal: false, selected: [], items: items });
+    async addNewEvent(items, newItems) {
+        let eventToAdd = {
+            name: newItems["name"],
+            calendar: "root",
+            dateStart: newItems["startDateTime"],
+            dateEnd: newItems["endDateTime"],
+            id: newItems["_id"]
+        }
+        const responseCreateEvent = await fetch(URL_BASE + "/api/calendar/events", {
+            method: "post", headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.state.token,
+            }, body: JSON.stringify(eventToAdd)
+        });
+        if (responseCreateEvent.ok) {
+            this.setState({ items: items });
+        }
+        else {
+            alert("Error in add new event");
+        }
+        this.setState({ showModal: false, selected: []});
         this._closeModal();
     }
-    editEvent(items, item) {
-        console.log("Editou evento")
+    async editEvent(items, item) {
+        let eventUpdate = {
+            name: item["name"],
+            dateStart: item["startDateTime"],
+            dateEnd: item["endDateTime"],
+        }
+
+        const responsUpdateEvent = await fetch(URL_BASE + "/api/calendar/events/" + item["_id"] , {
+            method: "put", headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.state.token,
+            }, body: JSON.stringify(eventUpdate)
+        });
+        if (responsUpdateEvent.ok) {
+            this.setState({ items: items });
+        }
+        else {
+            alert("Error in update event");
+        }
         this.setState({ showModal: false, selected: [], items: items });
         this._closeModal();
     }

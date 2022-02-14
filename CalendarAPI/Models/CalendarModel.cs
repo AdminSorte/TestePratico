@@ -84,6 +84,7 @@ namespace CalendarAPI.Models
             public DateTime dateStart { get; set; } = DateTime.Now;
             [Required]
             public DateTime dateEnd { get; set; } = DateTime.Now.AddHours(2);
+            public string id { get; set; } = Guid.NewGuid().ToString();
         }
 
         public class EventsUpdate

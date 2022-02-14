@@ -40,7 +40,7 @@ namespace CalendarAPI.Service
             eventDB.dateStart = newEvent.dateStart;
             eventDB.dateEnd = newEvent.dateEnd;
             eventDB.name = newEvent.name;
-            eventDB.id = Guid.NewGuid().ToString();
+            eventDB.id = newEvent.id;
             eventDB.useremail = userEmail;
             eventDB.calendar = calendar;
             this._db.Add(eventDB);
@@ -183,7 +183,6 @@ namespace CalendarAPI.Service
         Calendar CreateCalendar(string token, CalendarPost calendar);
         List<Calendar> GetAllCalendars(string token);
         EventResponse UpdateEvent(string token,string id, EventsUpdate eventUpdate);
-
         Calendar UpdateCalendar(string token, string id,  CalendarUpdate calendar);
 
     }
