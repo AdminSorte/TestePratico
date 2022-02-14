@@ -34,8 +34,34 @@ namespace CalendarTest
             OkObjectResult okResult = (OkObjectResult)result;
             var events = (List<EventResponse>)okResult.Value;
             Assert.IsTrue(events.Count() == 0);
-           
-            
+            Assert.IsTrue(okResult.StatusCode == StatusCodes.Status200OK);
+        }
+
+        [Test]
+        public async Task TestGetEventBaseInToken()
+        {
+            var mockRepo = new Mock<ICalendarServiceInterface>();
+            mockRepo.Setup(repo => repo.GetAllEventsUser(It.IsAny<string>())).Returns<string>((a) => CalendarTest.Mocks.UserServiceMock.GetEventDependUser(a));
+            var controller = new CalendarController(mockRepo.Object);
+            controller.ControllerContext.HttpContext = this._http;
+            IActionResult result = await controller.GetEvents();
+            OkObjectResult okResult = (OkObjectResult)result;
+            var events = (List<EventResponse>)okResult.Value;
+            Assert.IsTrue(events.Count() == 1);
+            Assert.IsTrue(okResult.StatusCode == StatusCodes.Status200OK);
+        }
+
+
+        [Test]
+        public async Task TestGetEventBaseInTokenFail()
+        {
+            var mockRepo = new Mock<ICalendarServiceInterface>();
+            mockRepo.Setup(repo => repo.GetAllEventsUser(It.IsAny<string>())).Returns<string>((a) => CalendarTest.Mocks.UserServiceMock.GetFailDependUser(a));
+            var controller = new CalendarController(mockRepo.Object);
+            controller.ControllerContext.HttpContext = this._http;
+            IActionResult result = await controller.GetEvents();
+            StatusCodeResult statusResult = (StatusCodeResult)result;
+            Assert.IsTrue(statusResult.StatusCode == StatusCodes.Status500InternalServerError);
         }
     }
 }
