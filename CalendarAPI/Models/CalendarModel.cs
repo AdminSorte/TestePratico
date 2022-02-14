@@ -79,7 +79,7 @@ namespace CalendarAPI.Models
             public string name { get; set; }
             public string description { get; set; }
             [Required]
-            public string calendar { get; set; }
+            public string calendar { get; set; } = "root";
             [Required]
             public DateTime dateStart { get; set; } = DateTime.Now;
             [Required]
