@@ -31,6 +31,10 @@ namespace CalendarAPI.Service
         {
             var userEmail = this._users.GetEmailFromToken(token);
             var calendar = GetCalendar(token, newEvent.calendar);
+            if(calendar is null)
+            {
+                calendar = CreateCalendar(token, new CalendarPost() { name = newEvent.calendar });
+            }
             var eventDB = new Events();
             eventDB.description = newEvent.description;
             eventDB.dateStart = newEvent.dateStart;
