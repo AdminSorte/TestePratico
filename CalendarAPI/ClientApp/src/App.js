@@ -13,7 +13,7 @@ export default class App extends Component {
     return (
       <Layout>
             <Route exact path='/swagger' component={Swagger} />
-            <Route exact path='/calendar' component={Agenda} />
+            <Route exact path='/' component={Agenda} />
       </Layout>
     );
   }
