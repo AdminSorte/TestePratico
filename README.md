@@ -1,5 +1,10 @@
 # Desafio Minha Agenda Minha Vida
 
+## Informações sobre implementação do Ygor Santos
+- Banco de dados utilizado é SQL Server
+- Nos migrations já é feita a carga de um usuário, para possibilitar o login
+- O login e senha gravados no migration são "admin" e "123123" (encriptado) respectivamente.
+
 ## Instruções
 
 - Faça um fork desse repositório

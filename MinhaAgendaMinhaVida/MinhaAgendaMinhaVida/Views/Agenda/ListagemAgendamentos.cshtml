@@ -1,0 +1,35 @@
+﻿@using System.Linq
+@using MinhaAgendaMinhaVida.Models
+
+@model List<Agendamento>
+
+<table  style="text-align:center;width:100%;">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Data</th>
+            <th>Descricao</th>
+            <th>Remover</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="4"><span style="font-style: italic; font-weight: 100; color: dimgray;">Sem Agendamentos</span></td>
+            </tr>
+        }
+        else
+        {
+            foreach(var agendamento in Model)
+            {
+                <tr>
+                    <td><button href="javascript:void(0);" onclick="showModal(@agendamento.Id)"> @agendamento.Id</button></td> 
+                    <td>@agendamento.Data</td> 
+                    <td>@agendamento.Descricao</td>
+                    <td><a href="javascript:void(0);" onclick="deleteAgendamento(@agendamento.Id)"><i class="mdi mdi-trash-can" style="color:red;"></i></a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

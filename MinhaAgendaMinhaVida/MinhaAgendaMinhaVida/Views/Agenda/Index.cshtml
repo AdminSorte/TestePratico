@@ -1,0 +1,69 @@
+﻿@using System.Linq
+@using MinhaAgendaMinhaVida.Models
+
+@model List<Agendamento>
+
+@{
+    Layout = "_Layout";
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@mdi/font@latest/css/materialdesignicons.min.css">
+
+    <style>
+      table,
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      .mt-10 {
+          margin-top: 10px;
+      }
+    </style>
+</head>
+
+<div id="agendaView" style="text-align:center;width:100%;">
+    <h2>Desafio Minha Agenda Minha Vida</h2>
+    <div class="mt-10" style="text-align:center;width: 50%; display:inline-table;">
+        <input type="text" style="text-align:center;width: 90%;" id="textoBusca" onchange="buscarAgendamentos()"/>
+        <i class="mdi mdi-calendar-plus lg" onclick="showModal(0)" id="addAgendamento" style="font-size: x-large; vertical-align: middle;"></i>
+    </div>
+    <div class="mt-10" style="text-align:center;width: 50%; display:inline-table;" id="listagemAgendamentos">
+        <table  style="text-align:center;width:100%;">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Data</th>
+                    <th>Descricao</th>
+                    <th>Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="4"><span style="font-style: italic; font-weight: 100; color: dimgray;">Sem Agendamentos</span></td>
+                    </tr>
+                }
+                else
+                {
+                    foreach(var agendamento in Model)
+                    {
+                        <tr>
+                            <td><button href="javascript:void(0);" onclick="showModal(@agendamento.Id)"> @agendamento.Id</button></td> 
+                            <td>@agendamento.Data</td> 
+                            <td>@agendamento.Descricao</td>
+                            <td><a href="javascript:void(0);" onclick="deleteAgendamento(@agendamento.Id)"><i class="mdi mdi-trash-can" style="color:red;"></i></a></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <dialog id="dialogAgendamento">
+    </dialog>
+</div>
+<script src="@Url.Content("~/js/Agenda.js")" type="text/javascript"></script>

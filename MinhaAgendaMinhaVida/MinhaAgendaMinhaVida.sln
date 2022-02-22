@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinhaAgendaMinhaVida", "MinhaAgendaMinhaVida\MinhaAgendaMinhaVida.csproj", "{B77C0640-AA0E-4736-B10B-496949DFAB77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendamentoTests", "AgendamentoTests\AgendamentoTests.csproj", "{F893D09B-5D00-487E-ADAF-3FBC835145DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B77C0640-AA0E-4736-B10B-496949DFAB77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B77C0640-AA0E-4736-B10B-496949DFAB77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B77C0640-AA0E-4736-B10B-496949DFAB77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B77C0640-AA0E-4736-B10B-496949DFAB77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F893D09B-5D00-487E-ADAF-3FBC835145DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F893D09B-5D00-487E-ADAF-3FBC835145DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F893D09B-5D00-487E-ADAF-3FBC835145DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F893D09B-5D00-487E-ADAF-3FBC835145DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9A07BCF-46C3-4AD3-AE20-7F045713B2D4}
+	EndGlobalSection
+EndGlobal
