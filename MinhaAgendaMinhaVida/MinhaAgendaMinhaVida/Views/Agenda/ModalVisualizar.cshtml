@@ -1,0 +1,41 @@
+﻿@using MinhaAgendaMinhaVida.Models
+
+@model Agendamento
+@{
+}
+
+@*<div id="dialogAgendamento" role="dialog" class="smart-form" style="min-width: 550px;" title="Agendamento">
+
+</div>*@
+
+<div>
+    @Html.Hidden("AgendamentoId", Model.Id)
+    @Html.Hidden("UsuarioId", Model.UsuarioId)
+
+    <h3 style="text-align:center;">Agendamento</h3>
+    <table>
+        <tr>
+            <td>
+                <label>Data</label>
+            </td>
+            <td>
+                <label class="input">
+                    @Html.TextBoxFor(model => model.Data, new { @readonly="readonly", id="dataAgendamento",  @class= "readonly" })
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Descrição</label>
+            </td>
+            <td>
+                <label class="input">
+                    @Html.TextBoxFor(model => model.Descricao, new { @readonly="readonly", @class= "readonly"})
+                </label>            
+            </td>
+        </tr>
+    </table>
+    <button onclick="fecharModal()">Ok</button>
+</div>
+<script src="@Url.Content("~/js/Agendamento.js")" type="text/javascript"></script>
+

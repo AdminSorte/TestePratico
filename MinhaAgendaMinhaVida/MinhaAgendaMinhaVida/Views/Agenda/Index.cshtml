@@ -37,7 +37,7 @@
                     <th>Id</th>
                     <th>Data</th>
                     <th>Descricao</th>
-                    <th>Remover</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,7 +55,7 @@
                             <td><button href="javascript:void(0);" onclick="showModal(@agendamento.Id)"> @agendamento.Id</button></td> 
                             <td>@agendamento.Data</td> 
                             <td>@agendamento.Descricao</td>
-                            <td><a href="javascript:void(0);" onclick="deleteAgendamento(@agendamento.Id)"><i class="mdi mdi-trash-can" style="color:red;"></i></a></td>
+                            <td><a href="javascript:void(0);" onclick="showModal(@agendamento.Id, true)"><i class="mdi mdi-eye"></i></a> <a href="javascript:void(0);" onclick="deleteAgendamento(@agendamento.Id)"><i class="mdi mdi-trash-can" style="color:red;"></i></a></td>
                         </tr>
                     }
                 }

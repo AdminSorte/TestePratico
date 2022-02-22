@@ -1,6 +1,6 @@
 ﻿
-var showModal = function (agendamentoId) {    
-    $("#dialogAgendamento").load('/Agenda/Edit/' + agendamentoId);
+var showModal = function (agendamentoId, apenasLeitura = false) {
+    $("#dialogAgendamento").load('/Agenda/Edit/' + agendamentoId + '/' + apenasLeitura);
     var modal = document.getElementById('dialogAgendamento');
     modal.showModal();
 };
@@ -40,7 +40,6 @@ var buscarAgendamentos = function () {
         data: parametros
     })
     .done((view, x , y) => {
-        debugger;
         $("#listagemAgendamentos").html(view);
     })
     .fail((ex) => {

@@ -38,8 +38,8 @@ namespace MinhaAgendaMinhaVida.Controllers
             return PartialView("ListagemAgendamentos", agendamentos);
         }
 
-        [HttpGet("Edit/{id}")]
-        public ActionResult Edit(int id)
+        [HttpGet("Edit/{id}/{apenasLeitura}")]
+        public ActionResult Edit(int id, bool apenasLeitura)
         {
             try
             {
@@ -56,7 +56,10 @@ namespace MinhaAgendaMinhaVida.Controllers
                 else
                     agendamento = new Agendamento { Id = 0, Data = DateTime.Today.AddDays(1) };
 
-                return View("ModalEditar", agendamento);
+                if(apenasLeitura)
+                    return View("ModalVisualizar", agendamento);                
+                else
+                    return View("ModalEditar", agendamento);
 
             }
             catch (Exception ex)
