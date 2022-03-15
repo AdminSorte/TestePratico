@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d81f522a-eda4-46c8-addc-03f17a6e4117": {
+      "ProjectGuid": "d81f522a-eda4-46c8-addc-03f17a6e4117",
+      "DisplayName": "SO.Agenda.Domain.Model",
+      "ColorIndex": 0
+    },
+    "e7526ebe-b790-4729-bb0f-cace67406892": {
+      "ProjectGuid": "e7526ebe-b790-4729-bb0f-cace67406892",
+      "DisplayName": "SO.Agenda.Domain.Service",
+      "ColorIndex": 1
+    },
+    "632e698c-aaa5-4b6b-8387-34ad50024221": {
+      "ProjectGuid": "632e698c-aaa5-4b6b-8387-34ad50024221",
+      "DisplayName": "SO.Agenda.Infrastructure.Data",
+      "ColorIndex": 2
+    },
+    "9b7bdb93-281c-45d2-8c52-bd6478687a54": {
+      "ProjectGuid": "9b7bdb93-281c-45d2-8c52-bd6478687a54",
+      "DisplayName": "SO.Agenda.Application",
+      "ColorIndex": 3
+    },
+    "2038239b-c5e2-448b-90a7-a486b27566c9": {
+      "ProjectGuid": "2038239b-c5e2-448b-90a7-a486b27566c9",
+      "DisplayName": "SO.Agenda.Infrastructure.CrossCutting",
+      "ColorIndex": 4
+    },
+    "d2471913-7875-4bd5-98d8-a9d28069acd5": {
+      "ProjectGuid": "d2471913-7875-4bd5-98d8-a9d28069acd5",
+      "DisplayName": "SO.Agenda.Infrastructure.IoC",
+      "ColorIndex": 5
+    },
+    "b1bf8981-f6ce-44c5-b397-e1b4cc4e08bf": {
+      "ProjectGuid": "b1bf8981-f6ce-44c5-b397-e1b4cc4e08bf",
+      "DisplayName": "SO.Agenda.Domain.Tests",
+      "ColorIndex": 6
+    }
+  },
+  "NextColorIndex": 7
+}

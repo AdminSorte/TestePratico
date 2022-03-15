@@ -1,0 +1,13 @@
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\bin\Debug\netstandard2.1\SO.Agenda.Domain.Service.deps.json
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\bin\Debug\netstandard2.1\SO.Agenda.Domain.Service.dll
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\bin\Debug\netstandard2.1\SO.Agenda.Domain.Service.pdb
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\bin\Debug\netstandard2.1\SO.Agenda.Domain.Model.dll
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\bin\Debug\netstandard2.1\SO.Agenda.Domain.Model.pdb
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\obj\Debug\netstandard2.1\SO.Agenda.Domain.Service.csproj.AssemblyReference.cache
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\obj\Debug\netstandard2.1\SO.Agenda.Domain.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\obj\Debug\netstandard2.1\SO.Agenda.Domain.Service.AssemblyInfoInputs.cache
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\obj\Debug\netstandard2.1\SO.Agenda.Domain.Service.AssemblyInfo.cs
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\obj\Debug\netstandard2.1\SO.Agenda.Domain.Service.csproj.CoreCompileInputs.cache
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\obj\Debug\netstandard2.1\SO.Agenda.Domain.Service.csproj.CopyComplete
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\obj\Debug\netstandard2.1\SO.Agenda.Domain.Service.dll
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Domain.Service\obj\Debug\netstandard2.1\SO.Agenda.Domain.Service.pdb

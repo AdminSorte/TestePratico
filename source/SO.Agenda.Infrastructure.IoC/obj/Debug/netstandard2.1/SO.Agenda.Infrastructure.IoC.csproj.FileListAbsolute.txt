@@ -1,0 +1,10 @@
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Infrastructure.IoC\bin\Debug\netstandard2.1\SO.Agenda.Infrastructure.IoC.deps.json
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Infrastructure.IoC\bin\Debug\netstandard2.1\SO.Agenda.Infrastructure.IoC.dll
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Infrastructure.IoC\bin\Debug\netstandard2.1\SO.Agenda.Infrastructure.IoC.pdb
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Infrastructure.IoC\obj\Debug\netstandard2.1\SO.Agenda.Infrastructure.IoC.csproj.AssemblyReference.cache
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Infrastructure.IoC\obj\Debug\netstandard2.1\SO.Agenda.Infrastructure.IoC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Infrastructure.IoC\obj\Debug\netstandard2.1\SO.Agenda.Infrastructure.IoC.AssemblyInfoInputs.cache
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Infrastructure.IoC\obj\Debug\netstandard2.1\SO.Agenda.Infrastructure.IoC.AssemblyInfo.cs
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Infrastructure.IoC\obj\Debug\netstandard2.1\SO.Agenda.Infrastructure.IoC.csproj.CoreCompileInputs.cache
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Infrastructure.IoC\obj\Debug\netstandard2.1\SO.Agenda.Infrastructure.IoC.dll
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.Infrastructure.IoC\obj\Debug\netstandard2.1\SO.Agenda.Infrastructure.IoC.pdb

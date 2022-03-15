@@ -1,0 +1,24 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.1/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.1": {},
+    ".NETStandard,Version=v2.1/": {
+      "SO.Agenda.Infrastructure.CrossCutting/1.0.0": {
+        "runtime": {
+          "SO.Agenda.Infrastructure.CrossCutting.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SO.Agenda.Infrastructure.CrossCutting/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -4,6 +4,8 @@ using SO.Agenda.Domain.Model.Interfaces.Repositories;
 using SO.Agenda.Infrastructure.Data.Context;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -56,7 +58,14 @@ namespace SO.Agenda.Infrastructure.Data.Repositories
         {
             Set.Remove(await Set.FindAsync(id));
         }
-
+        public virtual async Task<IEnumerable<TEntity>> Get(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await Set.Where(predicate).AsNoTracking().ToListAsync();
+        }
+        public virtual async Task<TEntity> GetFirst(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await Set.Where(predicate).AsNoTracking().FirstOrDefaultAsync();
+        }
         public void Dispose()
         {
             Dispose(true);
