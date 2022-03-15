@@ -6,10 +6,8 @@ namespace SO.Agenda.Domain.Model.Entities
 {
     public class TaskItem : BaseEntity
     {
-        public Guid id;
-        public string title;
-        public string description;
-        public DateTime dateTime;
-        public bool done;
+        public string Title;
+        public string Description;
+        public DateTime DateTime;
     }
 }

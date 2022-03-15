@@ -1,10 +1,10 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    ".NETStandard,Version=v2.1": {
       "SO.Agenda.Domain.Model/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
+        "framework": ".NETStandard,Version=v2.1",
         "compile": {
           "bin/placeholder/SO.Agenda.Domain.Model.dll": {}
         },
@@ -22,7 +22,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
+    ".NETStandard,Version=v2.1": [
       "SO.Agenda.Domain.Model >= 1.0.0"
     ]
   },
@@ -48,15 +48,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "netstandard2.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "projectReferences": {
             "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj": {
               "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj"
@@ -71,8 +71,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
+      "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
         "imports": [
           "net461",
           "net462",
@@ -84,7 +84,7 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.NETCore.App": {
+          "NETStandard.Library": {
             "privateAssets": "all"
           }
         },

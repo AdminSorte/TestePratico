@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "0RGAhh/bYFrRgIMSkbN4PlWgzZSevSKTLWNYX/fmG77BULccvFH09Zb5++4fydDKZ+9fAzLNOEYqe62kzLYGQA==",
+  "dgSpecHash": "AF4Pap982V/gj8DTzdz/I483L3hlcihAbqqMHqT5zMST3/uLq8wZ3gYxYu1Rg2PnqF7+1F/la0ytnfxSp6UgmQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Application\\SO.Agenda.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\vtham\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\vtham\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }
