@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "JAbGNrjD4XwxEApjgnIL2O3oEI71ipw5cQGS6OZYw08SYhmQDENVpa4RwLLbAAWXPRMMVxz6Olt5xu63DFH/ZQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Presentation\\SO.Agenda.Presentation.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vtham\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+  ],
+  "logs": []
+}
