@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SorteOnline.Agenda\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj",
+      "projectUniqueName": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj",
       "projectName": "SO.Agenda.Domain.Model",
-      "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SorteOnline.Agenda\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj",
+      "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj",
       "packagesPath": "C:\\Users\\vtham\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SorteOnline.Agenda\\SO.Agenda.Domain.Model\\obj\\",
+      "outputPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

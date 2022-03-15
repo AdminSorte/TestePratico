@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SO.Agenda.Domain.Model\SO.Agenda.Domain.Model.csproj" />
+  </ItemGroup>
+
 </Project>
