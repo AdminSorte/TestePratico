@@ -4,4 +4,10 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SO.Agenda.Application\SO.Agenda.Application.csproj" />
+    <ProjectReference Include="..\SO.Agenda.Domain.Service\SO.Agenda.Domain.Service.csproj" />
+    <ProjectReference Include="..\SO.Agenda.Infrastructure.Data\SO.Agenda.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
 </Project>

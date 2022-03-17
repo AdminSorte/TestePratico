@@ -24,13 +24,11 @@ namespace SO.Agenda.Infrastructure.Data.Repositories
 
         public virtual async Task<TEntity> AddAsync(TEntity tEntity)
         {
-            if (tEntity.Id == Guid.Empty)
-                tEntity.Id = Guid.NewGuid();
             var entity = await Set.AddAsync(tEntity);
             return entity.Entity;
         }
 
-        public virtual async Task<TEntity> FindAsync(Guid id)
+        public virtual async Task<TEntity> FindAsync(Int32 id)
         {
             return await Set.FindAsync(id);
         }
@@ -54,7 +52,7 @@ namespace SO.Agenda.Infrastructure.Data.Repositories
             Set.Remove(tEntity);
         }
 
-        public virtual async Task RemoveAsync(Guid id)
+        public virtual async Task RemoveAsync(Int32 id)
         {
             Set.Remove(await Set.FindAsync(id));
         }

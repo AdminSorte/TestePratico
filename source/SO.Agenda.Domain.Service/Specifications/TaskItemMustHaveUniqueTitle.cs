@@ -13,9 +13,10 @@ namespace SO.Agenda.Domain.Service.Specifications
         {
             _repository = repository;
         }
-        public bool IsSatisfiedBy(string Title)
+        public bool IsSatisfiedBy(string Title, Int32 id)
         {
-            return _repository.GetByTitle(Title) == null;
+            List<TaskItem> taskItems = (List<TaskItem>)_repository.Get(x => x.Title == Title.Trim() && x.Id != id).Result;
+            return taskItems.Count == 0;
         }
     }
 }

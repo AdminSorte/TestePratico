@@ -8,6 +8,6 @@ namespace SO.Agenda.Application.AppServices.Interfaces
 {
     public interface ITaskItemAppService : IBaseAppService<TaskItemViewModel>
     {
-        Task<TaskItemViewModel> GetByTitle(string title);
+        Task<TaskItemViewModel> GetTaskItemByTitle(string title);
     }
 }

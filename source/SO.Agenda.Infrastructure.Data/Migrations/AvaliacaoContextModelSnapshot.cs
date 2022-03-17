@@ -17,9 +17,8 @@ namespace SO.Agenda.Infrastructure.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.1-servicing-10028")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("SO.Agenda..Domain.Model.Entities.TaskItem", b =>
+                .HasAnnotation("MySql:ValueGeneratedOnAdd", true);
+            modelBuilder.Entity("SO.Agenda.Domain.Model.Entities.TaskItem", b =>
             {
                 b.Property<Guid>("Id")
                     .ValueGeneratedOnAdd();

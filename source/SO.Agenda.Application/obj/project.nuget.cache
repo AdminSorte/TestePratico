@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "AF4Pap982V/gj8DTzdz/I483L3hlcihAbqqMHqT5zMST3/uLq8wZ3gYxYu1Rg2PnqF7+1F/la0ytnfxSp6UgmQ==",
+  "dgSpecHash": "B7hLrKobwLjGCl9EC7zEzRQcOXRP7cdirvx0GSQ6rV0HXB5NllUb6zMTRMwwAy1r4oD6C0GtvBuWnSqhrDZM7Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Application\\SO.Agenda.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vtham\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
-    "C:\\Users\\vtham\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+    "C:\\Users\\vtham\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\vtham\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,0 +1,41 @@
+﻿@model SO.Agenda.Application.ViewModels.TaskItemViewModel
+<form id="myform" asp-action="Details" method="post" enctype="multipart/form-data">
+    <div class="card">
+        <div class="col-md-12">
+            <input id="idTaskItem" type="hidden" asp-for="Id" />
+             <p style="font-weight:bold">Task Item</p>
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        Title
+                        <input type="text" asp-for="Title" class="form-control" disabled="disabled" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        Day
+                        <input type="date" asp-for="DateTime" class="form-control" disabled="disabled" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        Description
+                        <textarea asp-for="Description" class="form-control" disabled="disabled"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                  <div class="col-md-12">
+                <a class="btn btn-secondary" asp-action="Index">Back</a>
+                 </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+</form>
+

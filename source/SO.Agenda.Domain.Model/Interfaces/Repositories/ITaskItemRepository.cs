@@ -8,6 +8,6 @@ namespace SO.Agenda.Domain.Model.Interfaces.Repositories
 {
     public interface ITaskItemRepository : IBaseRepository<TaskItem>
     {
-        Task<TaskItem> GetByTitle(string title);
+        Task<TaskItem> GetTaskItemByTitle(string title);
     }
 }

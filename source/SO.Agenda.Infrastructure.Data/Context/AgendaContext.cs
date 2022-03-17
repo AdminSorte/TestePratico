@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using SO.Agenda.Domain.Model.Entities;
 using SO.Agenda.Infrastructure.Data.EntitiesConfiguration;
 using System;
@@ -11,15 +12,16 @@ namespace SO.Agenda.Infrastructure.Data.Context
     {
         public DbSet<TaskItem> TaskItem { get; set; }
 
-
-        public AgendaContext(DbContextOptions options) : base(options)
+        public IConfiguration Configuration { get; }
+        public AgendaContext(DbContextOptions options, IConfiguration configuration) : base(options)
         {
+            Configuration = configuration;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(
-                "Server=sqlexpress01;Database=so_agenda;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"))
+                .EnableDetailedErrors(true);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

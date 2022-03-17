@@ -110,9 +110,9 @@
               "target": "Package",
               "version": "[5.0.15, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "MySql.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.15, )"
+              "version": "[5.0.8, )"
             }
           },
           "imports": [

@@ -18,34 +18,34 @@ namespace SO.Agenda.Domain.Tests.Specifications
         {
             TaskItem = new TaskItem()
             {
-                Id = new Guid(),
+                Id = 2,
                 Title = "ENTREVISTA - SORTE ONLINE",
                 Description = "ENTREVISTA TÉCNICA COM SORTE ONLINE",
                 DateTime = new DateTime(2022, 3, 18),
             };
 
             var stubRepo = MockRepository.GenerateStub<ITaskItemRepository>();
-            stubRepo.Stub(s => s.GetByTitle(TaskItem.Title)).Return(null);
+            stubRepo.Stub(s => s.GetTaskItemByTitle(TaskItem.Title)).Return(null);
 
             var cliValidation = new TaskItemMustHaveUniqueTitle(stubRepo);
-            Assert.IsTrue(cliValidation.IsSatisfiedBy("ENTREVISTA SO"));
+            Assert.IsTrue(cliValidation.IsSatisfiedBy("ENTREVISTA SO", 2));
         }
         [TestMethod]
         public void TaskItem_Valid_False()
         {
             TaskItem = new TaskItem()
             {
-                Id = new Guid(),
+                Id = 2,
                 Title = "ENTREVISTA - SORTE ONLINE",
                 Description = "ENTREVISTA TÉCNICA COM SORTE ONLINE",
                 DateTime = new DateTime(2022, 3, 18),
             };
 
             var stubRepo = MockRepository.GenerateStub<ITaskItemRepository>();
-            stubRepo.Stub(s => s.GetByTitle(TaskItem.Title)).Return(null);
+            stubRepo.Stub(s => s.GetTaskItemByTitle(TaskItem.Title)).Return(null);
 
             var cliValidation = new TaskItemMustHaveUniqueTitle(stubRepo);
-            Assert.IsFalse(cliValidation.IsSatisfiedBy("ENTREVISTA - SORTE ONLINE"));
+            Assert.IsFalse(cliValidation.IsSatisfiedBy("ENTREVISTA - SORTE ONLINE", 3));
         }
     }
 }

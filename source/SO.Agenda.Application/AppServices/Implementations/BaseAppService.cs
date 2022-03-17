@@ -8,6 +8,7 @@ using SO.Agenda.Domain.Model.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,16 +38,20 @@ namespace SO.Agenda.Application.AppServices.Implementations
             return AutoMapper.Map<Task<TEntityViewModel>>(ret);
         }
 
-        public virtual Task<TEntityViewModel> FindAsync(Guid id)
+        public virtual Task<TEntityViewModel> FindAsync(Int32 id)
         {
             return AutoMapper.Map<Task<TEntityViewModel>>(_baseService.FindAsync(id));
         }
 
         public virtual async Task<IEnumerable<TEntityViewModel>> GetAllAsNoTrackingAsync()
         {
-            return AutoMapper.Map<IQueryable<TEntityViewModel>>(await _baseService.GetAllAsNoTrackingAsync());
+            return AutoMapper.Map<IEnumerable<TEntityViewModel>>(await _baseService.GetAllAsNoTrackingAsync());
         }
-
+        public virtual async Task<IEnumerable<TEntityViewModel>> Get(Expression<Func<TEntityViewModel, bool>> predicate)
+        {
+            var ret = await _baseService.Get(AutoMapper.Map<Expression<Func<TEntity, bool>>>(predicate));
+            return AutoMapper.Map<IEnumerable<TEntityViewModel>>(ret);
+        }
         public virtual TEntityViewModel Update(TEntityViewModel obj)
         {
             Uow.BeginTransaction();
@@ -55,7 +60,7 @@ namespace SO.Agenda.Application.AppServices.Implementations
             return AutoMapper.Map<TEntityViewModel>(ret);
         }
 
-        public virtual Task RemoveAsync(Guid id)
+        public virtual Task RemoveAsync(Int32 id)
         {
             Uow.BeginTransaction();
             var ret = _baseService.RemoveAsync(id);
@@ -74,5 +79,6 @@ namespace SO.Agenda.Application.AppServices.Implementations
         {
             _baseService.Dispose();
         }
+
     }
 }

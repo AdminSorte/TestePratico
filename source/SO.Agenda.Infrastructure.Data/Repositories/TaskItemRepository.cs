@@ -13,9 +13,8 @@ namespace SO.Agenda.Infrastructure.Data.Repositories
         public TaskItemRepository(AgendaContext context) : base(context)
         {
         }
-        public async Task<TaskItem> GetByTitle(string title)
+        public async Task<TaskItem> GetTaskItemByTitle(string title)
         {
-
             return await GetFirst(c => c.Title == title);
         }
     }

@@ -1,0 +1,122 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Agenda</title>
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link href="~/lib/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3" style="font-weight: bold;
+        color: dimgrey;
+        background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+    </header>
+    <div class="container">
+         @if (TempData["Erro"] != null
+|| TempData["Alerta"] != null
+|| TempData["Ok"] != null)
+        {
+            <form method="post">
+                <input type="submit" data-toggle="modal" data-target="#modalMsg" style="display: none;">
+                <div class="modal" tabindex="-1" id="modalMsg">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content text-center">
+
+                            <div class="modal-header">
+
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                @if (TempData["Erro"] != null)
+                                {
+                                    <h3 class="modal-title" id="exampleModalLabel"><i class="fa fa-thumbs-down" style="color:red;font-weight:bold"></i></h3>
+                                    <br />
+                                    <h5 style="color:red;font-weight:bold"> @TempData["Erro"].ToString()</h5>
+                                }
+                                @if (TempData["Alerta"] != null)
+                                {
+                                    <h3 class="modal-title" id="exampleModalLabel"><i class="fa fa-exclamation-triangle" style="color:#FFA500;font-weight:bold"></i></h3>
+                                    <br />
+                                    <h5 style="color: #FFA500; font-weight: bold"> @TempData["Alerta"].ToString()</h5>
+                                    }
+                                @if (TempData["Ok"] != null)
+                                {
+                                    <h3 class="modal-title" id="exampleModalLabel"><i class="fa fa-thumbs-up" style="color:green;font-weight:bold"></i></h3>
+                                    <br />
+                                    <h5 style="color:green;font-weight:bold"> @TempData["Ok"].ToString()</h5>}
+                            </div>
+                            <div class="modal-footer text-center">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        }
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - SO.Agenda.Presentation - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+   <environment include="Development">
+    <script type="text/javascript" src="~/lib/popper.js/popper.min.js" ></script>
+    <script type="text/javascript" src="~/lib/bootstrap/js/bootstrap.bundle.min.js" ></script>
+    <script type="text/javascript" src="~/lib/bootstrap-select/js/bootstrap-select.min.js" ></script>
+    <script type="text/javascript" src="~/lib/bootstrap-table/bootstrap-table.min.js" ></script>
+    <script type="text/javascript" src="~/lib/bootstrap-table/locale/bootstrap-table-pt-BR.min.js" ></script>                
+    <script type="text/javascript" src="~/lib/bootstrap/js/bootstrap.js" ></script>
+    <script type="text/javascript" src="~/lib/font-awesome/js/all.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+      <script type="text/javascript">
+        $(document).ready(function () {
+            $("#modalMsg").modal('show');
+        });       
+        $(window).on('load', function () {
+            $("#loading").fadeOut("slow");
+            $("#loading").fadeOut(3000);
+            //$(".bokeh").fadeOut("slow");
+        })
+
+        function openLoading(txt) {
+            $("#txtLoading").html("");
+            if (txt != "" && txt != null && txt != NaN) {
+                $("#txtLoading").html(txt);
+            }
+
+            $("#loading").show();
+            $("#loading").fadeOut(3000);
+            //$(".bokeh").show();
+        }
+       
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

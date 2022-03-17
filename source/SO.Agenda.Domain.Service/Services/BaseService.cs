@@ -3,6 +3,7 @@ using SO.Agenda.Domain.Model.Interfaces.Repositories;
 using SO.Agenda.Domain.Model.Interfaces.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,22 +23,26 @@ namespace SO.Agenda.Domain.Service.Services
             return await _repository.AddAsync(tEntity);
         }
 
-        public virtual async Task<TEntity> FindAsync(Guid id)
+        public virtual async Task<TEntity> FindAsync(Int32 id)
         {
             return await _repository.FindAsync(id);
         }
 
-        public virtual Task<IEnumerable<TEntity>> GetAllAsNoTrackingAsync()
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsNoTrackingAsync()
         {
-            return _repository.GetAllAsNoTrackingAsync();
+            return await _repository.GetAllAsNoTrackingAsync();
         }
-
+        public virtual async Task<IEnumerable<TEntity>> Get(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await _repository.Get(predicate);
+        }
+        
         public virtual TEntity Update(TEntity tEntity)
         {
             return _repository.Update(tEntity);
         }
 
-        public virtual async Task RemoveAsync(Guid id)
+        public virtual async Task RemoveAsync(Int32 id)
         {
             await _repository.RemoveAsync(id);
         }

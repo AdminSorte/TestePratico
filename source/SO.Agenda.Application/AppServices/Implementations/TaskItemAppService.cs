@@ -18,9 +18,9 @@ namespace SO.Agenda.Application.AppServices.Implementations
         {
             _repository = repository;
         }
-        public Task<TaskItemViewModel> GetByTitle(string title)
+        public Task<TaskItemViewModel> GetTaskItemByTitle(string title)
         {
-            return AutoMapper.Map<Task<TaskItemViewModel>>(_repository.GetByTitle(title));
+            return AutoMapper.Map<Task<TaskItemViewModel>>(_repository.GetTaskItemByTitle(title));
         }
     }
 }

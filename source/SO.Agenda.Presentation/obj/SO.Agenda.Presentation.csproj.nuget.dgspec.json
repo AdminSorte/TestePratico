@@ -4,6 +4,338 @@
     "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Presentation\\SO.Agenda.Presentation.csproj": {}
   },
   "projects": {
+    "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Application\\SO.Agenda.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Application\\SO.Agenda.Application.csproj",
+        "projectName": "SO.Agenda.Application",
+        "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Application\\SO.Agenda.Application.csproj",
+        "packagesPath": "C:\\Users\\vtham\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vtham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj": {
+                "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj",
+        "projectName": "SO.Agenda.Domain.Model",
+        "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj",
+        "packagesPath": "C:\\Users\\vtham\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vtham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Service\\SO.Agenda.Domain.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Service\\SO.Agenda.Domain.Service.csproj",
+        "projectName": "SO.Agenda.Domain.Service",
+        "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Service\\SO.Agenda.Domain.Service.csproj",
+        "packagesPath": "C:\\Users\\vtham\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vtham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj": {
+                "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.Data\\SO.Agenda.Infrastructure.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.Data\\SO.Agenda.Infrastructure.Data.csproj",
+        "projectName": "SO.Agenda.Infrastructure.Data",
+        "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.Data\\SO.Agenda.Infrastructure.Data.csproj",
+        "packagesPath": "C:\\Users\\vtham\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vtham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj": {
+                "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Model\\SO.Agenda.Domain.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.IoC\\SO.Agenda.Infrastructure.IoC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.IoC\\SO.Agenda.Infrastructure.IoC.csproj",
+        "projectName": "SO.Agenda.Infrastructure.IoC",
+        "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.IoC\\SO.Agenda.Infrastructure.IoC.csproj",
+        "packagesPath": "C:\\Users\\vtham\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.IoC\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vtham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Application\\SO.Agenda.Application.csproj": {
+                "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Application\\SO.Agenda.Application.csproj"
+              },
+              "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Service\\SO.Agenda.Domain.Service.csproj": {
+                "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Domain.Service\\SO.Agenda.Domain.Service.csproj"
+              },
+              "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.Data\\SO.Agenda.Infrastructure.Data.csproj": {
+                "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.Data\\SO.Agenda.Infrastructure.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Presentation\\SO.Agenda.Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -31,7 +363,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.IoC\\SO.Agenda.Infrastructure.IoC.csproj": {
+                "projectPath": "C:\\Users\\vtham\\Documents\\PROJETOS\\TestePratico\\source\\SO.Agenda.Infrastructure.IoC\\SO.Agenda.Infrastructure.IoC.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -43,6 +379,42 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
