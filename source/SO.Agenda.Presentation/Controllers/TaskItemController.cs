@@ -37,7 +37,8 @@ namespace SO.Agenda.Presentation.Controllers
             {
                 if (!string.IsNullOrEmpty(taskItem.Title))
                 {
-                    taskItem.TaskItens = await _taskItemAppService.Get(x => x.Title.Contains(taskItem.Title));
+                    var title = taskItem.Title;
+                    taskItem.TaskItens = await _taskItemAppService.Get(x => x.Title.Contains(title));
                 }
                 else
                 {

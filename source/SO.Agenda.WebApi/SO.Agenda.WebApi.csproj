@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.23" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SO.Agenda.Infrastructure.IoC\SO.Agenda.Infrastructure.IoC.csproj" />
   </ItemGroup>
 

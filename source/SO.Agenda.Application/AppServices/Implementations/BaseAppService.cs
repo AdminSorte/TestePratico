@@ -49,8 +49,8 @@ namespace SO.Agenda.Application.AppServices.Implementations
         }
         public virtual async Task<IEnumerable<TEntityViewModel>> Get(Expression<Func<TEntityViewModel, bool>> predicate)
         {
-            var ret = await _baseService.Get(AutoMapper.Map<Expression<Func<TEntity, bool>>>(predicate));
-            return AutoMapper.Map<IEnumerable<TEntityViewModel>>(ret);
+            var newPredicate = PredicateExtensions.ConvertTypeExpression<TEntityViewModel, TEntity>(predicate.Body);
+            return AutoMapper.Map<IEnumerable<TEntityViewModel>>(await _baseService.Get(newPredicate));
         }
         public virtual TEntityViewModel Update(TEntityViewModel obj)
         {

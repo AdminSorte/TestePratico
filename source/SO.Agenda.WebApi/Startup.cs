@@ -1,15 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using SO.Agenda.Infrastructure.IoC;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SO.Agenda.WebApi
 {
@@ -25,7 +20,14 @@ namespace SO.Agenda.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
+            // ASP.NET default stuff here
+            services.AddControllersWithViews();
+
+            services.AddLogging();
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            NativeInjectorBootstrapper.RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,17 +44,22 @@ namespace SO.Agenda.WebApi
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
+            // Add your custom Simple Injector-created middleware to the pipeline.
+            // NOTE: these middleware classes must implement IMiddleware.
+            //app.UseMiddleware<CustomMiddleware>(container);
+
+            // ASP.NET MVC default stuff here
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }

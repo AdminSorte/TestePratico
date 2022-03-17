@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Service
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SO.Agenda.Domain.Tests", "SO.Agenda.Domain.Tests\SO.Agenda.Domain.Tests.csproj", "{B1BF8981-F6CE-44C5-B397-E1B4CC4E08BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.Agenda.WebApi", "SO.Agenda.WebApi\SO.Agenda.WebApi.csproj", "{CCD634C9-F770-4B6D-9EBA-7D7DE0BB1282}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SO.Agenda.WebApi", "SO.Agenda.WebApi\SO.Agenda.WebApi.csproj", "{CCD634C9-F770-4B6D-9EBA-7D7DE0BB1282}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

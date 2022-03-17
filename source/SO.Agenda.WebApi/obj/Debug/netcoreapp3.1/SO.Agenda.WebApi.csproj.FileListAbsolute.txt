@@ -14,6 +14,8 @@ C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
@@ -30,6 +32,8 @@ C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\ZstdNet.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\MySql.EntityFrameworkCore.dll
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
@@ -37,7 +41,6 @@ C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\SO.Agenda.Application.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\SO.Agenda.Domain.Model.dll
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\SO.Agenda.Domain.Service.dll
@@ -48,7 +51,6 @@ C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\SO.Agenda.Domain.Model.pdb
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\SO.Agenda.Domain.Service.pdb
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\SO.Agenda.Infrastructure.Data.pdb
-C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.xml
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\obj\Debug\netcoreapp3.1\SO.Agenda.WebApi.csproj.AssemblyReference.cache
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\obj\Debug\netcoreapp3.1\SO.Agenda.WebApi.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\vtham\Documents\PROJETOS\TestePratico\source\SO.Agenda.WebApi\obj\Debug\netcoreapp3.1\SO.Agenda.WebApi.AssemblyInfoInputs.cache

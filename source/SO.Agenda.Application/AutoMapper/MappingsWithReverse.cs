@@ -16,7 +16,7 @@ namespace SO.Agenda.Application.AutoMapper
             CreateMap<TaskItem, TaskItemViewModel>().ReverseMap();
             CreateMap<Task<TaskItem>, Task<TaskItemViewModel>>().ReverseMap();
             CreateMap<Task<IEnumerable<TaskItem>>, Task<IEnumerable<TaskItemViewModel>>>().ReverseMap();
-            CreateMap<Expression<Func<TaskItem, bool>>, Expression<Func<TaskItemViewModel, bool>>>().ReverseMap();
+       
         }
     }
 }

@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 namespace SO.Agenda.WebApi.Controllers
 {
    
-    [Route("api/[controller]")]
     [ApiController]
     public class TaskItemController : ControllerBase
     {
@@ -23,6 +22,7 @@ namespace SO.Agenda.WebApi.Controllers
         }
         // GET: api/<TaskItemController>
         [HttpGet]
+        [Route("TaskItem/GetAll")]
         public virtual async Task<IActionResult> GetAll()
         {           
             try
@@ -42,7 +42,8 @@ namespace SO.Agenda.WebApi.Controllers
         }
 
         // GET api/<TaskItemController>/5
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("TaskItem/GetById")]
         public virtual  async Task<IActionResult> GetById(Int32 id)
         {
             try
@@ -61,12 +62,13 @@ namespace SO.Agenda.WebApi.Controllers
             }
         }
         // GET api/<TaskItemController>/5
-        [HttpGet("{title}")]
+        [HttpGet]
+        [Route("TaskItem/GetByTitle")]
         public virtual async Task<IActionResult> GetByTitle(string title)
         {
             try
             {
-                var result = await _taskItemAppService.GetTaskItemByTitle(title);
+                var result = await _taskItemAppService.Get(x => x.Title.Contains(title));
                 if (result == null)
                 {
                     return NotFound();
@@ -81,6 +83,7 @@ namespace SO.Agenda.WebApi.Controllers
         }
         // POST api/<TaskItemController>
         [HttpPost]
+        [Route("TaskItem/Post")]
         public virtual async Task<IActionResult> Post([FromBody]JObject json)
         {
             try
@@ -101,7 +104,8 @@ namespace SO.Agenda.WebApi.Controllers
         }
 
         // PUT api/<TaskItemController>/5
-        [HttpPut("{id}")]
+        [HttpPut]
+        [Route("TaskItem/Put")]
         public virtual async Task<IActionResult> Put([FromBody]JObject json)
         {
             try
@@ -121,7 +125,7 @@ namespace SO.Agenda.WebApi.Controllers
             }
         }
 
-        // DELETE api/<TaskItemController>/5
+        [Route("TaskItem/Delete")]
         public virtual async Task<IActionResult> Delete(Int32 id)
         {
             try
