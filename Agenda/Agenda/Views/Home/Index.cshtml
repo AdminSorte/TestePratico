@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Agenda.Areas.Identity.Data
+
+@inject SignInManager<AgendaUser> SignInManager
+@inject UserManager<AgendaUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Seja Bem-vindo!</h1>
+    <p>Faça seu login ou registre-se.</p>
+</div>

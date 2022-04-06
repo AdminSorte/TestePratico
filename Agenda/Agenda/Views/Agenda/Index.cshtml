@@ -1,0 +1,34 @@
+﻿@model List<Agenda>
+
+@{
+    ViewData["Title"] = "Agenda";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Minha Agenda Minha Vida</h1>
+</div>
+<div class="row">
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Data</th>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <td>@item.Id</td>
+                <td>@item.Description</td>
+                <td>@item.DateCreated</td>
+            }
+            
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
