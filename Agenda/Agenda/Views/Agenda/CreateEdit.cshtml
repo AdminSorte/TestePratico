@@ -26,8 +26,16 @@
     <div class="row">
         <div class="form-group">
             <div class="col-md-12">
-                <label><b>Descrição:</b></label>
+                <label><b>Título:</b></label>
                 @Html.TextBox("Description", Model.Description, new {@class = "form-control sl9"})
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-12">
+                <label><b>Descrição:</b></label>
+                @Html.TextBox("LongDescription", Model.LongDescription, new {@class = "form-control sl9"})
             </div>
         </div>
     </div>

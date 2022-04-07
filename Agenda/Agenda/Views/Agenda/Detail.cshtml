@@ -7,12 +7,18 @@
 
 @*<div class="text-center">*@
 <div class="text-center">
-    <h3>Detalhes do dia @Model.ScheduleDate?.ToShortDateString(), @Model.Description</h3>
+    <h3> @Model.Description - @Model.ScheduleDate?.ToShortDateString()</h3>
 </div>
+@*<div class="row">
+    <div class="col-md-12">
+        <label>Título:</label>
+        @Html.TextBox("Description", Model.Description, new { @disabled="disabled", @class = "form-control sl9"})
+    </div>
+</div>*@
 <div class="row">
     <div class="col-md-12">
         <label>Descrição:</label>
-        @Html.TextBox("Description", Model.Description, new { @disabled="disabled", @class = "form-control sl9"})
+        @Html.TextBox("LongDescription", Model.LongDescription, new { @disabled="disabled", @class = "form-control sl9"})
     </div>
 </div>
 <div class="row">
@@ -21,25 +27,8 @@
         @Html.TextBox("Data", Model.ScheduleDate?.ToShortDateString(), new { @disabled="disabled", @class = "form-control sl6"})
     </div>
 </div>
-
-
-
-
-@*<form>
-    <div class="center border border-secondary">
-    <div style="padding:20px">
-    <label>Descrição</label>
-    @Html.TextBox("Description", Model.Description, new { @disabled="disabled"})
-    </div>
-    <div style="padding:20px">
-    <label>Data</label>
-    @Html.TextBox("Data", Model.DateCreated.ToShortDateString(), new { @disabled="disabled"})
-    </div>
-    <button type="button" value="Voltar" onclick="location.href='@Url.Action("Index", "Agenda")'" />
-    </div>
-    </form>*@
-@*</div>*@
-
+</br>
+ <a type="button" class="btn btn-outline-secondary" href=@Url.ActionLink("Index", "Agenda")>Voltar</a>
 <style>
     .center {
         margin: 0;
