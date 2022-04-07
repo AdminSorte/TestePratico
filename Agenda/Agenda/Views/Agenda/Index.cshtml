@@ -9,37 +9,52 @@
     <h1 class="display-4">Minha Agenda Minha Vida</h1>
 </div>
 <div class="row">
-    <table class="table">
+    <div style="text-align:right">
+        <label>Filtro:</label>
+        <input id="inputSearch" type="text" placeholder="Filtro..">
+        <a type="button" class="btn btn-outline-success" href=@Url.ActionLink("Create", "Agenda")><i class="bi bi-plus-lg"></i></a>
+    </div>
+
+    <table class="table table-hover">
         <thead>
-            <th>ID</th>
-            <th style="text-align:center">Descrição</th>
-            <th style="text-align:center">Data Marcação</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <tr>
+                <th>Id</th>
+                <th style="text-align:center">Descrição</th>
+                <th style="text-align:center">Data Marcação</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </thead>
-        <tbody>
-            @foreach(var item in Model)
+        <tbody id="agendas">
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>@item.Id</td>
-                    <td style="text-align:center">@item.Description</td>
+                    <td class="desc" style="text-align:center">@item.Description</td>
                     <td style="text-align:center">@item.ScheduleDate?.ToShortDateString()</td>
-                    <td><a type="button" class="btn btn-primary" href=@Url.ActionLink("Detail", "Agenda", new {Id = @item.Id}) >Detalhes</a></td>
-                    <td><a type="button" class="btn btn-primary" href=@Url.ActionLink("Edit", "Agenda", new {Id = @item.Id}) >Editar</a></td>
-                    @*<td><a type="button" class="btn btn-danger" href=@Url.ActionLink("Delete", "Agenda", new {Id = @item.Id}) >Remover</a></td>*@
-                    <td><a type="button" class="bi bi-trash" href=@Url.ActionLink("Delete", "Agenda", new {Id = @item.Id}) ></a></td>
+                    <td><a type="button" class="btn btn-outline-primary" href=@Url.ActionLink("Detail", "Agenda", new {Id = @item.Id})>Detalhes</a></td>
+                    <td><a type="button" class="btn btn-outline-primary" href=@Url.ActionLink("Edit", "Agenda", new {Id = @item.Id})>Editar</a></td>
+                    <td><a type="button" class="btn btn-outline-danger" href=@Url.ActionLink("Delete", "Agenda", new {Id = @item.Id})><i class="bi bi-trash3"></a></td>
                 </tr>
-                
             }
         </tbody>
     </table>
     <div class="form-group">
-        <a type="button" class="btn btn-outline-success" href=@Url.ActionLink("Create", "Agenda") ><i class="bi bi-plus-lg"></i></a>
+        
     </div>
 </div>
-
-
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("#inputSearch").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#agendas tr").filter(function() {
+          $(this).toggle($($(this).children()[1]).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+</script>
 
 
 
