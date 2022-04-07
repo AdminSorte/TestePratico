@@ -1,0 +1,61 @@
+﻿@model Agenda
+
+@{
+    ViewData["Title"] = "Agenda";
+}
+
+
+@*<div class="text-center">*@
+<div class="text-center">
+    <h3>Detalhes do dia @Model.ScheduleDate?.ToShortDateString(), @Model.Description</h3>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <label>Descrição:</label>
+        @Html.TextBox("Description", Model.Description, new { @disabled="disabled", @class = "form-control sl9"})
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6" style="padding-top: 5px;">
+        <label>Data</label>
+        @Html.TextBox("Data", Model.ScheduleDate?.ToShortDateString(), new { @disabled="disabled", @class = "form-control sl6"})
+    </div>
+</div>
+
+
+
+
+@*<form>
+    <div class="center border border-secondary">
+    <div style="padding:20px">
+    <label>Descrição</label>
+    @Html.TextBox("Description", Model.Description, new { @disabled="disabled"})
+    </div>
+    <div style="padding:20px">
+    <label>Data</label>
+    @Html.TextBox("Data", Model.DateCreated.ToShortDateString(), new { @disabled="disabled"})
+    </div>
+    <button type="button" value="Voltar" onclick="location.href='@Url.Action("Index", "Agenda")'" />
+    </div>
+    </form>*@
+@*</div>*@
+
+<style>
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        height: 40%;
+        width: 40%;
+    }
+
+</style>
+
+
+
+
+
+

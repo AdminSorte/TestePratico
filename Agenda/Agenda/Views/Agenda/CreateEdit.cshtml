@@ -1,0 +1,90 @@
+﻿@model Agenda
+
+@{
+    ViewData["Title"] = "Agenda";
+}
+
+
+@*<div class="text-center">*@
+<div class="text-center">
+    @if(Model.Id == Guid.Empty)
+    {
+        <h3>Nova Agenda</h3>
+    }
+    else
+    {
+        <h3>Editar Agenda</h3>
+    }
+</div>
+<form id="agendaForm">
+    <div class="form-group">
+        @Html.TextBox("Id", Model.Id, new {@class = "form-control sl9", @type="hidden"})
+        @Html.TextBox("UserId", Model.UserId, new {@class = "form-control sl9", @type="hidden"})
+        @Html.TextBox("DateCreated", Model.DateCreated, new {@class = "form-control sl9", @type="hidden"})
+        @Html.TextBox("DateUpdated", Model.DateUpdated, new {@class = "form-control sl9", @type="hidden"})
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-12">
+                <label><b>Descrição:</b></label>
+                @Html.TextBox("Description", Model.Description, new {@class = "form-control sl9"})
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-6" style="padding-top: 5px;">
+                <label><b>Data:</b></label>
+                @Html.TextBox("ScheduleDate", Model.ScheduleDate?.ToShortDateString(), new { @class = "form-control sl6"})
+            </div>
+        </div>
+    </div>
+    </br>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" onclick="submitAgenda()">Submit</button>
+    </div>
+</form>
+<script>
+
+    function submitAgenda() {
+        var id = $("#Id").val();
+        var url = '';
+        if(id == @Guid.Empty || id == '00000000-0000-0000-0000-000000000000'){
+            url = '/Agenda/Create';
+        }
+        else{
+            url = '/Agenda/Update';
+        }
+        var data = $("#agendaForm").serialize();
+        
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            success: function (result) {
+                window.location.href = "https://localhost:44338/Agenda";
+            },
+            error: function () {
+                alert('Failed to receive the Data');
+                console.log('Failed ');
+            }
+        })
+    }
+
+
+
+</script>
+
+<style>
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        height: 40%;
+        width: 40%;
+    }
+
+</style>
