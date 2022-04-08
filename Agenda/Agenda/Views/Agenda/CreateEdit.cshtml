@@ -5,54 +5,55 @@
 }
 
 
-@*<div class="text-center">*@
-<div class="text-center">
-    @if(Model.Id == Guid.Empty)
-    {
-        <h3>Nova Agenda</h3>
-    }
-    else
-    {
-        <h3>Editar Agenda</h3>
-    }
+<div class="container">
+    <div class="text-center">
+        @if (Model.Id == Guid.Empty)
+        {
+            <h3>Nova Agenda</h3>
+        }
+        else
+        {
+            <h3>Editar Agenda</h3>
+        }
+    </div>
+    <form id="agendaForm">
+        <div class="form-group">
+            @Html.TextBox("Id", Model.Id, new {@class = "form-control sl9", @type="hidden"})
+            @Html.TextBox("UserId", Model.UserId, new {@class = "form-control sl9", @type="hidden"})
+            @Html.TextBox("DateCreated", Model.DateCreated, new {@class = "form-control sl9", @type="hidden"})
+            @Html.TextBox("DateUpdated", Model.DateUpdated, new {@class = "form-control sl9", @type="hidden"})
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label><b>Título:</b></label>
+                    @Html.TextBox("Description", Model.Description, new {@class = "form-control sl9", @maxLength = "50"})
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label><b>Descrição:</b></label>
+                    @Html.TextArea("LongDescription", Model.LongDescription, new {@class = "form-control sl9", @maxLength = "300"})
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-3" style="padding-top: 5px;">
+                    <label><b>Data:</b></label>
+                    @Html.TextBox("ScheduleDate", Model.ScheduleDate?.ToString("yyyy-MM-dd"), new { @class = "form-control sl3", @type="date"})
+                </div>
+            </div>
+        </div>
+        </br>
+        <div class="form-group" style="text-align:right">
+            <a type="button" class="btn btn-outline-success" onclick="submitAgenda()">Salvar</a>
+            <a type="button" class="btn btn-outline-secondary" href=@Url.ActionLink("Index", "Agenda")>Voltar</a>
+        </div>
+    </form>
 </div>
-<form id="agendaForm">
-    <div class="form-group">
-        @Html.TextBox("Id", Model.Id, new {@class = "form-control sl9", @type="hidden"})
-        @Html.TextBox("UserId", Model.UserId, new {@class = "form-control sl9", @type="hidden"})
-        @Html.TextBox("DateCreated", Model.DateCreated, new {@class = "form-control sl9", @type="hidden"})
-        @Html.TextBox("DateUpdated", Model.DateUpdated, new {@class = "form-control sl9", @type="hidden"})
-    </div>
-    <div class="row">
-        <div class="form-group">
-            <div class="col-md-12">
-                <label><b>Título:</b></label>
-                @Html.TextBox("Description", Model.Description, new {@class = "form-control sl9"})
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group">
-            <div class="col-md-12">
-                <label><b>Descrição:</b></label>
-                @Html.TextBox("LongDescription", Model.LongDescription, new {@class = "form-control sl9"})
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group">
-            <div class="col-md-6" style="padding-top: 5px;">
-                <label><b>Data:</b></label>
-                @Html.TextBox("ScheduleDate", Model.ScheduleDate?.ToShortDateString(), new { @class = "form-control sl6"})
-            </div>
-        </div>
-    </div>
-    </br>
-    <div class="form-group">
-        <a type="button" class="btn btn-outline-success" onclick="submitAgenda()">Salvar</a>
-        <a type="button" class="btn btn-outline-secondary" href=@Url.ActionLink("Index", "Agenda")>Voltar</a>
-    </div>
-</form>
 <script>
 
     function submitAgenda() {
@@ -65,7 +66,7 @@
             url = '/Agenda/Update';
         }
         var data = $("#agendaForm").serialize();
-        
+
         $.ajax({
             type: 'POST',
             url: url,
@@ -73,9 +74,9 @@
             success: function (result) {
                 window.location.href = "https://localhost:44338/Agenda";
             },
-            error: function () {
-                alert('Failed to receive the Data');
-                console.log('Failed ');
+            error: function (erro) {
+                alert(erro.responseJSON.message);
+                console.log(erro);
             }
         })
     }

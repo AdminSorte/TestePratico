@@ -46,6 +46,9 @@ namespace Agenda.Controllers
         {
             try
             {
+                if(agenda.ScheduleDate == null)
+                    return BadRequest(new { Message = "Erro ao cadastrar." });
+
                 agenda.UserId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
                 _agendaRepository.Save(agenda);
                 return Ok(new { Message = "Cadastrado com sucesso!" });
@@ -61,6 +64,8 @@ namespace Agenda.Controllers
         public IActionResult Edit(Guid Id)
         {
             var res = _agendaRepository.GetById(Id);
+
+            var teste = res.ScheduleDate.Value.ToShortDateString();
 
             return View("~/Views/Agenda/CreateEdit.cshtml", res);
         }

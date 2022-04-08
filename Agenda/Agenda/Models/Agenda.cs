@@ -1,4 +1,5 @@
-﻿namespace Agenda.Models
+﻿
+namespace Agenda.Models
 {
     public class Agenda
     {

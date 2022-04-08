@@ -4,46 +4,47 @@
     ViewData["Title"] = "Agenda";
 }
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
-<div class="text-center">
-    <h1 class="display-4">Minha Agenda Minha Vida</h1>
-</div>
-<div class="row">
-    <div style="text-align:right">
-        <label>Filtro:</label>
-        <input id="inputSearch" type="text" placeholder="Filtro..">
-        <a type="button" class="btn btn-outline-success" href=@Url.ActionLink("Create", "Agenda")><i class="bi bi-plus-lg"></i></a>
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4">Minha Agenda Minha Vida</h1>
     </div>
+    <div class="row">
+        <div style="text-align:right">
+            <label>Filtro:</label>
+            <input id="inputSearch" type="text" placeholder="Digite..">
+            <a type="button" class="btn btn-outline-success btn-sm" href=@Url.ActionLink("Create", "Agenda")><i class="bi bi-plus-lg"></i></a>
+        </div>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th style="text-align:center">Título</th>
-                <th style="text-align:center">Data Marcação</th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="agendas">
-            @foreach (var item in Model)
-            {
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <td>@item.Id</td>
-                    <td class="desc" style="text-align:center">@item.Description</td>
-                    <td style="text-align:center">@item.ScheduleDate?.ToShortDateString()</td>
-                    <td><a type="button" class="btn btn-outline-primary" href=@Url.ActionLink("Detail", "Agenda", new {Id = @item.Id})>Detalhes</a></td>
-                    <td><a type="button" class="btn btn-outline-primary" href=@Url.ActionLink("Edit", "Agenda", new {Id = @item.Id})>Editar</a></td>
-                    <td><a type="button" class="btn btn-outline-danger" href=@Url.ActionLink("Delete", "Agenda", new {Id = @item.Id})><i class="bi bi-trash3"></a></td>
+                    <th>Id</th>
+                    <th style="text-align:center">Título</th>
+                    <th style="text-align:center">Data Marcação</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-    <div class="form-group">
-        
+            </thead>
+            <tbody id="agendas">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td class="desc" style="text-align:center">@item.Description</td>
+                        <td style="text-align:center">@item.ScheduleDate?.ToShortDateString()</td>
+                        <td><a type="button" class="btn btn-outline-primary btn-sm" href=@Url.ActionLink("Detail", "Agenda", new {Id = @item.Id})>Detalhes</a></td>
+                        <td><a type="button" class="btn btn-outline-primary btn-sm" href=@Url.ActionLink("Edit", "Agenda", new {Id = @item.Id})>Editar</a></td>
+                        <td><a type="button" class="btn btn-outline-danger btn-sm" href=@Url.ActionLink("Delete", "Agenda", new {Id = @item.Id})><i class="bi bi-trash3"></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="form-group">
+        </div>
     </div>
 </div>
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
