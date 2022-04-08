@@ -20,20 +20,16 @@
   - Tela/Modal/Popup de detalhe para exibir o as informações da agenda para somente leitura
   - Qualquer mecanismo de login(JWT, Basic, localstorage)
 
-## API
+## Detalhes
+- Aplicação dotnet core 6 MVC utilizando razor
+- Utilização do Identity para autenticação e autorização
+- Ultilização do EntityFramework como ORM e SQL Server.
+- Bootstrap
 
-- Deverá ser criada a a API exclusivamente em C# .net(Qualquer versão)
-- Necessário ter no minimo 4 métodos rest(GET, PUT, DELETE, POST)
-- Criar camada de acesso a dados para salvar as operações(ORM ou Procedures)
+## Como Rodar
+- Baixe o projeto e configure a connection string para o seu banco de dados.
+- Utilize as migrations para gerar o banco de dados da aplicação.
+- Execute "update-database User -Context ApplicationDbContext" para gerar as tabelas de autorização e autenticação
+- Execute "update-database Agenda -Context AgendaDbContext" para gerar a tabela Agenda
+- Com o banco de dados configurado, basta executar a aplicação.
 
-## Desejável
-
-- MVVM, MVC, MVP, DDD ou qualquer um que ajude no entendimento do seu código
-- Possuir algum teste unitário
-- Operações em SQL com procedures
-- Documentação (pode alterar o readme.md padrão)
-
-## Bônus
-
-- Animações
-- Controle de cache
